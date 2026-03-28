@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Growth — Data-led decisions. Proven results.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --blue:       #3BB9F5;
+      --blue-dark:  #1A9EDE;
+      --blue-pale:  #EBF7FF;
+      --dark:       #0F1623;
+      --dark-2:     #1A2235;
+      --grey:       #6B7280;
+      --grey-light: #9CA3AF;
+      --border:     #E5E7EB;
+      --bg-light:   #F8FAFC;
+      --white:      #FFFFFF;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #111827;
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 136px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; text-decoration: none;
+    }
+    .nav-logo img {
+      height: 130px; width: auto; object-fit: contain;
+    }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.875rem; color: var(--grey); text-decoration: none; font-weight: 500; }
+    .nav-link:hover { color: #111827; }
+    .nav-cta {
+      background: var(--blue); color: white;
+      padding: 0.55rem 1.4rem; border-radius: 7px;
+      text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    /* ─── LAYOUT ───────────────────────────────────────────────── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 6rem 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 1rem;
+    }
+    h2.section-heading {
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-weight: 800; line-height: 1.12; color: #111827;
+      margin-bottom: 1.1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--grey);
+      max-width: 520px; line-height: 1.75;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--blue); color: white;
+      padding: 0.875rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s; border: none; cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent; color: #111827;
+      padding: 0.875rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: #9CA3AF; transform: translateY(-2px); }
+
+    /* ─── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      padding-top: 136px;
+      display: flex; align-items: center;
+      background: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(59,185,245,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,185,245,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; padding: 3.5rem 0;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--blue-pale); color: var(--blue);
+      padding: 0.4rem 1rem; border-radius: 100px;
+      font-size: 0.775rem; font-weight: 600;
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue); flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 900; line-height: 1.07; color: #0F1623;
+      margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--grey);
+      line-height: 1.75; margin-bottom: 2.5rem; max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-trust {
+      margin-top: 3rem; display: flex; gap: 2.5rem; flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .trust-item {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .trust-num {
+      font-size: 4rem; font-weight: 900; color: var(--blue); line-height: 1;
+    }
+    .trust-num span { color: var(--blue); }
+    .trust-label { font-size: 0.78rem; color: var(--grey); margin-top: 0.3rem; }
+
+    /* hero right side */
+    .hero-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      position: relative;
+    }
+    .hero-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+      transition: transform 0.2s;
+    }
+    .hero-card:hover { transform: translateY(-3px); }
+    .hero-card:first-child {
+      grid-column: span 2;
+      background: var(--dark);
+      color: white; border-color: transparent;
+    }
+    .hero-card-label {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--grey-light); margin-bottom: 0.5rem;
+    }
+    .hero-card:first-child .hero-card-label { color: #94A3B8; }
+    .hero-card-value {
+      font-size: 1.6rem; font-weight: 800; color: var(--blue); line-height: 1;
+    }
+    .hero-card-desc {
+      font-size: 0.78rem; color: #94A3B8; margin-top: 0.3rem;
+    }
+    .hero-card-bar {
+      display: flex; gap: 3px; margin-top: 0.75rem; align-items: flex-end;
+    }
+    .bar { border-radius: 3px 3px 0 0; background: rgba(59,185,245,0.3); flex: 1; }
+    .bar.active { background: var(--blue); }
+    .hero-card-icon {
+      width: 36px; height: 36px; background: var(--blue-pale);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .hero-card-title { font-size: 0.9rem; font-weight: 700; color: #111827; }
+    .hero-card-sub { font-size: 0.75rem; color: var(--grey); margin-top: 0.2rem; }
+
+    /* ─── WHO IS THIS FOR ──────────────────────────────────────── */
+    .for-section { background: var(--bg-light); }
+    .for-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: stretch;
+    }
+    .for-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .for-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .for-check {
+      width: 22px; height: 22px; min-width: 22px;
+      background: var(--blue); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .for-check svg { display: block; }
+    .for-item-text strong {
+      display: block; font-size: 0.92rem; font-weight: 600; margin-bottom: 0.2rem;
+    }
+    .for-item-text span { font-size: 0.825rem; color: var(--grey); line-height: 1.6; }
+
+    /* Carousel card */
+    .for-visual-outer {
+      display: flex; flex-direction: column;
+      padding-top: 20px;
+    }
+    .for-visual-wrap {
+      border-radius: 20px; overflow: hidden;
+      flex: 1; display: grid;
+      grid-template-rows: 1fr; grid-template-columns: 1fr;
+    }
+    .for-visual-slide {
+      grid-area: 1 / 1;
+      background: var(--dark); border-radius: 20px; padding: 2.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px); pointer-events: none;
+    }
+    .for-visual-slide.active {
+      opacity: 1; transform: translateY(0); pointer-events: all;
+    }
+    .for-visual-slide .mini-card { flex-shrink: 0; }
+    .mini-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1.1rem 1.25rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .mini-card-left strong {
+      display: block; font-size: 0.875rem; font-weight: 600; color: white;
+    }
+    .mini-card-left span { font-size: 0.75rem; color: #94A3B8; }
+    .mini-badge {
+      font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .badge-red   { background: rgba(239,68,68,0.15); color: #F87171; }
+    .badge-green { background: rgba(34,197,94,0.15); color: #4ADE80; }
+    .badge-blue  { background: rgba(59,185,245,0.15); color: var(--blue); }
+    .for-visual-title {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #94A3B8; margin-bottom: 0.25rem;
+    }
+    .for-visual-note {
+      font-size: 0.75rem; color: #94A3B8; line-height: 1.6; margin-top: 0.25rem;
+    }
+    /* Carousel dots */
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #374151; cursor: pointer; transition: background 0.3s, width 0.3s;
+      border: none; padding: 0;
+    }
+    .dot.active { background: var(--blue); width: 24px; border-radius: 4px; }
+
+    /* ─── ABOUT AJ ─────────────────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 300px 1fr;
+      gap: 5rem; align-items: start; margin-top: 3.5rem;
+    }
+    .about-card {
+      background: var(--dark); border-radius: 20px; padding: 2.5rem;
+      text-align: center; position: sticky; top: 156px;
+    }
+    .about-avatar {
+      width: 100%; margin: -2.5rem -2.5rem 1.25rem;
+      width: calc(100% + 5rem); overflow: hidden;
+      border-radius: 16px 16px 0 0;
+    }
+    .about-avatar img {
+      width: 100%; height: auto; display: block;
+      object-fit: contain;
+    }
+    .about-name { font-size: 1.15rem; font-weight: 700; color: white; }
+    .about-title { font-size: 0.8rem; color: var(--blue); font-weight: 600; margin-top: 0.25rem; }
+    .about-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
+    .about-stats { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .about-stat { text-align: center; }
+    .about-stat-num { font-size: 1.5rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .about-stat-label { font-size: 0.7rem; color: #94A3B8; margin-top: 0.2rem; max-width: 80px; margin-left: auto; margin-right: auto; }
+    .about-copy { display: flex; flex-direction: column; gap: 1.25rem; }
+    .about-copy p { font-size: 1rem; color: var(--grey); line-height: 1.8; }
+    .about-copy strong { color: #111827; font-weight: 600; }
+
+    /* ─── PHASES ───────────────────────────────────────────────── */
+    .phases-section { background: var(--dark); }
+    .phases-section .section-heading { color: white; }
+    .phases-section .section-sub { color: #94A3B8; }
+    .phases-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .phase-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--dark-2);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .phase-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59,185,245,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .phase-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center top; display: block; }
+    .phase-body { padding: 1.75rem; }
+    .phase-num {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem;
+    }
+    .phase-title { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+    .phase-desc { font-size: 0.825rem; color: #94A3B8; line-height: 1.7; margin-bottom: 1.25rem; }
+    .phase-pill {
+      display: inline-block;
+      background: rgba(59,185,245,0.1); color: var(--blue);
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+      font-size: 0.72rem; font-weight: 600;
+    }
+
+    /* ─── ROI CALCULATOR ───────────────────────────────────────── */
+    .roi-section { background: var(--bg-light); }
+    .roi-wrap {
+      background: white; border: 1px solid var(--border);
+      border-radius: 24px; overflow: hidden; margin-top: 3.5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .roi-inputs { padding: 3rem; border-right: 1px solid var(--border); }
+    .roi-inputs h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .roi-inputs p { font-size: 0.85rem; color: var(--grey); margin-bottom: 2rem; }
+    .roi-field { margin-bottom: 1.75rem; }
+    .roi-field label {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.825rem; font-weight: 600; margin-bottom: 0.6rem;
+    }
+    .roi-field label span { font-weight: 700; color: var(--blue); font-size: 0.9rem; }
+    input[type="range"] {
+      -webkit-appearance: none; width: 100%; height: 5px;
+      border-radius: 100px; background: var(--border); outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px;
+      border-radius: 50%; background: var(--blue);
+      box-shadow: 0 2px 8px rgba(59,185,245,0.4); cursor: pointer;
+    }
+    .roi-results {
+      padding: 2.25rem 2.5rem; background: var(--dark);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .roi-results h3 { font-size: 1rem; font-weight: 600; color: #94A3B8; margin-bottom: 1.25rem; }
+    .roi-result-item { margin-bottom: 0.5rem; }
+    .roi-result-item:last-of-type { margin-bottom: 0; }
+    .roi-result-label { font-size: 0.7rem; font-weight: 600; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+    .roi-result-value { font-size: 1.9rem; font-weight: 900; color: var(--blue); line-height: 1.1; }
+    .roi-result-value.green { color: #4ADE80; }
+    .roi-result-value.red   { color: #F87171; }
+    .roi-result-sub { font-size: 0.75rem; color: #64748B; margin-top: 0.2rem; }
+    .roi-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 0.85rem 0; }
+    .roi-cta-note {
+      font-size: 0.78rem; color: #94A3B8; margin-top: 1rem;
+      padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .roi-cta-note a { color: var(--blue); font-weight: 600; text-decoration: none; }
+
+    /* ─── LEAD MAGNET ──────────────────────────────────────────── */
+    .lead-magnet {
+      background: linear-gradient(135deg, #1A9EDE 0%, #3BB9F5 60%, #5CC8F8 100%);
+      padding: 5rem 0; text-align: center;
+    }
+    .lead-magnet-eyebrow {
+      display: inline-block; background: rgba(255,255,255,0.2);
+      color: white; padding: 0.35rem 1rem; border-radius: 100px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1.25rem;
+    }
+    .lead-magnet h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 0.75rem; }
+    .lead-magnet p { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 2.5rem; }
+    .lm-form {
+      display: flex; gap: 0.75rem; max-width: 480px;
+      margin: 0 auto; flex-wrap: wrap; justify-content: center;
+    }
+    .lm-form input {
+      flex: 1; min-width: 220px; padding: 0.875rem 1.25rem;
+      border: none; border-radius: 8px; font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem; outline: none; color: #111827;
+    }
+    .lm-form button {
+      background: var(--dark); color: white;
+      padding: 0.875rem 1.75rem; border: none; border-radius: 8px;
+      font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; white-space: nowrap; transition: background 0.2s;
+    }
+    .lm-form button:hover { background: #0F1623; }
+    .lm-note { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 1rem; }
+
+    /* ─── CASE STUDY ───────────────────────────────────────────── */
+    .case-section { background: var(--bg-light); }
+    .case-company-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--blue);
+      background: rgba(59,185,245,0.08); border: 1px solid rgba(59,185,245,0.2);
+      border-radius: 99px; padding: 0.35rem 1rem; margin-top: 3.5rem;
+    }
+    /* Phase journey strip */
+    .case-phases {
+      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 0; align-items: stretch; margin-top: 2rem;
+    }
+    .case-phase {
+      background: white; border: 1px solid var(--border); border-radius: 16px;
+      padding: 1.75rem 2rem;
+    }
+    .case-phase-arrow {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 1rem; color: var(--blue); font-size: 1.4rem; font-weight: 300;
+    }
+    .case-phase-num {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--blue); margin-bottom: 0.4rem;
+    }
+    .case-phase-title {
+      font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 1rem;
+    }
+    .case-phase-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .case-phase-list li {
+      font-size: 0.82rem; color: var(--grey); line-height: 1.4;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .case-phase-list li::before {
+      content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%;
+      background: var(--blue); margin-top: 0.45em;
+    }
+    /* Stats + quote row */
+    .case-bottom {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 1.5rem; margin-top: 1.5rem; align-items: stretch;
+    }
+    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .result-box {
+      background: white; border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .result-num { font-size: 2.2rem; font-weight: 900; color: var(--blue); line-height: 1; }
+    .result-label { font-size: 0.75rem; color: var(--grey); margin-top: 0.35rem; line-height: 1.4; }
+    .case-quote-box {
+      background: var(--dark); border-radius: 16px; padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .quote-mark { font-size: 3rem; color: var(--blue); line-height: 0.6; margin-bottom: 1.25rem; font-weight: 900; }
+    .quote-text { font-size: 0.95rem; color: #CBD5E1; line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+    .quote-author { font-size: 0.875rem; font-weight: 700; color: white; }
+    .quote-role { font-size: 0.78rem; color: var(--blue); margin-top: 0.2rem; }
+
+    /* ─── CONTACT ──────────────────────────────────────────────── */
+    .contact-section { background: var(--dark); }
+    .contact-section .section-heading { color: white; }
+    .contact-section .section-sub { color: #94A3B8; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 5rem; align-items: start; margin-top: 0;
+    }
+    .contact-perks { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.75rem; }
+    .perk { display: flex; gap: 1rem; align-items: flex-start; }
+    .perk-icon {
+      width: 42px; height: 42px; min-width: 42px;
+      background: rgba(59,185,245,0.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .perk-text strong { display: block; font-size: 0.9rem; color: white; font-weight: 600; }
+    .perk-text span { font-size: 0.8rem; color: #94A3B8; }
+    .contact-form {
+      background: white; border-radius: 20px; padding: 2.75rem;
+    }
+    .form-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .form-sub { font-size: 0.85rem; color: var(--grey); margin-bottom: 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Poppins', sans-serif; font-size: 0.875rem;
+      color: #111827; background: white; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; padding: 1rem; border: none; border-radius: 8px;
+      background: var(--blue); color: white; font-family: 'Poppins', sans-serif;
+      font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 0.25rem;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--blue-dark); }
+    .form-note { font-size: 0.72rem; color: var(--grey); text-align: center; margin-top: 0.75rem; }
+
+    /* ─── FINAL CTA ────────────────────────────────────────────── */
+    .final-cta { text-align: center; padding: 8rem 0; }
+    .final-cta h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; max-width: 680px; margin: 0 auto 1.25rem; letter-spacing: -0.02em; }
+    .final-cta .section-sub { margin: 0 auto 2.75rem; text-align: center; }
+
+    /* ─── FOOTER ───────────────────────────────────────────────── */
+    footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo img { height: 130px; width: auto; object-fit: contain; }
+    .footer-copy { font-size: 0.8rem; color: #4B5563; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: #4B5563; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--blue); }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner, .for-grid, .about-grid, .phases-grid,
+      .case-phases, .case-bottom, .contact-grid, .roi-wrap { grid-template-columns: 1fr; }
+      .case-phase-arrow { display: none; }
+      .roi-inputs { border-right: none; border-bottom: 1px solid var(--border); }
+      .about-card { position: static; }
+      .case-right { padding-top: 2.5rem; }
+      .hero-visual { display: none; }
+      .nav-link { display: none; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-trust { gap: 1.5rem; }
+      .phases-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- White background logo for nav -->
+    <img src="assets/logo-white.png" alt="Commercial Growth" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div style="display:none; align-items:center; gap:0.5rem;">
+      <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+        <rect x="4" y="22" width="6" height="14" rx="2" fill="#9CA3AF"/>
+        <rect x="14" y="16" width="6" height="20" rx="2" fill="#9CA3AF"/>
+        <rect x="24" y="10" width="6" height="26" rx="2" fill="#9CA3AF"/>
+        <path d="M8 28 Q18 10 34 6" stroke="#3BB9F5" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M29 4 L35 6 L33 12" stroke="#3BB9F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div>
+        <div style="font-size:1rem;font-weight:700;color:#111827"><span style="color:#3BB9F5">Commercial</span> Growth</div>
+        <div style="font-size:0.65rem;color:#6B7280">Data-led decisions. Proven results.</div>
+      </div>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="#phases" class="nav-link">The System</a>
+    <a href="#roi" class="nav-link">ROI Calculator</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          90-Day Commercial Growth System
+        </div>
+        <h1>Most businesses aren't stuck.<br>Their <em>systems</em> are.</h1>
+        <p class="hero-sub">We diagnose exactly what's holding your business back, build the growth engine to fix it, and run controlled tests before you scale spend. In 90 days — not 12 months.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Book a Discovery Call →</a>
+          <a href="#lead-magnet" class="btn-outline">Free Growth Audit ↓</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <div class="trust-num">90</div>
+            <div class="trust-label">Days to solve</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-num">3</div>
+            <div class="trust-label">Structured phases</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-num">0</div>
+            <div class="trust-label">Decisions left to chance</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ WHO IS THIS FOR ════════════════════════════ -->
+<section class="for-section" id="for-section">
+  <div class="container">
+    <div class="for-grid">
+      <div class="for-left">
+        <div class="eyebrow">Who this is for</div>
+        <h2 class="section-heading">You're making sales.<br>But you can't see why.</h2>
+        <p class="section-sub" style="margin-bottom:2.5rem;">Built for small Australian businesses — 1 to 2 years in, generating revenue, but operating without the systems to scale it.</p>
+      <div class="for-list">
+        <div class="for-item">
+          <div class="for-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="for-item-text">
+            <strong>You don't know which channels are driving your best leads</strong>
+            <span>Your tracking is missing, misconfigured, or you're flying blind on attribution and ROI.</span>
+          </div>
+        </div>
+        <div class="for-item">
+          <div class="for-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="for-item-text">
+            <strong>Your CRM is a mess — or you're not really using one</strong>
+            <span>Lead follow-up is manual, inconsistent, and entirely dependent on memory.</span>
+          </div>
+        </div>
+        <div class="for-item">
+          <div class="for-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="for-item-text">
+            <strong>Scaling feels risky because you don't trust the data</strong>
+            <span>Spending more on ads or hiring feels like a gamble — there's no clear signal to follow.</span>
+          </div>
+        </div>
+        <div class="for-item">
+          <div class="for-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="for-item-text">
+            <strong>You're in services, SaaS, ecommerce or financial services</strong>
+            <span>Australian businesses with real traction and the ambition to grow predictably — not just busily.</span>
+          </div>
+        </div>
+        <div class="for-item">
+          <div class="for-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="for-item-text">
+            <strong>You're ready to invest in a system, not just another tactic</strong>
+            <span>You've tried ads, agencies, and advice — and you're done guessing. You want a structured plan that actually sticks.</span>
+          </div>
+        </div>
+      </div><!-- /.for-list -->
+      </div><!-- /.for-left -->
+
+      <!-- 2-Slide Carousel -->
+      <div class="for-visual-outer">
+        <div class="for-visual-wrap" id="forCarousel">
+          <!-- Slide 1: Before -->
+          <div class="for-visual-slide active" id="slide-before">
+            <div class="for-visual-title">Typical client — before engagement</div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Lead attribution</strong><span>Where are enquiries coming from?</span></div>
+              <span class="mini-badge badge-red">Unknown</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>CRM automation</strong><span>Automated follow-up workflows</span></div>
+              <span class="mini-badge badge-red">None</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Conversion tracking</strong><span>GA4 events &amp; pixel setup</span></div>
+              <span class="mini-badge badge-red">Broken</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Marketing ROI</strong><span>Cost per lead &amp; per client</span></div>
+              <span class="mini-badge badge-red">No idea</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Sales pipeline</strong><span>Visibility into active opportunities</span></div>
+              <span class="mini-badge badge-red">Invisible</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Lead response time</strong><span>Speed of follow-up on new enquiries</span></div>
+              <span class="mini-badge badge-red">Days</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Revenue forecast</strong><span>Predictability of next month's revenue</span></div>
+              <span class="mini-badge badge-red">Guesswork</span>
+            </div>
+            <div class="for-visual-note">Scroll to see what changes after 90 days ↓</div>
+          </div>
+          <!-- Slide 2: After -->
+          <div class="for-visual-slide" id="slide-after">
+            <div class="for-visual-title">Typical client — after engagement</div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Lead attribution</strong><span>Every lead source tracked &amp; mapped</span></div>
+              <span class="mini-badge badge-green">Known</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>CRM automation</strong><span>Workflows running without you</span></div>
+              <span class="mini-badge badge-green">Flowing</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Conversion tracking</strong><span>GA4, pixels &amp; attribution live</span></div>
+              <span class="mini-badge badge-green">Working</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Marketing ROI</strong><span>Cost per lead &amp; acquisition tracked</span></div>
+              <span class="mini-badge badge-green">Crystal clear</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Sales pipeline</strong><span>Every opportunity tracked &amp; staged</span></div>
+              <span class="mini-badge badge-green">Mapped</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Lead response time</strong><span>Automated follow-up within minutes</span></div>
+              <span class="mini-badge badge-green">Instant</span>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-left"><strong>Revenue forecast</strong><span>Pipeline data driving accurate projections</span></div>
+              <span class="mini-badge badge-green">Predictable</span>
+            </div>
+            <div class="for-visual-note">This is what a working growth system looks like.</div>
+          </div>
+        </div>
+        <!-- Dots -->
+        <div class="carousel-dots">
+          <button class="dot active" onclick="goToSlide(0)" aria-label="Before"></button>
+          <button class="dot" onclick="goToSlide(1)" aria-label="After"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ ABOUT ══════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="eyebrow">The person behind the system</div>
+    <h2 class="section-heading">Meet AJ Kavanagh</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-avatar"><img src="assets/aj-headshot.png" alt="AJ Kavanagh"></div>
+        <div class="about-name">AJ Kavanagh</div>
+        <div class="about-title">Founder &amp; Growth Architect</div>
+      </div>
+      <div class="about-copy">
+        <p>I built Commercial Growth because I kept seeing the same pattern: <strong>great businesses held back not by lack of effort, but by systems that couldn't keep up.</strong></p>
+        <p>Revenue was coming in. Owners were working hard. But without clean attribution, automated workflows, and a tested acquisition strategy — growth meant adding more effort, not more output. Every dollar spent on marketing was a guess. Every hire was a pressure valve instead of a lever.</p>
+        <p>The Commercial Growth System exists to fix that. It's a complete end-to-end engagement — designed to diagnose exactly what's holding you back, build the infrastructure to run your growth properly, and run controlled acquisition tests before you scale any spend.</p>
+        <p><strong>No vague strategy documents. No bloated monthly retainers.</strong> A structured system with clear deliverables at every stage and results you can actually measure before we increase a single dollar of spend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ PHASES ══════════════════════════════ -->
+<section class="phases-section" id="phases">
+  <div class="container">
+    <div class="eyebrow">The Commercial Growth System</div>
+    <h2 class="section-heading">Three phases.<br>One complete growth engine.</h2>
+    <p class="section-sub">A complete end-to-end system built on data, systems, and commercial clarity — delivered in 90 days.</p>
+    <div class="phases-grid">
+      <div class="phase-card">
+        <img src="assets/phase-1.png" alt="Phase 1 — Diagnose &amp; Blueprint">
+        <div class="phase-body">
+          <div class="phase-num">Phase 01</div>
+          <div class="phase-title">Diagnose &amp; Blueprint</div>
+          <div class="phase-desc">We audit your systems, data, and workflows end-to-end. Customer journey mapping, CRM analysis, tracking architecture, brand consistency — everything needed to identify leakage, bottlenecks, and the fastest path to growth. You receive a full Commercial Growth Blueprint at the end of this phase.</div>
+          <span class="phase-pill">Weeks 1–4</span>
+        </div>
+      </div>
+      <div class="phase-card">
+        <img src="assets/phase-2.png" alt="Phase 2 — Build &amp; Implement">
+        <div class="phase-body">
+          <div class="phase-num">Phase 02</div>
+          <div class="phase-title">Build &amp; Implement</div>
+          <div class="phase-desc">We install CRM workflows, automation, tracking pixels, and conversion improvements. Communication systems, referral and review sequences, GA4 and Meta pixel architecture — everything needed to create a fully upgraded, measurable growth infrastructure.</div>
+          <span class="phase-pill">Weeks 5–8</span>
+        </div>
+      </div>
+      <div class="phase-card">
+        <img src="assets/phase-3.png" alt="Phase 3 — Test &amp; Scale">
+        <div class="phase-body">
+          <div class="phase-num">Phase 03</div>
+          <div class="phase-title">Test &amp; Scale</div>
+          <div class="phase-desc">We run controlled acquisition tests across channels, optimise performance, and establish clear cost-per-acquisition benchmarks before increasing any spend. No budget is scaled until the numbers justify it — that's the Commercial Growth difference.</div>
+          <span class="phase-pill">Weeks 9–12</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ ROI CALCULATOR ══════════════════════════ -->
+<section class="roi-section" id="roi">
+  <div class="container">
+    <div class="eyebrow">ROI Calculator</div>
+    <h2 class="section-heading">What could a working<br>growth system be worth?</h2>
+    <p class="section-sub">Adjust the sliders to see an estimate of what revenue leakage is costing your business right now — and what fixing it could unlock.</p>
+
+    <div class="roi-wrap">
+      <div class="roi-inputs">
+        <h3>Your Business Numbers</h3>
+        <p>Move the sliders to match your current situation.</p>
+
+        <div class="roi-field">
+          <label>Monthly Revenue <span id="rev-label">$25,000</span></label>
+          <input type="range" id="revenue" min="5000" max="200000" step="5000" value="25000" oninput="calcROI()">
+        </div>
+        <div class="roi-field">
+          <label>Monthly Leads <span id="leads-label">40</span></label>
+          <input type="range" id="leads" min="5" max="500" step="5" value="40" oninput="calcROI()">
+        </div>
+        <div class="roi-field">
+          <label>Current Conversion Rate <span id="conv-label">15%</span></label>
+          <input type="range" id="conversion" min="1" max="50" step="1" value="15" oninput="calcROI()">
+        </div>
+        <div class="roi-field">
+          <label>Monthly Ad Spend <span id="spend-label">$2,000</span></label>
+          <input type="range" id="adspend" min="0" max="50000" step="500" value="2000" oninput="calcROI()">
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <h3>Your estimated opportunity</h3>
+
+        <div class="roi-result-item">
+          <div class="roi-result-label">Estimated Monthly Revenue Leakage</div>
+          <div class="roi-result-value" id="leakage-val">$3,750</div>
+          <div class="roi-result-sub">Revenue lost through poor conversion, follow-up gaps &amp; attribution blind spots</div>
+        </div>
+
+        <hr class="roi-divider">
+
+        <div class="roi-result-item">
+          <div class="roi-result-label">Potential Annual Gain</div>
+          <div class="roi-result-value green" id="annual-gain">$45,000</div>
+          <div class="roi-result-sub">Projected uplift from fixing systems, improving conversion &amp; optimising spend</div>
+        </div>
+
+        <hr class="roi-divider">
+
+        <div class="roi-result-item">
+          <div class="roi-result-label">Wasted Ad Spend (estimated)</div>
+          <div class="roi-result-value red" id="wasted-spend">$600</div>
+          <div class="roi-result-sub">Monthly spend going to untracked, unoptimised campaigns</div>
+        </div>
+
+        <div class="roi-cta-note">
+          These are conservative estimates based on industry benchmarks.
+          <a href="#contact">Book a free call</a> to see your real numbers.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ LEAD MAGNET ════════════════════════════ -->
+<div class="lead-magnet" id="lead-magnet">
+  <div class="container">
+    <div class="lead-magnet-eyebrow">Free Resource</div>
+    <h3>Download the Commercial Growth Audit</h3>
+    <p>A self-assessment framework to identify your biggest growth leaks — in under 10 minutes.</p>
+    <form class="lm-form" onsubmit="handleLMSubmit(event)">
+      <input type="email" id="lm-email" placeholder="Your email address" required>
+      <button type="submit">Send Me the Audit →</button>
+    </form>
+    <div class="lm-note">No spam. Unsubscribe anytime. We'll send it straight to your inbox.</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ CASE STUDY ═════════════════════════════ -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow">Case Study</div>
+    <h2 class="section-heading">From scattered to scalable<br>in 90 days.</h2>
+
+    <div class="case-company-badge">Design Bees — Creative Design Agency</div>
+
+    <!-- Phase journey -->
+    <div class="case-phases">
+      <div class="case-phase">
+        <div class="case-phase-num">Phase 1</div>
+        <div class="case-phase-title">Diagnose &amp; Blueprint</div>
+        <ul class="case-phase-list">
+          <li>Full systems &amp; brand audit</li>
+          <li>CRM gaps identified</li>
+          <li>Tracking architecture mapped</li>
+          <li>Growth blueprint delivered</li>
+        </ul>
+      </div>
+      <div class="case-phase-arrow">→</div>
+      <div class="case-phase">
+        <div class="case-phase-num">Phase 2</div>
+        <div class="case-phase-title">Build &amp; Implement</div>
+        <ul class="case-phase-list">
+          <li>CRM fully rebuilt from scratch</li>
+          <li>Automated follow-up sequences live</li>
+          <li>GA4 &amp; attribution installed</li>
+          <li>LinkedIn outreach launched</li>
+        </ul>
+      </div>
+      <div class="case-phase-arrow">→</div>
+      <div class="case-phase">
+        <div class="case-phase-num">Phase 3</div>
+        <div class="case-phase-title">Test &amp; Scale</div>
+        <ul class="case-phase-list">
+          <li>Lead source performance reviewed</li>
+          <li>Spend optimised to top channels</li>
+          <li>3× qualified enquiry volume</li>
+          <li>90% reduction in manual work</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stats + Quote -->
+    <div class="case-bottom">
+      <div class="results-grid">
+        <div class="result-box"><div class="result-num">3×</div><div class="result-label">Qualified enquiry volume</div></div>
+        <div class="result-box"><div class="result-num">90%</div><div class="result-label">Reduction in manual follow-up</div></div>
+        <div class="result-box"><div class="result-num">100%</div><div class="result-label">Attribution visibility</div></div>
+        <div class="result-box"><div class="result-num">90d</div><div class="result-label">Full implementation</div></div>
+      </div>
+      <div class="case-quote-box">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">We went from having no idea what was working — or where our leads were coming from — to having a complete, automated acquisition engine. Clean data. Workflows that run themselves. A LinkedIn strategy that generates qualified leads consistently. The Commercial Growth System didn't just improve things. It fundamentally changed how the business operates.</div>
+        <div class="quote-author">Liz Lord</div>
+        <div class="quote-role">Founder, Design Bees</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ CONTACT ═════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get Started</div>
+        <h2 class="section-heading">Ready to build your<br>growth engine?</h2>
+        <p class="section-sub">Book a free 30-minute discovery call. We'll map out exactly where your growth is leaking and what the system would look like for your business.</p>
+        <div class="contact-perks">
+          <div class="perk">
+            <div class="perk-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="#3BB9F5" stroke-width="1.5"/><path d="M7 2v3M13 2v3M3 9h14" stroke="#3BB9F5" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="perk-text"><strong>Free 30-min discovery call</strong><span>No obligation — just a clear picture of what's holding your growth back.</span></div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10l4 4 6-8" stroke="#3BB9F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="perk-text"><strong>Clear deliverables at every stage</strong><span>You'll know exactly what you're getting before you commit to anything.</span></div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 5-7" stroke="#3BB9F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="perk-text"><strong>Results you can measure</strong><span>Data-led from day one — you'll see exactly what's working at every step.</span></div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4v4l3 1.5" stroke="#3BB9F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="perk-text"><strong>90 days start to finish</strong><span>A structured system delivered on time — not an open-ended retainer with no end in sight.</span></div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="#3BB9F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="perk-text"><strong>Built for your business, not a template</strong><span>Every engagement is scoped to your specific growth gaps — not a one-size-fits-all package.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">Book a Discovery Call</div>
+        <div class="form-sub">Tell us about your business — we'll be in touch within 60 minutes.</div>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@yourbusiness.com.au" required></div>
+          <div class="form-group"><label>Business Name</label><input type="text" placeholder="Your Business Pty Ltd" required></div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="04XX XXX XXX"></div>
+            <div class="form-group">
+              <label>Business Type</label>
+              <select>
+                <option value="">Select...</option>
+                <option>Service Business</option>
+                <option>SaaS / Tech</option>
+                <option>Ecommerce</option>
+                <option>Financial Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label>What's your biggest growth challenge right now?</label><textarea placeholder="Tell us what's holding you back..."></textarea></div>
+          <button type="submit" class="form-submit">Book My Discovery Call →</button>
+          <div class="form-note">We respond within 60 minutes. No spam, ever.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════ FINAL CTA ════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="eyebrow">Start today</div>
+    <h2>90 days from now,<br>your growth engine could be running.</h2>
+    <p class="section-sub">Stop operating on guesswork. Get the data, the systems, and the strategy to scale — without adding more headcount or burning more budget.</p>
+    <a href="#contact" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">Book a Discovery Call →</a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">
+        <img src="assets/logo-dark.png" alt="Commercial Growth"
+             onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span style=\'font-size:0.9rem;font-weight:700;color:white\'><span style=\'color:#3BB9F5\'>Commercial</span> Growth</span>')">
+      </a>
+      <div class="footer-copy">© 2026 Commercial Growth. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════ SCRIPTS ═════════════════════════════ -->
+<script>
+  // ── ROI Calculator ──────────────────────────────────────────────────
+  function fmt(n) {
+    if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000)    return '$' + (n/1000).toFixed(0) + 'k';
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function calcROI() {
+    const revenue    = +document.getElementById('revenue').value;
+    const leads      = +document.getElementById('leads').value;
+    const conversion = +document.getElementById('conversion').value;
+    const adspend    = +document.getElementById('adspend').value;
+
+    document.getElementById('rev-label').textContent   = fmt(revenue);
+    document.getElementById('leads-label').textContent  = leads;
+    document.getElementById('conv-label').textContent   = conversion + '%';
+    document.getElementById('spend-label').textContent  = fmt(adspend);
+
+    const avgConversion   = 25;
+    const convGap         = Math.max(0, avgConversion - conversion);
+    const convLeakRate    = Math.min(0.20, (convGap / 100) * 0.8);
+    const systemLeakRate  = 0.10;
+    const totalLeakRate   = convLeakRate + systemLeakRate;
+    const monthlyLeakage  = revenue * totalLeakRate;
+    const annualGain      = monthlyLeakage * 12 * 0.6;
+    const wastedSpend     = adspend * 0.30;
+
+    document.getElementById('leakage-val').textContent  = fmt(monthlyLeakage) + '/mo';
+    document.getElementById('annual-gain').textContent  = fmt(annualGain) + '/yr';
+    document.getElementById('wasted-spend').textContent = fmt(wastedSpend) + '/mo';
+  }
+
+  calcROI();
+
+  // ── Carousel ────────────────────────────────────────────────────────
+  let currentSlide = 0;
+  const slides = ['slide-before', 'slide-after'];
+  const dots   = document.querySelectorAll('.dot');
+
+  function goToSlide(index) {
+    // Hide current
+    document.getElementById(slides[currentSlide]).classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    // Show new
+    currentSlide = index;
+    document.getElementById(slides[currentSlide]).classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  // Scroll-triggered carousel flip with scroll-back
+  let carouselTriggered = false;
+  let isScrollLocked    = false;
+
+  function scrollToSection() {
+    const section = document.getElementById('for-section');
+    if (!section) return;
+    const top = section.getBoundingClientRect().top + window.scrollY - 148;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', () => {
+    if (isScrollLocked) return;
+    const section = document.getElementById('for-section');
+    if (!section) return;
+
+    const rect   = section.getBoundingClientRect();
+    const inZone = rect.bottom < window.innerHeight * 0.65 && rect.bottom > 0;
+
+    // Trigger slide 2 and scroll back to top of section
+    if (inZone && !carouselTriggered && currentSlide === 0) {
+      carouselTriggered = true;
+      isScrollLocked    = true;
+      goToSlide(1);
+      scrollToSection();
+      setTimeout(() => { isScrollLocked = false; }, 900);
+    }
+
+    // Reset to slide 1 when scrolled back above the section
+    if (rect.top > window.innerHeight * 0.4 && carouselTriggered) {
+      carouselTriggered = false;
+      goToSlide(0);
+    }
+  });
+
+  // ── Form handlers ────────────────────────────────────────────────────
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Request sent — we\'ll be in touch!';
+    btn.style.background = '#22c55e';
+    btn.disabled = true;
+  }
+
+  function handleLMSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Check your inbox!';
+    btn.disabled = true;
+  }
+
+  // ── Nav shadow on scroll ─────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+  });
+</script>
+
+</body>
+</html>
