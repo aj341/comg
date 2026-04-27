@@ -2046,7 +2046,7 @@ footer {
 [data-theme="dark"] .pay-badge--googlepay { background: #F8F9FA; }
 
 /* Hero-trust blue dot restored on first child + tight single-line layout */
-.hero-trust { flex-wrap: nowrap; gap: 1rem; font-size: 0.72rem; }
+.hero-trust { flex-wrap: wrap; gap: 0.6rem 1rem; font-size: 0.72rem; }
 .hero-trust-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
 .hero-trust-item:first-child::before { display: inline-block !important; }
 .hero-trust-item::before {
@@ -2142,6 +2142,114 @@ footer {
   .pay-badge { font-size: 0.68rem; padding: 0 0.5rem; height: 24px; }
 }
 
+
+/* ============================================
+   MOBILE HERO FIX — keep card + chips inside viewport
+   ============================================ */
+@media (max-width: 720px) {
+  .hero-visual {
+    margin: var(--space-6) auto var(--space-10);
+    max-width: 460px;
+    width: 100%;
+    padding: 0 var(--space-2);
+  }
+  .hero-card {
+    padding: var(--space-5);
+    transform: none;
+  }
+  .hero-card-ghost {
+    inset: 24px -8px -16px 24px;
+  }
+  .hero-grade-chip {
+    bottom: -22px;
+    right: -8px;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    transform: rotate(2deg);
+    animation: none;
+  }
+  .hero-grade-chip .hero-grade-score { font-size: 1.9rem; }
+  .hero-grade-chip .hero-grade-label { font-size: 0.6rem; }
+  .hero-grade-chip .hero-grade-sub { font-size: 0.68rem; }
+  .hero-stream {
+    top: -14px;
+    left: -8px;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    transform: rotate(-2deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    max-width: 100%;
+    padding: 0 var(--space-3);
+  }
+  .hero-card { padding: var(--space-4); }
+  .hero-card-ghost { inset: 20px 0 -12px 18px; }
+  .hero-grade-chip {
+    right: 0;
+    bottom: -18px;
+    transform: rotate(1.5deg);
+  }
+  .hero-grade-chip .hero-grade-score { font-size: 1.7rem; }
+  .hero-stream {
+    left: 0;
+    top: -12px;
+    transform: rotate(-1.5deg);
+  }
+  .hero { padding: var(--space-10) 0 var(--space-16); }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+}
+
+/* ============================================
+   MOBILE OVERFLOW FIXES — pre-launch hardening
+   ============================================ */
+@media (max-width: 720px) {
+  /* Founding pill: allow it to wrap and shrink letter-spacing */
+  .hero-eyebrow.founding-pill {
+    flex-wrap: wrap;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 0.85rem;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  .founding-pill-strike { margin-left: 0.25rem; }
+
+  /* Hero h1: smaller min size + word break */
+  .hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .hero h1 .word { white-space: normal; }
+
+  /* Rotator: shrink min-width to prevent forced overflow */
+  .rotator { min-width: 5ch; padding: 0 0.18em; }
+
+  /* Hero-trust: force wrap on mobile */
+  .hero-trust {
+    flex-wrap: wrap !important;
+    gap: 0.4rem 0.9rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Hero-lead: ensure it doesn't push wider than container */
+  .hero-lead { max-width: 100%; }
+
+  /* Container: ensure no element pushes past edge */
+  .hero, .hero-inner, .hero-copy { max-width: 100%; min-width: 0; overflow-wrap: break-word; }
+}
+
+@media (max-width: 480px) {
+  .hero-eyebrow.founding-pill {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .hero h1 { font-size: clamp(1.6rem, 8vw, 2.1rem) !important; }
+  .container { padding: 0 1rem; }
+}
 </style>
 </head>
 <body>
