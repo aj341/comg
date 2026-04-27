@@ -1585,6 +1585,23 @@ h2.section-title {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   box-shadow: var(--shadow-glow);
+  white-space: nowrap !important;
+  width: max-content;
+  display: inline-block;
+}
+@media (max-width: 480px) {
+  .pricing-flag {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
+  }
+}
+@media (max-width: 360px) {
+  .pricing-flag {
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    padding: 0.28rem 0.6rem;
+  }
 }
 
 .pricing-tier {
@@ -2113,18 +2130,19 @@ footer {
 /* Two-card pricing compare */
 .pricing-wrap.pricing-compare {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-6);
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
 }
 @media (max-width: 840px) {
-  .pricing-wrap.pricing-compare { grid-template-columns: 1fr; max-width: 540px; }
+  .pricing-wrap.pricing-compare { grid-template-columns: minmax(0, 1fr); max-width: 540px; }
 }
 .pricing-wrap.pricing-compare .pricing-card {
   max-width: none;
   width: 100%;
+  min-width: 0;
 }
 .pricing-card.pricing-card-muted {
   border: 1px solid var(--border);
@@ -2407,6 +2425,26 @@ footer {
   .currency-bar { font-size: 0.72rem; gap: 0.35rem; padding: 0.14rem 0.4rem 0.14rem 0.5rem; }
   .currency-bar-label { display: none; }
   .currency-bar select { font-size: 0.72rem; padding: 0.14rem 1rem 0.14rem 0.1rem; }
+}
+
+/* ============================================
+   PRICING CARD — mobile (≤720px) hardening
+   Surgical: only shrink card padding + flag font, never touch .container
+   ============================================ */
+@media (max-width: 720px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-8) var(--space-5);
+  }
+}
+@media (max-width: 480px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+@media (max-width: 380px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-5) var(--space-3);
+  }
 }
 </style>
 </head>
@@ -3449,13 +3487,21 @@ function detectCurrency() {
     const saved = localStorage.getItem('cm-currency');
     if (saved && RATES[saved]) return saved;
   } catch (e) {}
+  // Timezone is more reliable than locale for geo (locale can be en-US even in AU)
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (tz.startsWith('Australia/')) return 'AUD';
+    if (tz === 'Pacific/Auckland' || tz === 'Pacific/Chatham') return 'NZD';
+    if (tz === 'Europe/London' || tz === 'Europe/Belfast' || tz === 'Europe/Isle_of_Man' || tz === 'Europe/Jersey' || tz === 'Europe/Guernsey') return 'GBP';
+    if (tz.startsWith('Europe/')) return 'EUR';
+    const caCities = ['Toronto','Vancouver','Montreal','Edmonton','Halifax','Winnipeg','Regina','St_Johns','Whitehorse','Yellowknife','Iqaluit','Atikokan','Blanc-Sablon','Cambridge_Bay','Creston','Dawson','Dawson_Creek','Fort_Nelson','Glace_Bay','Goose_Bay','Inuvik','Moncton','Nipigon','Pangnirtung','Rainy_River','Rankin_Inlet','Resolute','Thunder_Bay'];
+    if (caCities.some(c => tz === 'America/' + c)) return 'CAD';
+    if (tz.startsWith('America/')) return 'USD';
+  } catch (e) {}
+  // Fall back to locale
   const lang = (navigator.language || 'en-AU').toLowerCase();
   for (const [loc, cur] of Object.entries(LOCALE_TO_CURRENCY)) {
     if (lang === loc.toLowerCase()) return cur;
-  }
-  const base = lang.split('-')[0];
-  for (const [loc, cur] of Object.entries(LOCALE_TO_CURRENCY)) {
-    if (loc.toLowerCase().split('-')[0] === base) return cur;
   }
   return BASE_CURRENCY;
 }
@@ -3475,9 +3521,20 @@ function formatBNPL(aud, currency) {
 }
 
 function applyCurrency(currency) {
+  const rate = RATES[currency];
+  const symbol = SYMBOLS[currency];
   document.querySelectorAll('[data-price-aud]').forEach(el => {
     const aud = parseFloat(el.dataset.priceAud);
-    el.textContent = formatPrice(aud, currency);
+    const converted = Math.round(aud * rate).toLocaleString();
+    // Preserve the .pricing-currency + .pricing-price spans (don't blow away nested structure)
+    const curEl = el.querySelector('.pricing-currency');
+    const priceEl = el.querySelector('.pricing-price');
+    if (curEl && priceEl) {
+      curEl.textContent = symbol;
+      priceEl.textContent = converted;
+    } else {
+      el.textContent = symbol + converted;
+    }
   });
   document.querySelectorAll('[data-bnpl-aud]').forEach(el => {
     const aud = parseFloat(el.dataset.bnplAud);
@@ -3488,7 +3545,6 @@ function applyCurrency(currency) {
   });
   try { localStorage.setItem('cm-currency', currency); } catch (e) {}
 }
-
 
 (function initCurrency() {
   const sel = document.getElementById('currencySelector');
@@ -3502,3 +3558,4 @@ function applyCurrency(currency) {
 
 </body>
 </html>
+                                                                                                                                
