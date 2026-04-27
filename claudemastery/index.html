@@ -3562,4 +3562,18 @@ function applyCurrency(currency) {
   document.querySelectorAll('.price-note').forEach(el => {
     el.classList.toggle('show', currency !== 'AUD');
   });
-  try { localStorage.setItem('cm-
+  try { localStorage.setItem('cm-currency', currency); } catch (e) {}
+}
+
+(function initCurrency() {
+  const sel = document.getElementById('currencySelector');
+  if (!sel) return;
+  const initial = detectCurrency();
+  sel.value = initial;
+  applyCurrency(initial);
+  sel.addEventListener('change', (e) => applyCurrency(e.target.value));
+})();
+</script>
+
+</body>
+</html>
