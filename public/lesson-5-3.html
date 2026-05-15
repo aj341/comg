@@ -1514,7 +1514,7 @@ document.querySelectorAll('.variation-tab').forEach(tab => {
           <div class="gate">
             <div class="gate-title">Want the full prompt template for this automation?</div>
             <div class="gate-sub">We&rsquo;ll email you the constrained prompt for <strong>${state.action.label.toLowerCase()}</strong> — role, task, format, length, real-data example — plus a 14-day &ldquo;do it manually first&rdquo; checklist tailored to ${state.industry.label}.</div>
-            <form class="gate-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+            <form class="gate-form">
               <input type="email" class="gate-input" placeholder="you@yourbusiness.com.au" required>
               <button class="gate-btn" type="submit">Send me the prompt →</button>
             </form>
@@ -1684,7 +1684,7 @@ document.querySelectorAll('.variation-tab').forEach(tab => {
           <div class="gate">
             <div class="gate-title">Want your full automation readiness report?</div>
             <div class="gate-sub">We&rsquo;ll email you a one-page PDF with your score, the four breakdowns above, and — based on your verdict — either the <strong>build checklist</strong> or the <strong>6-week ramp plan</strong> from Lesson 5.3.</div>
-            <form class="gate-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+            <form class="gate-form">
               <input type="email" class="gate-input" placeholder="you@yourbusiness.com.au" required>
               <button class="gate-btn" type="submit">Email me my report →</button>
             </form>
@@ -1756,7 +1756,15 @@ document.querySelectorAll('.variation-tab').forEach(tab => {
         body: JSON.stringify(collectPayload(form))
       });
       if (!response.ok) throw new Error('Lead capture failed');
-      if (button) button.textContent = 'Sent';
+      const result = await response.json();
+      const note = form.parentElement?.querySelector('.gate-footnote');
+      if (result.emailSent) {
+        if (button) button.textContent = 'Email sent';
+        if (note) note.textContent = 'Check your inbox for your lesson output and prompt template.';
+      } else {
+        if (button) button.textContent = 'Saved';
+        if (note) note.textContent = 'Saved to the lead database. Email delivery is not connected yet.';
+      }
     } catch (error) {
       if (button) {
         button.disabled = false;
