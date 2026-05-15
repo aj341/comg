@@ -1,870 +1,1772 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 5.3 Mini Lesson | Claude Mastery</title>
-<meta name="description" content="Take a 5-minute Claude Mastery mini lesson, get your automation readiness score, and generate a tailored Claude prompt template for your business.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Lesson 5.3 — Lead Magnet · Two variations | Claude Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Poppins:wght@400;500;600;700;800;900&amp;family=Source+Serif+4:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --blue: #3BB9F5;
-  --blue-dark: #168DD0;
+  --blue-dark: #1A9EDE;
   --blue-pale: #EBF7FF;
   --dark: #0F1623;
   --dark-2: #1A2235;
-  --bg: #F7FAFC;
+  --bg: #FFFFFF;
+  --bg-alt: #F8FAFC;
   --surface: #FFFFFF;
-  --paper: #FFFDF8;
   --border: #E5E7EB;
   --border-strong: #D1D5DB;
   --text: #111827;
-  --body: #374151;
-  --muted: #6B7280;
+  --text-body: #374151;
+  --text-muted: #6B7280;
+  --text-dim: #9CA3AF;
   --success: #22C55E;
   --warn: #F4B261;
   --danger: #EF4444;
+  --paper: #FFFDF8;
+  --paper-strong: #F4ECDD;
+  --paper-rule: rgba(123, 91, 46, 0.18);
+  --paper-shadow: rgba(15, 22, 35, 0.12);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-2xl: 16px;
+  --radius-3xl: 18px;
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-default: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-heavy: 0 20px 40px rgba(0,0,0,0.12);
+  --shadow-focus: 0 0 0 3px rgba(59,185,245,0.18);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --copy: 'Source Serif 4', Georgia, serif;
-  --display: 'Cormorant Garamond', Georgia, serif;
-  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-copy: 'Source Serif 4', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
 }
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  margin: 0;
   font-family: var(--font);
-  background: var(--bg);
-  color: var(--body);
+  background: var(--bg-alt);
+  color: var(--text-body);
+  font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-a { color: inherit; }
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.topbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 13px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-  font-weight: 900;
-  letter-spacing: -.02em;
-  text-decoration: none;
-}
-.mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+
+/* ============================================ TOP BANNER + TAB SWITCHER ============================================ */
+.banner {
+  position: sticky; top: 0; z-index: 50;
   background: var(--dark);
   color: white;
-  display: grid;
-  place-items: center;
+  padding: 10px 24px;
+  font-size: 0.78rem;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  text-align: center;
+  flex-wrap: wrap;
 }
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--blue);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: .84rem;
+.banner .pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(59,185,245,0.18);
+  color: var(--blue);
+  padding: 3px 10px;
+  border-radius: 100px;
   font-weight: 800;
-}
-.shell {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 46px 22px 80px;
-}
-.hero {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 34px;
-  align-items: center;
-  margin-bottom: 34px;
-}
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--blue-dark);
-  background: var(--blue-pale);
-  border: 1px solid rgba(59,185,245,.3);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: .7rem;
-  font-weight: 900;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  font-size: 0.66rem;
+}
+.banner .copy { color: rgba(255,255,255,0.78); font-weight: 500; }
+.banner .copy strong { color: white; font-weight: 700; }
+
+.variation-tabs {
+  position: sticky; top: 38px; z-index: 45;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex; gap: 10px; align-items: center; justify-content: center;
+}
+.variation-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  border-radius: 100px;
+  font: 700 0.82rem var(--font);
+  cursor: pointer;
+  transition: all 200ms var(--ease);
+  letter-spacing: -0.005em;
+}
+.variation-tab:hover { color: var(--text); border-color: var(--text-dim); }
+.variation-tab.is-active {
+  background: var(--dark);
+  color: white;
+  border-color: var(--dark);
+}
+.variation-tab .num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  color: var(--blue-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 900;
+}
+.variation-tab.is-active .num { background: var(--blue); color: white; }
+
+/* ============================================ PAGE WRAP ============================================ */
+.variation-page { display: none; }
+.variation-page.is-active { display: block; }
+
+.lesson-shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 32px 96px;
+}
+@media (max-width: 640px) { .lesson-shell { padding: 28px 18px 80px; } }
+
+/* ============================================ HERO ============================================ */
+.hero { margin-bottom: 28px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--blue);
   margin-bottom: 14px;
 }
-.eyebrow::before {
-  content: "";
-  width: 7px;
-  height: 7px;
+.eyebrow .dot {
+  width: 6px; height: 6px;
   background: var(--blue);
   border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(59,185,245,0.4);
 }
-h1, h2, h3, p { margin-top: 0; }
-h1 {
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
   color: var(--text);
-  font-family: var(--display);
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
-  font-weight: 700;
-  line-height: .96;
-  letter-spacing: -.035em;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+  text-wrap: balance;
 }
-.lead {
-  font-family: var(--copy);
-  font-size: 1.16rem;
-  color: var(--muted);
+.hero .lead {
+  font-family: var(--font-copy);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--text-muted);
   max-width: 620px;
 }
-.hero-card {
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  margin-top: 22px;
+  padding: 14px 20px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 24px 60px rgba(15,22,35,.13);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-subtle);
 }
-.hero-card h2 {
+.meta-item { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 600; color: var(--text-body); }
+.meta-item svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; }
+.meta-item .label { color: var(--text-muted); font-weight: 500; }
+
+/* ============================================ MINI READING ============================================ */
+.read-block {
+  padding: 32px 36px;
+  background:
+    radial-gradient(circle at top left, rgba(59,185,245,0.06), transparent 35%),
+    linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, var(--paper-strong)) 100%);
+  border: 1px solid var(--paper-rule);
+  border-radius: 26px;
+  box-shadow: 0 16px 38px var(--paper-shadow);
+  margin-bottom: 36px;
+}
+.read-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--text);
-  font-size: 1.18rem;
-  letter-spacing: -.02em;
+  margin-bottom: 12px;
+  line-height: 1.1;
 }
-.mini-list {
-  display: grid;
-  gap: 12px;
-  margin: 20px 0 0;
+.read-block h3 {
+  font: 800 0.74rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-dark);
+  margin: 22px 0 8px;
 }
-.mini-item {
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  gap: 12px;
-  align-items: start;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg);
+.read-block p {
+  font-family: var(--font-copy);
+  font-size: 1.02rem;
+  line-height: 1.78;
+  color: var(--text-body);
+  margin-bottom: 11px;
+  text-wrap: pretty;
 }
-.mini-num {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
+.read-block p strong { color: var(--text); font-weight: 700; }
+@media (max-width: 640px) { .read-block { padding: 24px 22px; border-radius: 22px; } .read-block h2 { font-size: 1.4rem; } .read-block p { font-size: 0.96rem; } }
+
+/* the 3-question highlight */
+.three-q {
+  background: color-mix(in srgb, var(--paper) 70%, var(--blue-pale));
+  border: 1px solid color-mix(in srgb, var(--blue) 22%, var(--paper-rule));
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin: 14px 0 6px;
+}
+.three-q-label {
+  font: 800 0.68rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
+.three-q ol {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 6px;
+  counter-reset: q;
+}
+.three-q ol li {
+  font-family: var(--font-copy);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.three-q ol li::before {
+  content: counter(q);
+  position: absolute; left: 0; top: 2px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
   background: var(--blue);
   color: white;
-  font-weight: 900;
-  display: grid;
-  place-items: center;
+  font: 800 0.7rem var(--font);
+  display: flex; align-items: center; justify-content: center;
 }
-.mini-item strong { color: var(--text); }
-.lesson {
-  display: grid;
-  grid-template-columns: .72fr 1fr;
-  gap: 24px;
-  align-items: start;
+
+/* ============================================ SECTION DIVIDER ============================================ */
+.divider {
+  display: flex; align-items: center; gap: 14px;
+  margin: 44px 0 22px;
 }
-.read-card, .form-card, .result-card {
+.divider .line { flex: 1; height: 1px; background: var(--border); }
+.divider .label {
+  font: 800 0.7rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.section-heading {
+  font: 900 1.4rem var(--font);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.section-sub {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+/* ============================================ BUILDER (VARIATION A) ============================================ */
+.builder-card {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(15,22,35,.06);
+  border: 2px solid var(--blue);
+  border-radius: 22px;
+  box-shadow: var(--shadow-default);
+  overflow: hidden;
+  margin-bottom: 28px;
 }
-.read-card {
-  position: sticky;
-  top: 82px;
-  padding: 24px;
-  background:
-    radial-gradient(circle at top right, rgba(59,185,245,.08), transparent 36%),
-    var(--paper);
-}
-.read-card h2 {
-  font-family: var(--display);
-  font-size: 1.85rem;
-  color: var(--text);
-  line-height: 1.04;
-  letter-spacing: -.02em;
-}
-.read-card p, .read-card li {
-  font-family: var(--copy);
-  color: var(--body);
-}
-.read-card ol {
-  padding-left: 20px;
-  margin: 12px 0 0;
-}
-.form-card { overflow: hidden; }
-.form-head {
-  background: var(--dark);
+.builder-head {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+  padding: 26px 30px;
   color: white;
-  padding: 24px 26px;
-}
-.form-head h2 {
-  margin-bottom: 6px;
-  font-size: 1.35rem;
-  letter-spacing: -.02em;
-}
-.form-head p {
-  color: rgba(255,255,255,.72);
-  margin-bottom: 0;
-}
-form { padding: 24px 26px 26px; }
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.field { margin-bottom: 18px; }
-.field label {
-  display: block;
-  color: var(--text);
-  font-size: .82rem;
-  font-weight: 800;
-  margin-bottom: 7px;
-}
-.field small {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: .76rem;
-}
-input, select, textarea {
-  width: 100%;
-  border: 1.5px solid var(--border-strong);
-  border-radius: 9px;
-  padding: 12px 13px;
-  font: inherit;
-  color: var(--text);
-  background: white;
-}
-textarea { min-height: 96px; resize: vertical; }
-.range-row {
-  display: grid;
-  grid-template-columns: 1fr 74px;
-  gap: 12px;
-  align-items: center;
-}
-input[type="range"] { padding: 0; accent-color: var(--blue); }
-.range-value {
-  color: var(--text);
-  font-weight: 900;
-  text-align: right;
-}
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-button, .button {
-  border: 0;
-  border-radius: 9px;
-  padding: 13px 18px;
-  font: 900 .9rem var(--font);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.primary { background: var(--blue); color: white; }
-.secondary { background: var(--dark); color: white; }
-.ghost { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
-.status {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: .8rem;
-}
-.result-card {
-  display: none;
-  margin-top: 24px;
+  position: relative;
   overflow: hidden;
 }
-.result-card.is-visible { display: block; }
+.builder-head::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(59,185,245,0.24), transparent 70%);
+  pointer-events: none;
+}
+.builder-head > * { position: relative; }
+.builder-kicker {
+  font: 800 0.68rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+.builder-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin-bottom: 8px;
+  color: white;
+}
+.builder-brief {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+  max-width: 540px;
+}
+
+/* progress strip */
+.builder-progress {
+  display: flex; gap: 0;
+  padding: 18px 30px;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.bp-step {
+  flex: 1;
+  display: flex; align-items: center; gap: 10px;
+  position: relative;
+}
+.bp-step + .bp-step::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 16px;
+  height: 1px;
+  background: var(--border-strong);
+}
+.bp-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-muted);
+  font: 800 0.74rem var(--font);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 200ms var(--ease);
+}
+.bp-label {
+  font: 700 0.74rem var(--font);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bp-step.is-active .bp-num { background: var(--blue); border-color: var(--blue); color: white; }
+.bp-step.is-active .bp-label { color: var(--text); }
+.bp-step.is-done .bp-num { background: var(--success); border-color: var(--success); color: white; }
+.bp-step.is-done .bp-label { color: var(--text); }
+@media (max-width: 640px) {
+  .builder-progress { padding: 14px 18px; gap: 4px; }
+  .bp-label { display: none; }
+  .bp-step + .bp-step::before { display: none; }
+}
+
+.builder-step { padding: 30px; }
+.builder-step[hidden] { display: none; }
+
+.step-eyebrow {
+  font: 800 0.68rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
+.step-q {
+  font: 800 1.3rem var(--font);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.step-help {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 22px;
+  max-width: 540px;
+}
+
+/* tile grid */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 560px) { .tile-grid { grid-template-columns: 1fr; } }
+.tile-grid.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 640px) { .tile-grid.three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .tile-grid.three { grid-template-columns: 1fr; } }
+
+.tile {
+  text-align: left;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 180ms var(--ease);
+  position: relative;
+  font: inherit; color: inherit;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tile:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59,185,245,0.14);
+}
+.tile.is-selected {
+  border-color: var(--blue);
+  background: var(--blue-pale);
+  box-shadow: var(--shadow-focus);
+}
+.tile.is-selected::after {
+  content: '';
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 20px; height: 20px;
+  background: var(--blue);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tile-icon {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: var(--blue-pale);
+  color: var(--blue-dark);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 4px;
+}
+.tile.is-selected .tile-icon { background: var(--blue); color: white; }
+.tile-icon svg { width: 18px; height: 18px; }
+.tile-label {
+  font: 700 0.95rem var(--font);
+  color: var(--text);
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+.tile-desc {
+  font-family: var(--font-copy);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* nav row */
+.builder-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 30px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1.3rem;
+  font: 700 0.85rem var(--font);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 180ms var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.005em;
+}
+.btn-primary { background: var(--blue); color: white; }
+.btn-primary:hover:not(:disabled) { background: var(--blue-dark); transform: translateY(-1px); }
+.btn-primary:disabled { background: var(--border-strong); color: var(--text-muted); cursor: not-allowed; transform: none; }
+.btn-outline { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
+.btn-outline:hover { background: var(--bg-alt); border-color: var(--text); }
+.btn-ghost { background: transparent; color: var(--text-muted); padding: 0.5rem 0.75rem; font-weight: 600; }
+.btn-ghost:hover { color: var(--text); background: var(--bg-alt); }
+
+/* ============================================ RESULT CARD (shared) ============================================ */
+.result-card {
+  background: var(--surface);
+  border: 2px solid var(--success);
+  border-radius: var(--radius-3xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-default);
+  margin-top: 30px;
+  animation: slideUp 380ms var(--ease);
+}
+.result-card.not-yet { border-color: var(--warn); }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .result-head {
-  padding: 26px;
   background: linear-gradient(135deg, var(--dark), var(--dark-2));
+  padding: 26px 30px;
   color: white;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 22px;
+  gap: 20px;
   align-items: center;
 }
-.score-ring {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: conic-gradient(var(--success) var(--score-deg), rgba(255,255,255,.15) 0);
-  position: relative;
-}
-.score-ring::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: 50%;
-  background: var(--dark);
-}
-.score-num {
-  position: relative;
-  z-index: 1;
-  font-size: 1.8rem;
-  font-weight: 900;
-  line-height: 1;
-}
-.score-num span {
-  display: block;
-  font-size: .72rem;
-  opacity: .6;
-}
-.verdict {
-  display: inline-flex;
-  width: fit-content;
-  border-radius: 999px;
+@media (max-width: 600px) { .result-head { grid-template-columns: 1fr; } }
+.result-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 4px 12px;
   background: var(--success);
-  padding: 4px 11px;
-  font-size: .68rem;
-  font-weight: 900;
+  color: white;
+  border-radius: 100px;
+  font: 800 0.7rem var(--font);
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.08em;
   margin-bottom: 10px;
 }
-.result-head h2 {
-  color: white;
+.result-card.not-yet .result-chip { background: var(--warn); color: var(--dark); }
+.result-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   margin-bottom: 6px;
-  font-size: 1.34rem;
-  letter-spacing: -.02em;
+  color: white;
 }
-.result-head p {
-  color: rgba(255,255,255,.74);
-  margin-bottom: 0;
+.result-sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.74);
+  line-height: 1.55;
 }
-.result-body { padding: 24px 26px; }
-.breakdown {
+.result-score-ring {
+  width: 100px; height: 100px;
+  position: relative;
+}
+.result-score-ring svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+.result-score-ring .track { stroke: rgba(255,255,255,0.16); fill: none; stroke-width: 8; }
+.result-score-ring .fill { stroke: var(--success); fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 900ms var(--ease); }
+.result-card.not-yet .result-score-ring .fill { stroke: var(--warn); }
+.result-score-label {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font: 900 1.5rem var(--font);
+  letter-spacing: -0.02em;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  font-feature-settings: "tnum";
+}
+.result-score-label .max { font-size: 0.8rem; opacity: 0.55; font-weight: 700; }
+
+.result-body { padding: 28px 30px; }
+
+/* automation map block */
+.map-block {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px 22px;
+  margin-bottom: 22px;
+}
+.map-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px 16px; padding: 10px 0; border-bottom: 1px dashed var(--border); align-items: start; }
+.map-row:last-child { border-bottom: none; }
+.map-row:first-child { padding-top: 0; }
+.map-row .key {
+  font: 800 0.7rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue-dark);
+  padding-top: 2px;
+}
+.map-row .val {
+  font-family: var(--font-copy);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+.map-row .val strong { font-weight: 700; }
+@media (max-width: 540px) { .map-row { grid-template-columns: 1fr; gap: 2px; } }
+
+/* recos */
+.reco-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin-bottom: 22px;
 }
-.bd {
-  background: var(--bg);
+@media (max-width: 540px) { .reco-grid { grid-template-columns: 1fr; } }
+.reco-card {
+  background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
+  border-radius: var(--radius-xl);
+  padding: 16px 18px;
 }
-.bd-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+.reco-card.tool { border-left: 3px solid var(--blue); }
+.reco-card.verdict { border-left: 3px solid var(--success); }
+.result-card.not-yet .reco-card.verdict { border-left-color: var(--warn); }
+.reco-label {
+  font: 800 0.66rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.reco-val {
+  font: 800 1.05rem var(--font);
   color: var(--text);
-  font-weight: 900;
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+}
+.reco-desc {
+  font-family: var(--font-copy);
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+/* ============================================ DIAGNOSTIC (VARIATION B) ============================================ */
+.diag-card {
+  background: var(--surface);
+  border: 2px solid var(--blue);
+  border-radius: 22px;
+  box-shadow: var(--shadow-default);
+  overflow: hidden;
+}
+.diag-body { padding: 6px 0 0; }
+.diag-q {
+  padding: 28px 30px;
+  border-bottom: 1px solid var(--border);
+}
+.diag-q:last-of-type { border-bottom: none; }
+.diag-q-head {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 18px;
+}
+.diag-q-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font: 900 0.85rem var(--font);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.diag-q-title {
+  font: 800 1.1rem var(--font);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.diag-q-help {
+  font-family: var(--font-copy);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* slider */
+.slider-wrap { padding-left: 46px; }
+.slider-row {
+  display: flex; align-items: center; gap: 14px;
   margin-bottom: 8px;
 }
-.bar {
-  height: 7px;
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--blue) var(--pct, 0%), var(--border) var(--pct, 0%));
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
   background: white;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  margin-bottom: 9px;
+  border: 3px solid var(--blue);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15,22,35,0.18);
+  transition: transform 120ms var(--ease);
 }
-.fill {
-  height: 100%;
-  width: var(--w);
-  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+.slider::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.slider::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--blue);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15,22,35,0.18);
 }
-.bd p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .86rem;
-}
-.prompt-box {
+.slider-value {
+  min-width: 70px;
+  padding: 6px 12px;
   background: var(--dark);
-  color: rgba(255,255,255,.92);
-  border-radius: 14px;
-  overflow: hidden;
-  margin: 18px 0;
-}
-.prompt-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  background: rgba(255,255,255,.06);
-  padding: 12px 14px;
-  color: var(--blue);
-  font-size: .72rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-}
-.copy-btn {
-  padding: 7px 10px;
-  border-radius: 7px;
-  background: rgba(255,255,255,.12);
   color: white;
-  font-size: .72rem;
+  border-radius: 100px;
+  text-align: center;
+  font: 800 0.85rem var(--font);
+  font-feature-settings: "tnum";
 }
-pre {
-  margin: 0;
-  padding: 16px;
-  white-space: pre-wrap;
-  font: .82rem/1.65 var(--mono);
+.slider-scale {
+  display: flex; justify-content: space-between;
+  font: 600 0.72rem var(--font);
+  color: var(--text-dim);
+  margin-top: 4px;
 }
-.report-page {
-  background: var(--paper);
-  border: 1px solid rgba(123,91,46,.22);
-  border-radius: 14px;
-  padding: 18px;
-  margin-top: 18px;
-}
-.report-page h3 {
-  color: var(--text);
-  margin-bottom: 7px;
-}
-.report-page p, .report-page li {
-  font-family: var(--copy);
-}
-.two-col {
+
+/* segmented */
+.segmented {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-left: 46px;
 }
-.hidden { display: none !important; }
-.fine {
-  color: var(--muted);
-  font-size: .76rem;
+.seg-opt {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 180ms var(--ease);
+  text-align: left;
+  font: inherit; color: inherit;
 }
-@media (max-width: 860px) {
-  .hero, .lesson { grid-template-columns: 1fr; }
-  .read-card { position: static; }
+.seg-opt:hover { border-color: var(--blue); }
+.seg-opt.is-selected {
+  background: var(--blue-pale);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-focus);
 }
-@media (max-width: 620px) {
-  .grid, .breakdown, .two-col { grid-template-columns: 1fr; }
-  .result-head { grid-template-columns: 1fr; }
-  .shell { padding: 30px 14px 60px; }
+.seg-opt-label {
+  font: 700 0.86rem var(--font);
+  color: var(--text);
+  letter-spacing: -0.005em;
+  margin-bottom: 2px;
+  display: flex; align-items: center; gap: 6px;
 }
-@media print {
-  body { background: white; }
-  .topbar, .hero, .read-card, .form-card, .button-row, .status { display: none !important; }
-  .shell { padding: 0; max-width: none; }
-  .lesson { display: block; }
-  .result-card { display: block; border: 0; box-shadow: none; margin: 0; }
+.seg-opt.is-selected .seg-opt-label::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
 }
+.seg-opt-desc {
+  font-family: var(--font-copy);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.diag-actions {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 30px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.diag-status {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+.diag-status.ready { color: var(--success); font-weight: 700; }
+
+/* breakdown bars in result */
+.breakdown {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 22px;
+}
+.bd-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+}
+.bd-name {
+  font: 800 0.88rem var(--font);
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.bd-score {
+  font: 800 0.88rem var(--font);
+  color: var(--text);
+  font-feature-settings: "tnum";
+}
+.bd-score .max { color: var(--text-muted); font-weight: 600; }
+.bd-bar {
+  grid-column: 1 / -1;
+  height: 7px;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.bd-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  transition: width 800ms var(--ease) 100ms;
+}
+.bd-fill.high { background: linear-gradient(90deg, var(--success), #15803D); }
+.bd-fill.mid { background: linear-gradient(90deg, var(--blue), var(--blue-dark)); }
+.bd-fill.low { background: linear-gradient(90deg, var(--warn), #D97706); }
+.bd-feedback {
+  grid-column: 1 / -1;
+  font-family: var(--font-copy);
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+/* ============================================ EMAIL GATE ============================================ */
+.gate {
+  margin-top: 28px;
+  padding: 26px 30px;
+  background: linear-gradient(135deg, var(--dark), var(--dark-2));
+  color: white;
+  border-radius: var(--radius-3xl);
+  position: relative;
+  overflow: hidden;
+}
+.gate::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(59,185,245,0.22), transparent 70%);
+  pointer-events: none;
+}
+.gate > * { position: relative; }
+.gate-title {
+  font: 900 1.2rem var(--font);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.gate-sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.74);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  max-width: 520px;
+}
+.gate-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+@media (max-width: 540px) { .gate-form { grid-template-columns: 1fr; } }
+.gate-input {
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-md);
+  color: white;
+  font: 500 0.92rem var(--font);
+  outline: none;
+  transition: border-color 200ms var(--ease);
+}
+.gate-input::placeholder { color: rgba(255,255,255,0.45); }
+.gate-input:focus { border-color: var(--blue); }
+.gate-btn {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  font: 800 0.88rem var(--font);
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  transition: all 180ms var(--ease);
+  white-space: nowrap;
+}
+.gate-btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.gate-footnote {
+  margin-top: 14px;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+/* ============================================ INLINE EXAMPLE ============================================ */
+.inline-example {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: 22px 24px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-subtle);
+}
+.inline-example .label {
+  font: 800 0.68rem var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
+.inline-example h4 {
+  font: 800 1.05rem var(--font);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.inline-example .ex-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 6px 14px;
+  font-family: var(--font-copy);
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.inline-example .ex-row:last-child { border-bottom: none; }
+.inline-example .ex-key {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+@media (max-width: 540px) { .inline-example .ex-row { grid-template-columns: 1fr; gap: 2px; } }
+
+/* footer */
+.lm-foot {
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.55;
+}
+.lm-foot a { color: var(--blue-dark); font-weight: 700; text-decoration: none; }
+.lm-foot a:hover { text-decoration: underline; }
+
+[hidden] { display: none !important; }
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/"><span class="mark">CM</span><span>Claude Mastery</span></a>
-    <a class="nav-cta" href="#diagnostic">Take the mini lesson</a>
-  </div>
-</header>
 
-<main class="shell">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Free mini lesson from Module 5</div>
-      <h1>Find out if your Claude automation idea is ready to build.</h1>
-      <p class="lead">Answer a few questions from Lesson 5.3 and get a personalised readiness score, a one-page report, and a Claude prompt template you can use in your business before you automate anything.</p>
-    </div>
-    <aside class="hero-card">
-      <h2>What you get</h2>
-      <div class="mini-list">
-        <div class="mini-item"><div class="mini-num">1</div><div><strong>A real mini lesson</strong><br>Learn the "do it manually first" rule before you automate with Claude.</div></div>
-        <div class="mini-item"><div class="mini-num">2</div><div><strong>Your readiness score</strong><br>Four scoring areas: manual reps, quality standard, review cadence, and time saved.</div></div>
-        <div class="mini-item"><div class="mini-num">3</div><div><strong>A prompt template</strong><br>Tailored to your industry, task, and output format.</div></div>
-      </div>
-    </aside>
-  </section>
+<!-- ============================================ SHARED BANNER + TABS ============================================ -->
+<div class="banner">
+  <span class="pill">Free Sample</span>
+  <span class="copy"><strong>Lesson 5.3 — Reduced lead magnet preview.</strong> Compare two answer-input variations side by side.</span>
+</div>
+<div class="variation-tabs" role="tablist">
+  <button class="variation-tab is-active" data-target="vA" role="tab"><span class="num">A</span> Automation Map Builder</button>
+  <button class="variation-tab" data-target="vB" role="tab"><span class="num">B</span> Readiness Diagnostic</button>
+</div>
 
-  <section class="lesson" id="diagnostic">
-    <aside class="read-card">
-      <div class="eyebrow">Lesson 5.3 excerpt</div>
-      <h2>Automate only what you have already done by hand.</h2>
-      <p>Claude is useful inside automations when you can recognise a good output before the automation exists. If you cannot describe the standard, Claude cannot reliably hit it.</p>
-      <p>The mistake is to start with Zapier, Make, or n8n. The better move is to run the task manually with Claude until the patterns are obvious.</p>
-      <p><strong>The three questions:</strong></p>
-      <ol>
-        <li>Have I done this manually enough times to know the edge cases?</li>
-        <li>Can I write down what a good output looks like?</li>
-        <li>Am I willing to review the output after I step out of the loop?</li>
-      </ol>
-    </aside>
+<!-- ============================================ VARIATION A — TILE PICKER BUILDER ============================================ -->
+<section class="variation-page is-active" id="vA">
+  <div class="lesson-shell">
 
-    <div>
-      <section class="form-card">
-        <div class="form-head">
-          <h2>Build your readiness report</h2>
-          <p>Your answers generate the score, the report, and the prompt template.</p>
+    <div class="hero">
+      <div class="eyebrow"><span class="dot"></span> Module 05 · Lesson 5.3 · Free Preview</div>
+      <h1>Map your first Claude&nbsp;automation — in&nbsp;four&nbsp;taps.</h1>
+      <p class="lead">The API is how Claude stops being a chat window and becomes a background service that responds to triggers. This is a reduced taste of Lesson 5.3 — read the short version, then build your own automation map by picking from the tiles below.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="label">Time</span>&nbsp;<span class="value" style="color:var(--text);font-weight:700;">7 min</span>
         </div>
-        <form id="lessonForm">
-          <div class="grid">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-          <div class="grid">
-            <div class="field">
-              <label for="business">Business name</label>
-              <input id="business" name="business" autocomplete="organization" placeholder="e.g. Bayside Physio">
-            </div>
-            <div class="field">
-              <label for="industry">Industry</label>
-              <select id="industry" name="industry" required>
-                <option value="">Choose one</option>
-                <option value="trades and services">Trades and services</option>
-                <option value="health and wellness">Health and wellness</option>
-                <option value="finance and accounting">Finance and accounting</option>
-                <option value="agency or marketing">Agency or marketing</option>
-                <option value="retail or e-commerce">Retail or e-commerce</option>
-                <option value="property and real estate">Property and real estate</option>
-                <option value="other service business">Other service business</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="task">What task do you want Claude to help with?</label>
-            <textarea id="task" name="task" required placeholder="e.g. Draft first replies to quote requests, summarise intake forms, prepare weekly client updates..."></textarea>
-          </div>
-          <div class="grid">
-            <div class="field">
-              <label for="trigger">Trigger</label>
-              <select id="trigger" name="trigger" required>
-                <option value="">Choose one</option>
-                <option value="new website form submission">New website form submission</option>
-                <option value="new email in a labelled inbox">New email in a labelled inbox</option>
-                <option value="new row in a spreadsheet or CRM">New row in a spreadsheet or CRM</option>
-                <option value="scheduled weekly review">Scheduled weekly review</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="output">Output</label>
-              <select id="output" name="output" required>
-                <option value="">Choose one</option>
-                <option value="Gmail draft">Gmail draft</option>
-                <option value="Google Doc report">Google Doc report</option>
-                <option value="Slack summary">Slack summary</option>
-                <option value="CRM note">CRM note</option>
-                <option value="spreadsheet row">Spreadsheet row</option>
-              </select>
-            </div>
-          </div>
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="label">Format</span>&nbsp;<span style="color:var(--text);font-weight:700;">Read + Build</span>
+        </div>
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="label">You&rsquo;ll leave with</span>&nbsp;<span style="color:var(--text);font-weight:700;">A printable map</span>
+        </div>
+      </div>
+    </div>
 
-          <div class="field">
-            <label for="manualReps">How many times have you done this manually?</label>
-            <div class="range-row">
-              <input id="manualReps" name="manualReps" type="range" min="0" max="30" value="5">
-              <div class="range-value"><span id="manualRepsValue">5</span>x</div>
+    <!-- mini reading -->
+    <div class="read-block">
+      <h2>The API in plain English — and the one rule that keeps automations honest</h2>
+      <p>You&rsquo;ve been using Claude through a chat window. You type, Claude responds, you read it. That&rsquo;s the front end. The <strong>API is the back end</strong> — a way for other software to talk to Claude directly, without you in the middle. A new enquiry form comes in, Claude drafts a response. An email lands in a Gmail label, Claude summarises the thread. A spreadsheet updates, Claude generates the weekly report. All of it happens in the background, driven by events — not by you sitting at a keyboard.</p>
+      <p>You don&rsquo;t need to write code. Three no-code tools — <strong>Zapier</strong>, <strong>Make</strong>, and <strong>n8n</strong> — do the wiring for you through a visual interface. Zapier is gentlest, Make is more flexible, n8n is open-source and the most technical of the three. You can run a real automation through Claude Sonnet for roughly a fraction of a cent per run. The setup time, not the API bill, is the real investment.</p>
+
+      <h3>The &ldquo;do it manually first&rdquo; rule</h3>
+      <p><strong>Automate only what you have already done repeatedly by hand, and know works.</strong> If you haven&rsquo;t manually responded to twenty enquiries and developed a sense of what good looks like, you can&rsquo;t configure Claude to produce good automated outputs at scale. You&rsquo;ll build an automation that produces mediocre work — and you won&rsquo;t notice, because you&rsquo;re no longer in the loop. Before you automate any task, ask yourself three questions:</p>
+
+      <div class="three-q">
+        <div class="three-q-label">The three-question readiness test</div>
+        <ol>
+          <li>Have I done this task manually at least <strong>ten to twenty times</strong>?</li>
+          <li>Do I have a clear sense of what a <strong>good output</strong> looks like — could I write the standard down?</li>
+          <li>Would I be comfortable <strong>reviewing weekly</strong> rather than every time?</li>
+        </ol>
+      </div>
+      <p>If the answer to any of those is no, the task is not ready to automate. Keep doing it manually. Keep refining your prompt. The automation comes later.</p>
+    </div>
+
+    <!-- one inline example -->
+    <div class="inline-example">
+      <div class="label">One worked example · Brisbane residential builder</div>
+      <h4>Auto-draft a warm response to new website enquiries</h4>
+      <div class="ex-row"><div class="ex-key">Trigger</div><div>New submission on the website <strong>Typeform contact form</strong>.</div></div>
+      <div class="ex-row"><div class="ex-key">Action</div><div>Claude receives the name, project type and message, then drafts a <strong>warm, &lt;120-word response email</strong> proposing a 20-minute call.</div></div>
+      <div class="ex-row"><div class="ex-key">Output</div><div>Saved as a <strong>Gmail draft</strong> for the owner to review and send.</div></div>
+      <div class="ex-row"><div class="ex-key">Built with</div><div><strong>Zapier</strong> — gentlest learning curve and the most common starting point.</div></div>
+    </div>
+
+    <!-- ============================================ BUILDER ============================================ -->
+    <div class="divider"><span class="line"></span><span class="label">Your turn</span><span class="line"></span></div>
+    <h2 class="section-heading">Build your own automation map</h2>
+    <p class="section-sub">Four taps. No typing. You&rsquo;ll leave with a printable trigger&nbsp;→&nbsp;action&nbsp;→&nbsp;output map, a recommended no-code tool, and a clear verdict on whether you&rsquo;re ready to build it now.</p>
+
+    <div class="builder-card">
+      <div class="builder-head">
+        <div class="builder-kicker">Free interactive · 4 steps</div>
+        <h2 class="builder-title">Automation Map Builder</h2>
+        <p class="builder-brief">Pick the tile that fits your business at each step. Skip the typing — the map is generated for you.</p>
+      </div>
+
+      <div class="builder-progress" id="bProgress">
+        <div class="bp-step is-active" data-step="0"><div class="bp-num">1</div><div class="bp-label">Industry</div></div>
+        <div class="bp-step" data-step="1"><div class="bp-num">2</div><div class="bp-label">Trigger</div></div>
+        <div class="bp-step" data-step="2"><div class="bp-num">3</div><div class="bp-label">Claude does</div></div>
+        <div class="bp-step" data-step="3"><div class="bp-num">4</div><div class="bp-label">Output</div></div>
+      </div>
+
+      <!-- STEP 1: industry -->
+      <div class="builder-step" data-step="0">
+        <div class="step-eyebrow">Step 1 of 4</div>
+        <div class="step-q">What kind of business are you?</div>
+        <div class="step-help">Pick the closest fit. This personalises the example you&rsquo;ll see in your map.</div>
+        <div class="tile-grid three" data-field="industry">
+          <button class="tile" data-value="trades" data-label="Trades &amp; construction">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div class="tile-label">Trades & construction</div>
+            <div class="tile-desc">Builders, electricians, plumbers, landscapers.</div>
+          </button>
+          <button class="tile" data-value="allied-health" data-label="Allied health">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+            <div class="tile-label">Allied health</div>
+            <div class="tile-desc">Physio, psych, OT, podiatry, dietetics.</div>
+          </button>
+          <button class="tile" data-value="bookkeeping" data-label="Bookkeeping / accounting">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="tile-label">Bookkeeping / accounting</div>
+            <div class="tile-desc">Sole-trader BAS, payroll, EOFY work.</div>
+          </button>
+          <button class="tile" data-value="property" data-label="Property management">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="tile-label">Property management</div>
+            <div class="tile-desc">Residential, strata, real estate admin.</div>
+          </button>
+          <button class="tile" data-value="education" data-label="Tutoring / education">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div class="tile-label">Tutoring / education</div>
+            <div class="tile-desc">Private tutors, training providers, RTOs.</div>
+          </button>
+          <button class="tile" data-value="other" data-label="Something else">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+            <div class="tile-label">Something else</div>
+            <div class="tile-desc">Services, retail, consulting, agency.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: trigger -->
+      <div class="builder-step" data-step="1" hidden="">
+        <div class="step-eyebrow">Step 2 of 4 · Trigger</div>
+        <div class="step-q">What event should kick off the automation?</div>
+        <div class="step-help">An automation is only as specific as its trigger. &ldquo;When a client emails me&rdquo; isn&rsquo;t buildable — but &ldquo;email arrives in Gmail label <em>Client Enquiries</em>&rdquo; is.</div>
+        <div class="tile-grid" data-field="trigger">
+          <button class="tile" data-value="form" data-label="A website form is submitted">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+            <div class="tile-label">A website form is submitted</div>
+            <div class="tile-desc">Typeform, JotForm, Gravity Forms, contact-us page.</div>
+          </button>
+          <button class="tile" data-value="email" data-label="An email lands in a specific label">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="tile-label">An email lands in a specific label</div>
+            <div class="tile-desc">Gmail / Outlook filter routes the new message.</div>
+          </button>
+          <button class="tile" data-value="schedule" data-label="A scheduled time (e.g. Monday 7am)">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="tile-label">A scheduled time</div>
+            <div class="tile-desc">Daily, weekly, fortnightly — the same hour each time.</div>
+          </button>
+          <button class="tile" data-value="sheet" data-label="A row is added to a spreadsheet">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+            <div class="tile-label">A row is added to a sheet</div>
+            <div class="tile-desc">Google Sheets, Airtable, a CRM export.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: action -->
+      <div class="builder-step" data-step="2" hidden="">
+        <div class="step-eyebrow">Step 3 of 4 · Claude action</div>
+        <div class="step-q">What should Claude do with it?</div>
+        <div class="step-help">The action describes what inputs Claude receives and what it produces. Specific format, specific length.</div>
+        <div class="tile-grid" data-field="action">
+          <button class="tile" data-value="draft-reply" data-label="Draft a personalised reply">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="tile-label">Draft a personalised reply</div>
+            <div class="tile-desc">A warm, on-brand response under 120 words.</div>
+          </button>
+          <button class="tile" data-value="summarise" data-label="Summarise a long thread or document">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></svg></div>
+            <div class="tile-label">Summarise a thread or document</div>
+            <div class="tile-desc">Situation, agreed, outstanding, urgency.</div>
+          </button>
+          <button class="tile" data-value="report" data-label="Generate a plain-English report">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="tile-label">Generate a plain-English report</div>
+            <div class="tile-desc">Up, down, needs attention — straight from the data.</div>
+          </button>
+          <button class="tile" data-value="classify" data-label="Classify &amp; route">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="tile-label">Classify & tag</div>
+            <div class="tile-desc">Billing / bug / how-to / feature — pick a bucket.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 4: output -->
+      <div class="builder-step" data-step="3" hidden="">
+        <div class="step-eyebrow">Step 4 of 4 · Output</div>
+        <div class="step-q">Where should the result go?</div>
+        <div class="step-help">Outputs that land in a place you already check daily get reviewed. Outputs that don&rsquo;t — get forgotten.</div>
+        <div class="tile-grid" data-field="output">
+          <button class="tile" data-value="gmail-draft" data-label="Saved as a Gmail / Outlook draft">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="tile-label">Saved as a Gmail draft</div>
+            <div class="tile-desc">Review and send from your inbox in seconds.</div>
+          </button>
+          <button class="tile" data-value="slack" data-label="Posted to a Slack channel">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2zM6 9a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2z"/></svg></div>
+            <div class="tile-label">Posted to a Slack channel</div>
+            <div class="tile-desc">A team digest you scan once a day.</div>
+          </button>
+          <button class="tile" data-value="sheet-row" data-label="A new row in a Google Sheet">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="tile-label">A new row in a sheet</div>
+            <div class="tile-desc">Audit trail + admin reviews before sending.</div>
+          </button>
+          <button class="tile" data-value="crm" data-label="Logged as a CRM note">
+            <div class="tile-icon"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+            <div class="tile-label">Logged as a CRM note</div>
+            <div class="tile-desc">HubSpot, Pipedrive, Cliniko, ServiceM8.</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="builder-nav">
+        <button class="btn btn-outline" id="bBack" disabled="">
+          <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Back
+        </button>
+        <button class="btn btn-primary" id="bNext" disabled="">
+          Next
+          <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- result placeholder -->
+    <div id="aResult"></div>
+
+    <div class="lm-foot">
+      This is a 7-minute taste of <strong>Lesson 5.3</strong>. The full lesson includes 5 worked examples, a graded deliverable with Claude API feedback, and unlock to Module 6. <a href="#">See the full course →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ VARIATION B — READINESS DIAGNOSTIC ============================================ -->
+<section class="variation-page" id="vB">
+  <div class="lesson-shell">
+
+    <div class="hero">
+      <div class="eyebrow"><span class="dot"></span> Module 05 · Lesson 5.3 · Free Preview</div>
+      <h1>Should you automate this task yet? Three&nbsp;sliders&nbsp;tell&nbsp;you.</h1>
+      <p class="lead">Most small business owners build automations too early — before they&rsquo;ve done the manual version enough times to know what good looks like. This is a reduced taste of Lesson 5.3 — read the short version, then move the sliders to find out whether your task is ready.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="label">Time</span>&nbsp;<span style="color:var(--text);font-weight:700;">5 min</span>
+        </div>
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 17l4-4 4 4 5-5"/></svg>
+          <span class="label">Format</span>&nbsp;<span style="color:var(--text);font-weight:700;">Read + Diagnose</span>
+        </div>
+        <div class="meta-item">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="label">You&rsquo;ll leave with</span>&nbsp;<span style="color:var(--text);font-weight:700;">A score + verdict</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- mini reading -->
+    <div class="read-block">
+      <h2>The rule that keeps automations honest</h2>
+      <p>The Claude API is how Claude stops being a chat window and becomes a background service. A new enquiry form comes in, Claude drafts a response. An email lands in a label, Claude summarises it. A spreadsheet updates, Claude writes the weekly report. No-code tools like <strong>Zapier</strong>, <strong>Make</strong>, and <strong>n8n</strong> let you wire it up without a developer — and the API itself costs roughly a fraction of a cent per run.</p>
+      <p>But the cost isn&rsquo;t the question. The question is whether the task is <strong>ready</strong>. Most people skip the part of the lesson that matters most:</p>
+
+      <h3>The &ldquo;do it manually first&rdquo; rule</h3>
+      <p>Automate only what you have already done <strong>repeatedly by hand</strong>, and know works. If you haven&rsquo;t manually responded to twenty enquiries and developed a sense of what good looks like — tone, length, what to mention, what to avoid — you can&rsquo;t configure Claude to produce good outputs at scale. You&rsquo;ll build something that produces mediocre work, and you won&rsquo;t notice, because you&rsquo;re no longer in the loop. The diagnostic below runs the three readiness questions on whatever task you have in mind.</p>
+
+      <div class="three-q">
+        <div class="three-q-label">The three-question readiness test</div>
+        <ol>
+          <li>Have I done this task manually at least <strong>ten to twenty times</strong>?</li>
+          <li>Do I have a clear sense of what a <strong>good output</strong> looks like — could I write the standard down?</li>
+          <li>Would I be comfortable <strong>reviewing weekly</strong> rather than every time?</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- diagnostic -->
+    <div class="divider"><span class="line"></span><span class="label">Your turn</span><span class="line"></span></div>
+    <h2 class="section-heading">Run the readiness diagnostic</h2>
+    <p class="section-sub">Pick a task in your business you&rsquo;ve been thinking about automating. Then answer the three questions — by moving sliders, not by writing.</p>
+
+    <div class="diag-card">
+      <div class="diag-body">
+
+        <!-- Q1 slider: manual reps -->
+        <div class="diag-q">
+          <div class="diag-q-head">
+            <div class="diag-q-num">1</div>
+            <div>
+              <div class="diag-q-title">How many times have you done this task manually?</div>
+              <div class="diag-q-help">The lesson&rsquo;s threshold is 10–20 reps. Be honest — &ldquo;a few&rdquo; usually means three or four.</div>
             </div>
-            <small>Lesson 5.3's healthy range is usually 10 to 20 reps before you automate.</small>
           </div>
-
-          <div class="field">
-            <label for="standard">How clearly can you describe a good output?</label>
-            <select id="standard" name="standard" required>
-              <option value="">Choose one</option>
-              <option value="6">I would know it when I saw it</option>
-              <option value="14">I have a rough sense</option>
-              <option value="20">I could write the standard in 30 minutes</option>
-              <option value="25">The standard is already written down</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="review">What review cadence would you be comfortable with?</label>
-            <select id="review" name="review" required>
-              <option value="">Choose one</option>
-              <option value="4">I would need to check every output</option>
-              <option value="14">Daily review</option>
-              <option value="22">Weekly review</option>
-              <option value="25">Monthly spot check</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="timeSaved">How much time could this save each week?</label>
-            <div class="range-row">
-              <input id="timeSaved" name="timeSaved" type="range" min="0" max="600" step="15" value="60">
-              <div class="range-value" id="timeSavedValue">1 hr</div>
+          <div class="slider-wrap">
+            <div class="slider-row">
+              <input type="range" min="0" max="50" value="3" class="slider" id="q1Slider" style="--pct:6%;">
+              <div class="slider-value" id="q1Value">3 times</div>
+            </div>
+            <div class="slider-scale">
+              <span>Never</span>
+              <span>10</span>
+              <span>20</span>
+              <span>50+</span>
             </div>
           </div>
+        </div>
 
-          <div class="button-row">
-            <button class="primary" type="submit">Generate my report</button>
-            <span class="fine">Your report appears instantly. Your details are sent to the lead endpoint if storage is connected.</span>
+        <!-- Q2 segmented: good output -->
+        <div class="diag-q">
+          <div class="diag-q-head">
+            <div class="diag-q-num">2</div>
+            <div>
+              <div class="diag-q-title">Do you know what a &ldquo;good&rdquo; output looks like?</div>
+              <div class="diag-q-help">Could you write the standard down — tone, length, what it must mention, what it must avoid?</div>
+            </div>
           </div>
-          <div class="status" id="status"></div>
-        </form>
-      </section>
+          <div class="segmented" data-field="q2">
+            <button class="seg-opt" data-value="1">
+              <div class="seg-opt-label">No idea</div>
+              <div class="seg-opt-desc">I&rsquo;d know it when I saw it.</div>
+            </button>
+            <button class="seg-opt" data-value="2">
+              <div class="seg-opt-label">Rough sense</div>
+              <div class="seg-opt-desc">I have a vibe but no rules.</div>
+            </button>
+            <button class="seg-opt" data-value="3">
+              <div class="seg-opt-label">Could write it</div>
+              <div class="seg-opt-desc">Half an hour, I&rsquo;d have a checklist.</div>
+            </button>
+            <button class="seg-opt" data-value="4">
+              <div class="seg-opt-label">Already written</div>
+              <div class="seg-opt-desc">The standard exists and works.</div>
+            </button>
+          </div>
+        </div>
 
-      <section class="result-card" id="result">
+        <!-- Q3 segmented: weekly review -->
+        <div class="diag-q">
+          <div class="diag-q-head">
+            <div class="diag-q-num">3</div>
+            <div>
+              <div class="diag-q-title">How often would you be comfortable reviewing the output?</div>
+              <div class="diag-q-help">Automation only works if you&rsquo;re happy stepping out of the loop for most outputs.</div>
+            </div>
+          </div>
+          <div class="segmented" data-field="q3">
+            <button class="seg-opt" data-value="1">
+              <div class="seg-opt-label">Every single one</div>
+              <div class="seg-opt-desc">I&rsquo;d worry if I didn&rsquo;t check.</div>
+            </button>
+            <button class="seg-opt" data-value="2">
+              <div class="seg-opt-label">Daily batch</div>
+              <div class="seg-opt-desc">Skim once a day, that&rsquo;d be fine.</div>
+            </button>
+            <button class="seg-opt" data-value="3">
+              <div class="seg-opt-label">Weekly</div>
+              <div class="seg-opt-desc">Friday afternoon review is plenty.</div>
+            </button>
+            <button class="seg-opt" data-value="4">
+              <div class="seg-opt-label">Monthly+</div>
+              <div class="seg-opt-desc">The standard is locked, I&rsquo;d trust it.</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q4 slider: hours saved -->
+        <div class="diag-q">
+          <div class="diag-q-head">
+            <div class="diag-q-num">4</div>
+            <div>
+              <div class="diag-q-title">How long does this task currently take you each week?</div>
+              <div class="diag-q-help">Bonus context — automations that save &lt;30 min a week rarely justify the setup time.</div>
+            </div>
+          </div>
+          <div class="slider-wrap">
+            <div class="slider-row">
+              <input type="range" min="0" max="600" value="60" step="15" class="slider" id="q4Slider" style="--pct:10%;">
+              <div class="slider-value" id="q4Value">1 hr / week</div>
+            </div>
+            <div class="slider-scale">
+              <span>0 min</span>
+              <span>30 min</span>
+              <span>3 hr</span>
+              <span>10 hr+</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="diag-actions">
+        <div class="diag-status" id="dStatus">Move the sliders, then run the diagnostic.</div>
+        <button class="btn btn-primary" id="dRun" disabled="">
+          <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Run my readiness check
+        </button>
+      </div>
+    </div>
+
+    <!-- result placeholder -->
+    <div id="bResult"></div>
+
+    <div class="lm-foot">
+      This is a 5-minute taste of <strong>Lesson 5.3</strong>. The full lesson includes 5 worked examples, a graded deliverable with Claude API feedback, and unlock to Module 6. <a href="#">See the full course →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ============================================ TAB SWITCHER ============================================ */
+document.querySelectorAll('.variation-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.target;
+    document.querySelectorAll('.variation-tab').forEach(t => t.classList.toggle('is-active', t === tab));
+    document.querySelectorAll('.variation-page').forEach(p => p.classList.toggle('is-active', p.id === target));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+});
+
+/* ============================================ VARIATION A — BUILDER ============================================ */
+(function builder() {
+  const state = { industry: null, trigger: null, action: null, output: null, step: 0 };
+  const FIELDS = ['industry', 'trigger', 'action', 'output'];
+
+  const stepEls = document.querySelectorAll('#vA .builder-step');
+  const progEls = document.querySelectorAll('#vA .bp-step');
+  const back = document.getElementById('bBack');
+  const next = document.getElementById('bNext');
+
+  function renderStep() {
+    stepEls.forEach(s => { s.hidden = +s.dataset.step !== state.step; });
+    progEls.forEach(p => {
+      const idx = +p.dataset.step;
+      p.classList.toggle('is-active', idx === state.step);
+      p.classList.toggle('is-done', idx < state.step || (idx === state.step && state[FIELDS[idx]]));
+    });
+    back.disabled = state.step === 0;
+    const fieldVal = state[FIELDS[state.step]];
+    next.disabled = !fieldVal;
+    next.innerHTML = state.step === 3
+      ? 'Generate my map <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+      : 'Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+  }
+
+  document.querySelectorAll('#vA .tile-grid').forEach(grid => {
+    const field = grid.dataset.field;
+    grid.querySelectorAll('.tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        grid.querySelectorAll('.tile').forEach(t => t.classList.toggle('is-selected', t === tile));
+        state[field] = { value: tile.dataset.value, label: tile.dataset.label };
+        renderStep();
+      });
+    });
+  });
+
+  back.addEventListener('click', () => {
+    if (state.step > 0) { state.step--; renderStep(); }
+  });
+  next.addEventListener('click', () => {
+    if (state.step < 3) { state.step++; renderStep(); }
+    else generateMap();
+  });
+
+  function generateMap() {
+    const industryExamples = {
+      'trades': { trigger: 'Typeform "quote request" form', action: 'job type, suburb, budget range, scope notes', output: 'Gmail drafts folder' },
+      'allied-health': { trigger: 'Cliniko "new enquiry" form', action: 'service type, preferred day, channel — no clinical data', output: 'Gmail drafts (admin reviews)' },
+      'bookkeeping': { trigger: 'weekly Xero payroll export', action: 'pay period totals + flagged anomalies', output: 'Google Doc + email to client' },
+      'property': { trigger: 'email arrives in "Tenant Enquiries" Gmail label', action: 'tenant name, property, issue, urgency', output: 'Daily digest in Slack #maintenance' },
+      'education': { trigger: 'new Typeform enrolment submission', action: 'student year level, subjects, parent preferences', output: 'Gmail draft with tailored welcome' },
+      'other': { trigger: 'new website contact form submission', action: 'name, enquiry type, message body', output: 'Gmail draft for review before sending' }
+    };
+    const triggerCopy = {
+      'form': 'A new submission on your',
+      'email': 'A new email landing in your',
+      'schedule': 'A scheduled run at the same time each week, pulling from your',
+      'sheet': 'A new row added to your'
+    };
+    const triggerSrc = {
+      'form': 'enquiry / quote / enrolment form',
+      'email': 'Gmail / Outlook label',
+      'schedule': 'business data source',
+      'sheet': 'Google Sheet / Airtable / CRM export'
+    };
+    const actionCopy = {
+      'draft-reply': 'drafts a warm, on-brand reply email, under 120 words, with a clear next step',
+      'summarise': 'produces a structured summary — situation, agreed, outstanding, urgency',
+      'report': 'generates a plain-English summary — what went up, what went down, what needs attention',
+      'classify': 'tags each item by category and recommends the right person to handle it'
+    };
+    const outputCopy = {
+      'gmail-draft': 'Saved as a Gmail draft for you to review and send.',
+      'slack': 'Posted to a Slack channel as a daily digest your team scans together.',
+      'sheet-row': 'Appended as a new row in your review sheet — audit trail included.',
+      'crm': 'Logged as a note against the right contact in your CRM.'
+    };
+    const toolReco = (() => {
+      // Simple logic: form/email → Zapier, sheet/schedule with reporting → Make, classify → Zapier
+      if (state.action.value === 'report' || state.trigger.value === 'sheet') {
+        return { name: 'Make', why: 'Better at handling structured data flows — branching, looping over rows, filtering before Claude sees it.' };
+      }
+      return { name: 'Zapier', why: 'Gentlest learning curve, native Claude integration, most tutorials for your trigger type.' };
+    })();
+    const verdictReady = state.action.value !== 'classify' || state.industry.value !== 'allied-health';
+    // Always show "do this manually first" — that's the lesson's point.
+
+    const industryEx = industryExamples[state.industry.value];
+
+    const html = `
+      <div class="result-card" id="resultCardA">
         <div class="result-head">
-          <div class="score-ring" id="scoreRing" style="--score-deg:0deg">
-            <div class="score-num"><span id="scoreNum">0</span><span>/ 100</span></div>
-          </div>
           <div>
-            <div class="verdict" id="verdictChip">Report ready</div>
-            <h2 id="resultTitle">Your automation readiness report</h2>
-            <p id="resultSub"></p>
+            <div class="result-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Map generated
+            </div>
+            <div class="result-title">Your automation map is ready</div>
+            <div class="result-sub">Print it, save it, or paste it into your no-code tool. The hard part now is the &ldquo;do it manually first&rdquo; work — before you wire any of this up.</div>
+          </div>
+          <div style="text-align:right; align-self:start;">
+            <div style="font:800 0.66rem var(--font);text-transform:uppercase;letter-spacing:0.14em;color:var(--blue);margin-bottom:6px;">Industry</div>
+            <div style="font:800 1.05rem var(--font);color:white;">${state.industry.label}</div>
           </div>
         </div>
         <div class="result-body">
-          <div class="breakdown" id="breakdown"></div>
 
-          <div class="prompt-box">
-            <div class="prompt-head">
-              <span>Your tailored Claude prompt template</span>
-              <button class="copy-btn" type="button" id="copyPrompt">Copy</button>
+          <div class="map-block">
+            <div class="map-row">
+              <div class="key">Trigger</div>
+              <div class="val">${triggerCopy[state.trigger.value]} <strong>${triggerSrc[state.trigger.value]}</strong> &mdash; e.g. <em>${industryEx.trigger}</em>.</div>
             </div>
-            <pre id="promptText"></pre>
+            <div class="map-row">
+              <div class="key">Claude action</div>
+              <div class="val">Claude receives the relevant fields (<em>${industryEx.action}</em>) and <strong>${actionCopy[state.action.value]}</strong>.</div>
+            </div>
+            <div class="map-row">
+              <div class="key">Output</div>
+              <div class="val"><strong>${outputCopy[state.output.value]}</strong> Recommended destination based on industry: <em>${industryEx.output}</em>.</div>
+            </div>
           </div>
 
-          <div class="report-page" id="reportPage">
-            <h3>Your one-page report</h3>
-            <div id="reportText"></div>
+          <div class="reco-grid">
+            <div class="reco-card tool">
+              <div class="reco-label">No-code tool we&rsquo;d start with</div>
+              <div class="reco-val">${toolReco.name}</div>
+              <div class="reco-desc">${toolReco.why}</div>
+            </div>
+            <div class="reco-card verdict">
+              <div class="reco-label">Next step (not the build)</div>
+              <div class="reco-val">Run it manually × 15</div>
+              <div class="reco-desc">Open Claude. Paste in a real example. Write the constrained prompt. Do it fifteen times. <strong>Then</strong> automate.</div>
+            </div>
           </div>
 
-          <div class="button-row">
-            <button class="secondary" type="button" onclick="window.print()">Save report as PDF</button>
-            <a class="button ghost" href="/#pricing">See the full course</a>
+          <div class="gate">
+            <div class="gate-title">Want the full prompt template for this automation?</div>
+            <div class="gate-sub">We&rsquo;ll email you the constrained prompt for <strong>${state.action.label.toLowerCase()}</strong> — role, task, format, length, real-data example — plus a 14-day &ldquo;do it manually first&rdquo; checklist tailored to ${state.industry.label}.</div>
+            <form class="gate-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+              <input type="email" class="gate-input" placeholder="you@yourbusiness.com.au" required>
+              <button class="gate-btn" type="submit">Send me the prompt →</button>
+            </form>
+            <div class="gate-footnote">No spam. One email with the prompt, one follow-up with the checklist, then you decide if you want the full Claude Mastery course. Unsubscribe at the bottom of every email.</div>
+          </div>
+
+        </div>
+      </div>
+    `;
+    const slot = document.getElementById('aResult');
+    slot.innerHTML = html;
+    setTimeout(() => slot.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  }
+
+  renderStep();
+})();
+
+/* ============================================ VARIATION B — DIAGNOSTIC ============================================ */
+(function diag() {
+  const q1 = document.getElementById('q1Slider');
+  const q1v = document.getElementById('q1Value');
+  const q4 = document.getElementById('q4Slider');
+  const q4v = document.getElementById('q4Value');
+  const status = document.getElementById('dStatus');
+  const runBtn = document.getElementById('dRun');
+  const state = { q1: 3, q2: null, q3: null, q4: 60 };
+
+  function fmtMins(m) {
+    if (m === 0) return '0 min / week';
+    if (m < 60) return m + ' min / week';
+    if (m % 60 === 0) return (m/60) + ' hr / week';
+    return (m/60).toFixed(1).replace('.0','') + ' hr / week';
+  }
+
+  q1.addEventListener('input', () => {
+    state.q1 = +q1.value;
+    q1v.textContent = state.q1 + (state.q1 === 1 ? ' time' : ' times') + (state.q1 === 50 ? '+' : '');
+    q1.style.setProperty('--pct', (state.q1 / 50 * 100) + '%');
+    update();
+  });
+  q4.addEventListener('input', () => {
+    state.q4 = +q4.value;
+    q4v.textContent = fmtMins(state.q4);
+    q4.style.setProperty('--pct', (state.q4 / 600 * 100) + '%');
+    update();
+  });
+
+  document.querySelectorAll('#vB .segmented').forEach(grid => {
+    const field = grid.dataset.field;
+    grid.querySelectorAll('.seg-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        grid.querySelectorAll('.seg-opt').forEach(o => o.classList.toggle('is-selected', o === opt));
+        state[field] = +opt.dataset.value;
+        update();
+      });
+    });
+  });
+
+  function update() {
+    const ready = state.q2 != null && state.q3 != null;
+    runBtn.disabled = !ready;
+    if (ready) {
+      status.textContent = 'Ready to run.';
+      status.classList.add('ready');
+    } else {
+      status.textContent = 'Answer questions 2 and 3 to enable the diagnostic.';
+      status.classList.remove('ready');
+    }
+  }
+
+  runBtn.addEventListener('click', () => render());
+
+  function score() {
+    // Q1: 0 reps = 0, 10 reps = 18, 20+ = 25
+    const s1 = Math.min(25, Math.round(state.q1 / 20 * 25));
+    // Q2: 1-4 maps to 6 / 14 / 20 / 25
+    const s2 = ({1:6, 2:14, 3:20, 4:25})[state.q2];
+    // Q3: 1-4 maps to 4 / 14 / 22 / 25
+    const s3 = ({1:4, 2:14, 3:22, 4:25})[state.q3];
+    // Q4: <30min = 8, 30-90 = 18, 90+ = 25
+    let s4;
+    if (state.q4 < 30) s4 = 8;
+    else if (state.q4 < 90) s4 = 18;
+    else s4 = 25;
+    return { s1, s2, s3, s4, total: s1 + s2 + s3 + s4 };
+  }
+
+  function tier(s) {
+    if (s >= 20) return 'high';
+    if (s >= 12) return 'mid';
+    return 'low';
+  }
+
+  function render() {
+    const sc = score();
+    const total = sc.total;
+    const pass = total >= 70;
+
+    const q1Feedback = state.q1 >= 15
+      ? `You've done this ${state.q1}${state.q1 === 50 ? '+' : ''} times — well past the threshold. You know the rhythm.`
+      : state.q1 >= 8
+        ? `${state.q1} reps is right at the edge. Aim for 15 before you wire it up — you'll catch the edge cases that aren't visible yet.`
+        : `Only ${state.q1} manual run${state.q1 === 1 ? '' : 's'}. The lesson's threshold is 10–20. <strong>This is the single biggest predictor of an automation that holds up.</strong>`;
+    const q2Feedback = ({
+      1: `&ldquo;I&rsquo;d know it when I saw it&rdquo; is fine for taste — not for configuration. You need to be able to write the standard down before Claude can produce it consistently.`,
+      2: `A rough sense isn&rsquo;t enough yet. Spend 30 minutes writing the rules — tone, length, what to mention, what to avoid. That document becomes your system prompt.`,
+      3: `Good. The document doesn&rsquo;t exist yet but you could write it tomorrow. That&rsquo;s the right state to start prompt-engineering against.`,
+      4: `Excellent — the standard exists and works. Your job now is translating it into a constrained prompt.`
+    })[state.q2];
+    const q3Feedback = ({
+      1: `Reviewing every single output isn't automation — it's a slower version of doing it manually. Either the trust isn't there yet (so do more manual reps), or this task shouldn't be automated.`,
+      2: `Daily review is a solid starting cadence — you'll see drift early without the friction of per-item checking.`,
+      3: `Weekly review fits the lesson's bar. You're prepared to step out of the loop, and that's what makes automation worth setting up.`,
+      4: `Monthly-or-less is the destination — but only get there after a few months of weekly review confirms the outputs are landing.`
+    })[state.q3];
+    const q4Feedback = state.q4 < 30
+      ? `Currently ${fmtMins(state.q4)} — below the threshold where automation pays back the setup time. If it's annoying but quick, do it manually.`
+      : state.q4 < 90
+        ? `${fmtMins(state.q4)} — solid candidate. Two to four hours of setup time will pay back inside the first month.`
+        : `${fmtMins(state.q4)}. High-leverage candidate — but resist the urge to rush. The taller the value, the more important the manual reps are.`;
+
+    const verdict = (() => {
+      if (total >= 85) return { chip: 'Ready to automate', title: 'Green light — build it', sub: 'You\'ve done the manual reps, you know the standard, you\'re comfortable stepping out of the loop. The full Lesson 5.3 walks you through the exact Zapier/Make setup. The taste version stops here.' };
+      if (total >= 70) return { chip: 'Almost ready', title: 'Close — one more loop of manual runs', sub: 'You\'re close. The full Lesson 5.3 shows you how to use the next 2–3 weeks to close the remaining gap before you wire it up.' };
+      if (total >= 50) return { chip: 'Not yet — but visible', title: 'Not ready yet — and that\'s a useful answer', sub: '&ldquo;Not ready&rdquo; is a valid verdict — often the highest-scoring one in the graded version of this lesson. The full lesson includes a 6-week plan to revisit this.' };
+      return { chip: 'Hold off', title: 'Do it manually first', sub: 'You haven\'t done the work the automation needs to inherit yet. The good news: the rest of the course is the work. Module 1 starts with one constrained Claude prompt and builds from there.' };
+    })();
+
+    const r = 44;
+    const circ = 2 * Math.PI * r;
+    const offset = circ - (total / 100) * circ;
+
+    const html = `
+      <div class="result-card ${pass ? '' : 'not-yet'}" id="resultCardB">
+        <div class="result-head">
+          <div class="result-score-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="track" cx="50" cy="50" r="${r}"/>
+              <circle class="fill" cx="50" cy="50" r="${r}" stroke-dasharray="${circ}" stroke-dashoffset="${circ}" data-final-offset="${offset}"/>
+            </svg>
+            <div class="result-score-label">${total}<br><span class="max">/ 100</span></div>
+          </div>
+          <div>
+            <div class="result-chip">${verdict.chip}</div>
+            <div class="result-title">${verdict.title}</div>
+            <div class="result-sub">${verdict.sub}</div>
           </div>
         </div>
-      </section>
-    </div>
-  </section>
-</main>
 
-<script>
-const form = document.getElementById('lessonForm');
-const manualReps = document.getElementById('manualReps');
-const manualRepsValue = document.getElementById('manualRepsValue');
-const timeSaved = document.getElementById('timeSaved');
-const timeSavedValue = document.getElementById('timeSavedValue');
-const statusEl = document.getElementById('status');
-let latestPrompt = '';
+        <div class="result-body">
+          <div class="breakdown">
+            ${[
+              {name: 'Manual reps', s: sc.s1, fb: q1Feedback},
+              {name: 'Know what good looks like', s: sc.s2, fb: q2Feedback},
+              {name: 'Comfort with weekly review', s: sc.s3, fb: q3Feedback},
+              {name: 'Worth-it threshold', s: sc.s4, fb: q4Feedback}
+            ].map(row => `
+              <div class="bd-row">
+                <div class="bd-name">${row.name}</div>
+                <div class="bd-score">${row.s}<span class="max">/25</span></div>
+                <div class="bd-bar"><div class="bd-fill ${tier(row.s)}" data-final-pct="${row.s / 25 * 100}"></div></div>
+                <div class="bd-feedback">${row.fb}</div>
+              </div>
+            `).join('')}
+          </div>
 
-manualReps.addEventListener('input', () => {
-  manualRepsValue.textContent = manualReps.value;
-});
-
-timeSaved.addEventListener('input', () => {
-  timeSavedValue.textContent = formatMinutes(Number(timeSaved.value));
-});
-
-document.getElementById('copyPrompt').addEventListener('click', async (event) => {
-  await navigator.clipboard.writeText(latestPrompt);
-  event.currentTarget.textContent = 'Copied';
-  setTimeout(() => event.currentTarget.textContent = 'Copy', 1500);
-});
-
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(form).entries());
-  const report = buildReport(data);
-  renderReport(report);
-  statusEl.textContent = 'Report generated. Sending lead capture...';
-
-  try {
-    const response = await fetch('/api/lesson53-submissions', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        business: data.business,
-        score: report.score,
-        verdict: report.verdict,
-        answers: data,
-        prompt: report.prompt,
-        report: report.summary,
-      }),
+          <div class="gate">
+            <div class="gate-title">Want your full automation readiness report?</div>
+            <div class="gate-sub">We&rsquo;ll email you a one-page PDF with your score, the four breakdowns above, and — based on your verdict — either the <strong>build checklist</strong> or the <strong>6-week ramp plan</strong> from Lesson 5.3.</div>
+            <form class="gate-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓'; this.querySelector('button').disabled=true;">
+              <input type="email" class="gate-input" placeholder="you@yourbusiness.com.au" required>
+              <button class="gate-btn" type="submit">Email me my report →</button>
+            </form>
+            <div class="gate-footnote">No spam. One email with your report, one follow-up with the next-step plan, then you decide if you want the full Claude Mastery course. Unsubscribe at the bottom of every email.</div>
+          </div>
+        </div>
+      </div>
+    `;
+    const slot = document.getElementById('bResult');
+    slot.innerHTML = html;
+    requestAnimationFrame(() => {
+      const ring = slot.querySelector('.fill');
+      if (ring) ring.style.strokeDashoffset = ring.dataset.finalOffset;
+      slot.querySelectorAll('.bd-fill').forEach(b => { b.style.width = b.dataset.finalPct + '%'; });
     });
-    const json = await response.json();
-    statusEl.textContent = json.ok
-      ? (json.stored && json.stored.length ? 'Saved. Your report is ready below.' : 'Report ready. Storage is not connected yet.')
-      : 'Report ready, but lead capture failed.';
-  } catch {
-    statusEl.textContent = 'Report ready. Lead capture endpoint could not be reached.';
+    setTimeout(() => slot.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   }
-});
+})();
+</script>
+<script>
+(function leadCapture() {
+  function text(selector, root) {
+    const el = (root || document).querySelector(selector);
+    return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
 
-function buildReport(data) {
-  const reps = Number(data.manualReps || 0);
-  const repsScore = Math.min(25, Math.round((reps / 20) * 25));
-  const standardScore = Number(data.standard || 0);
-  const reviewScore = Number(data.review || 0);
-  const time = Number(data.timeSaved || 0);
-  const timeScore = time < 30 ? 8 : time < 90 ? 18 : 25;
-  const score = repsScore + standardScore + reviewScore + timeScore;
-  const verdict = score >= 85 ? 'Ready to automate' : score >= 70 ? 'Almost ready' : score >= 50 ? 'Not ready yet' : 'Do it manually first';
-  const title = score >= 85
-    ? 'Green light, but keep a human review loop.'
-    : score >= 70
-      ? 'Close. One more loop of manual runs.'
-      : score >= 50
-        ? 'Useful idea, but not ready to wire up.'
-        : 'Hold off. The manual pattern is not clear enough yet.';
-  const sub = score >= 85
-    ? 'You have enough reps and enough clarity to start building a safe draft-first automation.'
-    : score >= 70
-      ? 'You are past the bad-idea threshold, but the system still needs a few more manual examples before it can be trusted.'
-      : score >= 50
-        ? 'The task may be worth automating later. First, collect examples and define the output standard.'
-        : 'This is exactly why the mini lesson exists: the answer is not "never", it is "not yet".';
+  function activeVariation() {
+    return document.getElementById('vB')?.classList.contains('is-active') ? 'readiness-diagnostic' : 'automation-map-builder';
+  }
 
-  const rows = [
-    {
-      name: 'Manual reps',
-      score: repsScore,
-      feedback: reps >= 15 ? 'Strong. You have enough lived examples to know the pattern.' : reps >= 8 ? 'Close. Add a few more real examples before building.' : 'This is the main gap. Run the task manually with Claude at least 10 times.',
-    },
-    {
-      name: 'Quality standard',
-      score: standardScore,
-      feedback: standardScore >= 20 ? 'Good. Turn that standard into explicit prompt constraints.' : 'Write down tone, length, must-include, and must-avoid rules before automating.',
-    },
-    {
-      name: 'Review cadence',
-      score: reviewScore,
-      feedback: reviewScore >= 22 ? 'Healthy. Weekly review is a good first automation gate.' : 'If you need to check every item, keep the output as a draft until quality improves.',
-    },
-    {
-      name: 'Time saved',
-      score: timeScore,
-      feedback: time < 30 ? 'Low payback. Automate only if the task also reduces errors or missed follow-up.' : 'Worth exploring. The setup time can pay back quickly if quality is controlled.',
-    },
-  ];
+  function collectPayload(form) {
+    const variation = activeVariation();
+    const result = form.closest('.result-card') || document;
+    const email = form.querySelector('input[type="email"]')?.value || '';
+    const isDiagnostic = variation === 'readiness-diagnostic';
+    const scoreText = text('.result-score-label', result).match(/\d+/)?.[0] || '';
+    return {
+      email,
+      score: scoreText ? Number(scoreText) : null,
+      verdict: isDiagnostic ? text('.result-chip', result) : 'Map generated',
+      answers: {
+        variation,
+        industry: isDiagnostic ? '' : text('[style*="font:800 1.05rem"]', result),
+        resultTitle: text('.result-title', result),
+        resultSummary: text('.result-sub', result),
+        resultText: text('.result-body', result)
+      }
+    };
+  }
 
-  const prompt = buildPrompt(data, verdict);
-  const summary = buildSummary(data, score, verdict, rows);
-  return { score, verdict, title, sub, rows, prompt, summary };
-}
+  document.addEventListener('submit', async (event) => {
+    const form = event.target;
+    if (!form.classList || !form.classList.contains('gate-form')) return;
 
-function buildPrompt(data, verdict) {
-  const business = data.business || 'my business';
-  const industry = data.industry || 'service business';
-  const task = data.task || 'the task described by the user';
-  const output = data.output || 'draft output';
-  const trigger = data.trigger || 'new input';
-  const review = Number(data.review || 0) >= 22 ? 'Send the output to a review queue for weekly checking.' : 'Create a draft only. Do not send or publish automatically.';
+    event.preventDefault();
+    event.stopPropagation();
 
-  return `Role:
-You are helping ${business}, a ${industry}, complete a repeatable business task with Claude.
+    const button = form.querySelector('button');
+    const original = button ? button.textContent : '';
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending...';
+    }
 
-Task:
-When there is a ${trigger}, help with this task:
-${task}
-
-Output format:
-Create a ${output}.
-
-Use this structure:
-1. Short summary of the situation
-2. Draft response or recommendation
-3. Any missing information that a human should check
-4. Suggested next action
-
-Constraints:
-- Use plain language
-- Do not invent facts, dates, prices, or promises
-- Keep the first version concise
-- If the source information is incomplete, say what is missing
-- ${review}
-
-Quality standard:
-The output should be specific enough that a human can approve, edit, or reject it in under two minutes.
-
-Readiness note:
-Current verdict: ${verdict}. If this is not "Ready to automate", run the prompt manually with 10 to 20 real examples before connecting it to Zapier, Make, n8n, or a CRM.`;
-}
-
-function buildSummary(data, score, verdict, rows) {
-  const weak = rows.slice().sort((a, b) => a.score - b.score)[0];
-  const plan = verdict === 'Ready to automate'
-    ? 'Start with a draft-first automation. Keep a weekly review for the first month and record every edit you make.'
-    : 'Do 10 to 20 manual runs first. Save the input, Claude response, your edits, and the reason for each edit. Then tighten the prompt.';
-
-  return {
-    intro: `${data.name || 'Your'} score is ${score}/100: ${verdict}. The lowest area is ${weak.name.toLowerCase()}, so that is the first place to improve.`,
-    plan,
-    weak,
-  };
-}
-
-function renderReport(report) {
-  document.getElementById('result').classList.add('is-visible');
-  document.getElementById('scoreNum').textContent = report.score;
-  document.getElementById('scoreRing').style.setProperty('--score-deg', `${report.score * 3.6}deg`);
-  document.getElementById('verdictChip').textContent = report.verdict;
-  document.getElementById('resultTitle').textContent = report.title;
-  document.getElementById('resultSub').textContent = report.sub;
-
-  document.getElementById('breakdown').innerHTML = report.rows.map(row => `
-    <div class="bd">
-      <div class="bd-top"><span>${escapeHtml(row.name)}</span><span>${row.score}/25</span></div>
-      <div class="bar"><div class="fill" style="--w:${row.score * 4}%"></div></div>
-      <p>${escapeHtml(row.feedback)}</p>
-    </div>
-  `).join('');
-
-  latestPrompt = report.prompt;
-  document.getElementById('promptText').textContent = report.prompt;
-  document.getElementById('reportText').innerHTML = `
-    <p>${escapeHtml(report.summary.intro)}</p>
-    <p><strong>Next step:</strong> ${escapeHtml(report.summary.plan)}</p>
-    <div class="two-col">
-      <div>
-        <h3>Lowest scoring area</h3>
-        <p>${escapeHtml(report.summary.weak.name)}: ${report.summary.weak.score}/25. ${escapeHtml(report.summary.weak.feedback)}</p>
-      </div>
-      <div>
-        <h3>Course connection</h3>
-        <p>The full Lesson 5.3 shows the Zapier, Make, and n8n build after you have done the manual reps.</p>
-      </div>
-    </div>
-  `;
-  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function formatMinutes(value) {
-  if (value < 60) return `${value} min`;
-  const hours = value / 60;
-  return Number.isInteger(hours) ? `${hours} hr` : `${hours.toFixed(1)} hr`;
-}
-
-function escapeHtml(value) {
-  return String(value || '').replace(/[&<>"']/g, char => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  })[char]);
-}
+    try {
+      const response = await fetch('/api/lesson53-submissions', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(collectPayload(form))
+      });
+      if (!response.ok) throw new Error('Lead capture failed');
+      if (button) button.textContent = 'Sent';
+    } catch (error) {
+      if (button) {
+        button.disabled = false;
+        button.textContent = original || 'Try again';
+      }
+      const note = form.parentElement?.querySelector('.gate-footnote');
+      if (note) note.textContent = 'Something went wrong saving your email. Please try again.';
+    }
+  }, true);
+})();
 </script>
 </body>
 </html>
