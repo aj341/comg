@@ -5,7 +5,14 @@
   "compatibility_date": "2026-05-15",
   "assets": {
     "binding": "ASSETS",
-    "directory": ".",
+    "directory": "public",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "LEADS_DB",
+      "database_name": "comg-leads",
+      "database_id": "cc55126c-5940-496b-a6c4-9a3badcec59c"
+    }
+  ]
 }
