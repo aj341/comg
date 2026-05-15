@@ -1763,6 +1763,124 @@ h2.section-title {
   to { opacity: 1; transform: none; }
 }
 
+
+/* ============================================
+   FREE TOOLS / LEAD MAGNETS
+   ============================================ */
+.lead-magnets-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.lead-magnet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-base) var(--ease),
+              border-color var(--duration-base) var(--ease),
+              box-shadow var(--duration-base) var(--ease);
+  overflow: hidden;
+}
+.lead-magnet-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59,185,245,0.05) 0%, rgba(59,185,245,0) 60%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+  pointer-events: none;
+}
+.lead-magnet-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--blue) 35%, var(--border));
+  box-shadow: 0 12px 32px rgba(15, 22, 35, 0.08);
+}
+.lead-magnet-card:hover::before { opacity: 1; }
+.lead-magnet-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: var(--space-3);
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-meta::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.lead-magnet-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0 0 var(--space-3);
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0 0 var(--space-6);
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.lead-magnet-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  position: relative;
+  z-index: 1;
+  transition: gap var(--duration-base) var(--ease);
+}
+.lead-magnet-card:hover .lead-magnet-card-cta {
+  gap: 12px;
+}
+.lead-magnet-card-cta svg {
+  transition: transform var(--duration-base) var(--ease);
+}
+.lead-magnet-card:hover .lead-magnet-card-cta svg {
+  transform: translateX(2px);
+}
+@media (max-width: 720px) {
+  .lead-magnets-wrap { grid-template-columns: 1fr; gap: var(--space-5); }
+  .lead-magnet-card { padding: var(--space-6); }
+  .lead-magnet-card-title { font-size: 1.2rem; }
+}
+
 /* ============================================
    FINAL CTA
    ============================================ */
@@ -2548,7 +2666,7 @@ footer {
         <a href="#curriculum" class="btn btn-outline btn-lg">View curriculum</a>
       </div>
       <div class="refund-line">
-        <strong>Full refund anytime before 1 June 2026.</strong> Once access starts, no refunds.
+        <strong>Full refund anytime before 1 June 2026.</strong>
       </div>
       <div class="bnpl-split">
         Prefer to split it? <strong>4 × <span class="price" data-bnpl-aud="74.25">$74.25</span> interest-free</strong> with Afterpay, Klarna or Zip — chosen at checkout.
@@ -3042,7 +3160,7 @@ footer {
 
         <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg pricing-cta">Claim founding seat — <span class="price" data-price-aud="297">$297</span></a>
         <div class="pricing-fine">Secure Stripe checkout · You won't be charged again on 1 June<div class="price-note" id="priceNote">Prices shown above are an approximate guide in your local currency. Stripe will show and charge the exact local-currency amount at checkout.</div></div>
-        <div class="refund-line" style="text-align:center;"><strong>Full refund anytime before 1 June.</strong> Once access starts, no refunds.</div>
+        <div class="refund-line" style="text-align:center;"><strong>Full refund anytime before 1 June.</strong></div>
         <div class="pay-methods-block">
           <span class="pay-methods-label">Pay how you want</span>
           <div class="pay-methods">
@@ -3236,10 +3354,9 @@ footer {
       <div class="footer-col">
         <div class="footer-col-title">Legal</div>
         <ul>
-          <li><a href="terms.html">Terms of Sale</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html#refund">Refund policy</a></li>
-          <li><a href="#">Refund policy</a></li>
+          <li><a href="/claudemastery/terms.html">Terms of Sale</a></li>
+          <li><a href="/claudemastery/privacy.html">Privacy</a></li>
+          <li><a href="/claudemastery/terms.html#refund">Refund policy</a></li>
         </ul>
       </div>
     </div>
