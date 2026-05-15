@@ -1114,10 +1114,26 @@ h2.section-title {
   transition: opacity 300ms var(--ease), max-height 400ms var(--ease);
 }
 .module-card-capstone .module-lesson-preview { border-top-color: rgba(255,255,255,0.08); }
+/* Hover reveals first 3 lessons */
 .module-card:hover .module-lesson-preview {
   opacity: 1;
-  max-height: 360px;
+  max-height: 220px;
 }
+/* Hide lessons 4+ unless the card is expanded */
+.module-card:not(.expanded) .module-lesson-preview-item:nth-child(n+4) {
+  display: none;
+}
+/* Expanded state: card stays open even without hover, all lessons visible */
+.module-card.expanded .module-lesson-preview {
+  opacity: 1;
+  max-height: 600px;
+}
+.module-card.expanded {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md, 0 6px 20px rgba(0,0,0,0.05));
+}
+.module-card.expanded::after { transform: scaleX(1); }
+
 .module-lesson-preview-item {
   display: flex;
   align-items: center;
@@ -1129,6 +1145,42 @@ h2.section-title {
   width: 4px; height: 4px;
   background: var(--blue);
   border-radius: 50%;
+}
+
+/* Toggle pill — sits at the bottom of the preview, click to expand */
+.module-card-toggle {
+  margin-top: 6px;
+  padding: 6px 0 2px;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  transition: color var(--duration-base) var(--ease);
+}
+.module-card-toggle:hover { color: var(--blue-dark, var(--blue)); text-decoration: underline; }
+.module-card-toggle .toggle-chevron {
+  width: 10px; height: 10px;
+  transition: transform var(--duration-base) var(--ease);
+}
+.module-card.expanded .module-card-toggle .toggle-chevron { transform: rotate(180deg); }
+.module-card-capstone .module-card-toggle { color: var(--blue); }
+
+/* Mobile: hover doesn't exist, so always show the preview pinned to first 3 + toggle */
+@media (max-width: 768px) {
+  .module-lesson-preview {
+    opacity: 1;
+    max-height: 220px;
+  }
+  .module-card.expanded .module-lesson-preview { max-height: 600px; }
 }
 
 .curriculum-cta { text-align: center; margin-top: var(--space-10); }
@@ -1533,6 +1585,23 @@ h2.section-title {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   box-shadow: var(--shadow-glow);
+  white-space: nowrap !important;
+  width: max-content;
+  display: inline-block;
+}
+@media (max-width: 480px) {
+  .pricing-flag {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
+  }
+}
+@media (max-width: 360px) {
+  .pricing-flag {
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    padding: 0.28rem 0.6rem;
+  }
 }
 
 .pricing-tier {
@@ -1692,6 +1761,124 @@ h2.section-title {
 @keyframes faqReveal {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: none; }
+}
+
+
+/* ============================================
+   FREE TOOLS / LEAD MAGNETS
+   ============================================ */
+.lead-magnets-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.lead-magnet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-base) var(--ease),
+              border-color var(--duration-base) var(--ease),
+              box-shadow var(--duration-base) var(--ease);
+  overflow: hidden;
+}
+.lead-magnet-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59,185,245,0.05) 0%, rgba(59,185,245,0) 60%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+  pointer-events: none;
+}
+.lead-magnet-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--blue) 35%, var(--border));
+  box-shadow: 0 12px 32px rgba(15, 22, 35, 0.08);
+}
+.lead-magnet-card:hover::before { opacity: 1; }
+.lead-magnet-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: var(--space-3);
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-meta::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.lead-magnet-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0 0 var(--space-3);
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+.lead-magnet-card-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0 0 var(--space-6);
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.lead-magnet-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  position: relative;
+  z-index: 1;
+  transition: gap var(--duration-base) var(--ease);
+}
+.lead-magnet-card:hover .lead-magnet-card-cta {
+  gap: 12px;
+}
+.lead-magnet-card-cta svg {
+  transition: transform var(--duration-base) var(--ease);
+}
+.lead-magnet-card:hover .lead-magnet-card-cta svg {
+  transform: translateX(2px);
+}
+@media (max-width: 720px) {
+  .lead-magnets-wrap { grid-template-columns: 1fr; gap: var(--space-5); }
+  .lead-magnet-card { padding: var(--space-6); }
+  .lead-magnet-card-title { font-size: 1.2rem; }
 }
 
 /* ============================================
@@ -1959,7 +2146,7 @@ footer {
   .hero-ctas .btn { width: 100%; }
   .rubric-row { grid-template-columns: 90px 1fr 40px; }
   .sticky-cta-text { display: none; }
-  .sticky-cta { padding: 0.5rem; }
+  .sticky-cta { padding: 0.85rem; gap: 0; }
 }
 
 /* ============================================
@@ -2046,7 +2233,7 @@ footer {
 [data-theme="dark"] .pay-badge--googlepay { background: #F8F9FA; }
 
 /* Hero-trust blue dot restored on first child + tight single-line layout */
-.hero-trust { flex-wrap: nowrap; gap: 1rem; font-size: 0.72rem; }
+.hero-trust { flex-wrap: wrap; gap: 0.6rem 1rem; font-size: 0.72rem; }
 .hero-trust-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
 .hero-trust-item:first-child::before { display: inline-block !important; }
 .hero-trust-item::before {
@@ -2061,18 +2248,19 @@ footer {
 /* Two-card pricing compare */
 .pricing-wrap.pricing-compare {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-6);
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
 }
 @media (max-width: 840px) {
-  .pricing-wrap.pricing-compare { grid-template-columns: 1fr; max-width: 540px; }
+  .pricing-wrap.pricing-compare { grid-template-columns: minmax(0, 1fr); max-width: 540px; }
 }
 .pricing-wrap.pricing-compare .pricing-card {
   max-width: none;
   width: 100%;
+  min-width: 0;
 }
 .pricing-card.pricing-card-muted {
   border: 1px solid var(--border);
@@ -2142,6 +2330,259 @@ footer {
   .pay-badge { font-size: 0.68rem; padding: 0 0.5rem; height: 24px; }
 }
 
+
+/* ============================================
+   MOBILE HERO FIX — keep card + chips inside viewport
+   ============================================ */
+@media (max-width: 720px) {
+  .hero-visual {
+    margin: var(--space-6) auto var(--space-10);
+    max-width: 460px;
+    width: 100%;
+    padding: 0 var(--space-2);
+  }
+  .hero-card {
+    padding: var(--space-5);
+    transform: none;
+  }
+  .hero-card-ghost {
+    inset: 24px -8px -16px 24px;
+  }
+  .hero-grade-chip {
+    bottom: -22px;
+    right: -8px;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    transform: rotate(2deg);
+    animation: none;
+  }
+  .hero-grade-chip .hero-grade-score { font-size: 1.9rem; }
+  .hero-grade-chip .hero-grade-label { font-size: 0.6rem; }
+  .hero-grade-chip .hero-grade-sub { font-size: 0.68rem; }
+  .hero-stream {
+    top: -14px;
+    left: -8px;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    transform: rotate(-2deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    max-width: 100%;
+    padding: 0 var(--space-3);
+  }
+  .hero-card { padding: var(--space-4); }
+  .hero-card-ghost { inset: 20px 0 -12px 18px; }
+  .hero-grade-chip {
+    right: 0;
+    bottom: -18px;
+    transform: rotate(1.5deg);
+  }
+  .hero-grade-chip .hero-grade-score { font-size: 1.7rem; }
+  .hero-stream {
+    left: 0;
+    top: -12px;
+    transform: rotate(-1.5deg);
+  }
+  .hero { padding: var(--space-10) 0 var(--space-16); }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+}
+
+/* ============================================
+   MOBILE OVERFLOW FIXES — pre-launch hardening
+   ============================================ */
+@media (max-width: 720px) {
+  /* Founding pill: allow it to wrap and shrink letter-spacing */
+  .hero-eyebrow.founding-pill {
+    flex-wrap: wrap;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 0.85rem;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  .founding-pill-strike { margin-left: 0.25rem; }
+
+  /* Hero h1: smaller min size + word break */
+  .hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .hero h1 .word { white-space: normal; }
+
+  /* Rotator: shrink min-width to prevent forced overflow */
+  .rotator { min-width: 5ch; padding: 0 0.18em; }
+
+  /* Hero-trust: force wrap on mobile */
+  .hero-trust {
+    flex-wrap: wrap !important;
+    gap: 0.4rem 0.9rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Hero-lead: ensure it doesn't push wider than container */
+  .hero-lead { max-width: 100%; }
+
+  /* Container: ensure no element pushes past edge */
+  .hero, .hero-inner, .hero-copy { max-width: 100%; min-width: 0; overflow-wrap: break-word; }
+
+  /* Single-row mobile nav: tight spacing, "Claim seat" only on CTA */
+  .nav-inner { gap: 0.5rem; }
+  .nav-links { gap: 0.35rem; flex-shrink: 1; min-width: 0; }
+  .nav-link-primary { padding: 0.55rem 0.85rem; font-size: 0.82rem; flex-shrink: 0; }
+  .nav-cta-detail { display: none; }
+  /* Hide brand subtitle so brand area is narrower */
+  .nav-brand-sub { display: none; }
+  .nav-brand-text { white-space: nowrap; font-size: 0.92rem; }
+  .nav-brand-text-wrap { min-width: 0; }
+  .nav-brand { gap: 0.5rem; flex-shrink: 1; min-width: 0; }
+}
+
+@media (max-width: 480px) {
+  .hero-eyebrow.founding-pill {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .hero h1 { font-size: clamp(1.6rem, 8vw, 2.1rem) !important; }
+  .container { padding: 0 1rem; }
+
+  /* Smallest-phone nav: shrink everything so single row fits at 375px */
+  .nav-inner { gap: 0.35rem; }
+  .nav-links { gap: 0.2rem; }
+  .nav-brand-mark { width: 28px; height: 28px; font-size: 12px; }
+  .nav-brand-text { font-size: 0.78rem; }
+  .nav-brand { gap: 0.35rem; }
+  .nav-link-primary { padding: 0.42rem 0.55rem; font-size: 0.72rem; }
+  .nav-link-primary .arrow { display: none; }
+  .currency-bar { padding: 0.1rem 0.35rem 0.1rem 0.4rem; gap: 0.25rem; }
+  .currency-bar-icon { width: 11px; height: 11px; }
+  .currency-bar select { font-size: 0.66rem; padding: 0.1rem 0.85rem 0.1rem 0; }
+  .theme-toggle { width: 28px; height: 28px; }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  /* Hero H1 word spacing — prevent words running together at small viewports */
+  .hero h1 .word { margin-right: 0.18em; }
+}
+
+@media (max-width: 370px) {
+  /* Below 370px — brand collapses to icon-only so it doesn't overlap the currency selector */
+  .nav-brand-text-wrap { display: none; }
+  .nav-brand { gap: 0; }
+}
+
+/* ============================================
+   CTA BUTTONS — prevent nowrap overflow on narrow phones
+   ============================================ */
+@media (max-width: 480px) {
+  .btn-lg {
+    white-space: normal;
+    line-height: 1.3;
+    padding: 0.95rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  .curriculum-cta .btn-lg,
+  .final-cta .btn-lg,
+  .pricing-card .btn-lg {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================
+   CURRENCY SELECTOR
+   ============================================ */
+.currency-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+  padding: 0.18rem 0.55rem 0.18rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-base) var(--ease);
+}
+.currency-bar:hover { border-color: var(--blue); }
+.currency-bar:focus-within { border-color: var(--blue); box-shadow: var(--shadow-focus); }
+.currency-bar-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.currency-bar:hover .currency-bar-icon,
+.currency-bar:focus-within .currency-bar-icon { color: var(--blue); }
+.currency-bar-label {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  padding-right: 0.4rem;
+  border-right: 1px solid var(--border);
+  line-height: 1;
+}
+.currency-bar select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0.18rem 1.1rem 0.18rem 0.1rem;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 1 5 5 9 1'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.1rem center;
+}
+.currency-bar select:focus { outline: none; }
+[data-theme="dark"] .currency-bar select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 1 5 5 9 1'/></svg>");
+}
+
+.price-note {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.price-note.show { display: block; }
+
+@media (max-width: 720px) {
+  .currency-bar { font-size: 0.72rem; gap: 0.35rem; padding: 0.14rem 0.4rem 0.14rem 0.5rem; }
+  .currency-bar-label { display: none; }
+  .currency-bar select { font-size: 0.72rem; padding: 0.14rem 1rem 0.14rem 0.1rem; }
+}
+
+/* ============================================
+   PRICING CARD — mobile (≤720px) hardening
+   Surgical: only shrink card padding + flag font, never touch .container
+   ============================================ */
+@media (max-width: 720px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-8) var(--space-5);
+  }
+}
+@media (max-width: 480px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+@media (max-width: 380px) {
+  .pricing-wrap.pricing-compare .pricing-card {
+    padding: var(--space-5) var(--space-3);
+  }
+}
 </style>
 </head>
 <body>
@@ -2165,15 +2606,29 @@ footer {
         <a href="#grading" class="nav-link">Grading</a>
         <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#faq" class="nav-link">FAQ</a>
+        <div class="currency-bar" title="Display currency — Stripe charges your local currency at checkout">
+          <span class="currency-bar-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          <span class="currency-bar-label">Currency</span>
+          <select id="currencySelector" aria-label="Display currency">
+            <option value="AUD">AUD</option>
+            <option value="USD">USD</option>
+            <option value="NZD">NZD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+            <option value="CAD">CAD</option>
+          </select>
+        </div>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-link-primary">
-          Claim seat — $297
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
       </div>
+      <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-link-primary">
+        Claim seat<span class="nav-cta-detail"> — <span class="price" data-price-aud="297">$297</span></span>
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </nav>
@@ -2188,11 +2643,11 @@ footer {
     <div class="hero-copy">
       <div class="hero-eyebrow founding-pill">
         <span class="hero-eyebrow-dot"></span>
-        Founding offer · $297 until 31 May 2026<span class="founding-pill-strike">$397</span>
+        Founding offer · <span class="price" data-price-aud="297">$297</span> until 31 May 2026<span class="founding-pill-strike"><span class="price" data-price-aud="397">$397</span></span>
       </div>
       <h1 id="heroH1">
         <span class="word" style="animation-delay: 60ms;">Actually</span>
-        <span class="word" style="animation-delay: 160ms;"><span class="rotator" id="rotator"><span class="rotator-word" id="rotatorWord">work</span></span></span>
+        <span class="word" style="animation-delay: 160ms;"><span class="rotator" id="rotator"><span class="rotator-word" id="rotatorWord">learn</span></span></span>
         <span class="word" style="animation-delay: 260ms;">with</span>
         <span class="word" style="animation-delay: 360ms;">Claude —</span>
         <br>
@@ -2205,16 +2660,16 @@ footer {
       <p class="hero-lead">A 6-module, 34-lesson program personalised to your industry and <strong>graded by AI</strong> every step of the way. Built for the people most AI courses forget: non-developers who want to ship real work.</p>
       <div class="hero-ctas">
         <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-          Claim founding seat — $297
+          Claim founding seat — <span class="price" data-price-aud="297">$297</span>
           <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="#curriculum" class="btn btn-outline btn-lg">View curriculum</a>
       </div>
       <div class="refund-line">
-        <strong>Full refund anytime before 1 June 2026.</strong> Once access starts, no refunds.
+        <strong>Full refund anytime before 1 June 2026.</strong>
       </div>
       <div class="bnpl-split">
-        Prefer to split it? <strong>4 × $74.25 interest-free</strong> with Afterpay, Klarna or Zip — chosen at checkout.
+        Prefer to split it? <strong>4 × <span class="price" data-bnpl-aud="74.25">$74.25</span> interest-free</strong> with Afterpay, Klarna or Zip — chosen at checkout.
       </div>
       <div class="pay-methods">
         <span class="pay-methods-label">Pay with</span>
@@ -2427,6 +2882,7 @@ footer {
           <div class="module-lesson-preview-item">1.4 Map your weekly tasks</div>
           <div class="module-lesson-preview-item">1.5 Your business context</div>
           <div class="module-lesson-preview-item">1.6 Put your context to work</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 6 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 6 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
       <div class="module-card reveal d2">
@@ -2443,6 +2899,7 @@ footer {
           <div class="module-lesson-preview-item">2.4 Advanced prompt techniques</div>
           <div class="module-lesson-preview-item">2.5 Testing, evaluating and iterating</div>
           <div class="module-lesson-preview-item">2.6 Prompt engineering for your business</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 6 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 6 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
       <div class="module-card reveal d3">
@@ -2459,6 +2916,7 @@ footer {
           <div class="module-lesson-preview-item">3.4 Learning and explanation</div>
           <div class="module-lesson-preview-item">3.5 Time management and workflow integration</div>
           <div class="module-lesson-preview-item">3.6 Practical applications capstone</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 6 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 6 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
       <div class="module-card reveal d4">
@@ -2475,6 +2933,7 @@ footer {
           <div class="module-lesson-preview-item">4.4 Project-based workflows and systems</div>
           <div class="module-lesson-preview-item">4.5 Advanced project features and integration</div>
           <div class="module-lesson-preview-item">4.6 Projects capstone: building your system</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 6 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 6 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
       <div class="module-card reveal d5">
@@ -2491,6 +2950,7 @@ footer {
           <div class="module-lesson-preview-item">5.4 Emerging features and staying current</div>
           <div class="module-lesson-preview-item">5.5 Extended capabilities vs basic features</div>
           <div class="module-lesson-preview-item">5.6 Extended capabilities capstone</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 6 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 6 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
       <div class="module-card module-card-capstone reveal d6">
@@ -2505,13 +2965,14 @@ footer {
           <div class="module-lesson-preview-item">6.2 Capstone: Implementation Phase</div>
           <div class="module-lesson-preview-item">6.3 Capstone: Evaluation and Impact</div>
           <div class="module-lesson-preview-item">6.4 Capstone: Presentation and Next Steps</div>
+          <button class="module-card-toggle" type="button" data-collapsed-label="Show all 4 lessons" data-expanded-label="Show fewer"><span class="toggle-text">Show all 4 lessons</span><svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
         </div>
       </div>
     </div>
 
     <div class="curriculum-cta reveal">
       <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-        Claim founding seat — $297
+        Claim founding seat — <span class="price" data-price-aud="297">$297</span>
         <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -2611,7 +3072,7 @@ footer {
         <p class="section-lead">Every asset in this program — platform, curriculum, grading engine, this page — was built by one person using Claude, scheduled tasks, and a roster of specialist agents. And Claude doesn't stop at the build: it assesses every submission in real time, rewrites examples for your industry on the fly, and returns graded feedback in minutes, not days.</p>
         <div style="margin-top:var(--space-6);">
           <a href="#pricing" class="btn btn-dark">
-            See what's possible — $297
+            See what's possible — <span class="price" data-price-aud="297">$297</span>
             <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -2684,10 +3145,7 @@ footer {
         <div class="pricing-flag">Founding · Until 31 May</div>
         <div class="pricing-tier">Founding cohort</div>
         <div class="pricing-title">Lock your seat before the price moves.</div>
-        <div class="pricing-price-wrap">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-price">297</span>
-        </div>
+        <div class="pricing-price-wrap"><span class="price-card" data-price-aud="297"><span class="pricing-currency">$</span><span class="pricing-price">297</span></span></div>
         <div class="pricing-note">One-time payment · Access opens 1 June 2026</div>
 
         <ul class="pricing-list">
@@ -2700,9 +3158,9 @@ footer {
           <li><span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Lifetime updates as Claude evolves</li>
         </ul>
 
-        <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg pricing-cta">Claim founding seat — $297</a>
-        <div class="pricing-fine">Secure Stripe checkout · You won't be charged again on 1 June</div>
-        <div class="refund-line" style="text-align:center;"><strong>Full refund anytime before 1 June.</strong> Once access starts, no refunds.</div>
+        <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg pricing-cta">Claim founding seat — <span class="price" data-price-aud="297">$297</span></a>
+        <div class="pricing-fine">Secure Stripe checkout · You won't be charged again on 1 June<div class="price-note" id="priceNote">Prices shown above are an approximate guide in your local currency. Stripe will show and charge the exact local-currency amount at checkout.</div></div>
+        <div class="refund-line" style="text-align:center;"><strong>Full refund anytime before 1 June.</strong></div>
         <div class="pay-methods-block">
           <span class="pay-methods-label">Pay how you want</span>
           <div class="pay-methods">
@@ -2717,7 +3175,7 @@ footer {
             <span class="pay-badge pay-badge--link" aria-label="Link">Link</span>
           </div>
           <div class="bnpl-split">
-            Or split it: <strong>4 × $74.25 interest-free</strong> with Afterpay, Klarna or Zip.
+            Or split it: <strong>4 × <span class="price" data-bnpl-aud="74.25">$74.25</span> interest-free</strong> with Afterpay, Klarna or Zip.
           </div>
         </div>
       </div>
@@ -2727,10 +3185,7 @@ footer {
         <div class="pricing-flag">From 1 June 2026</div>
         <div class="pricing-tier">Launch price</div>
         <div class="pricing-title">Same course. $100 more. No founding perks.</div>
-        <div class="pricing-price-wrap">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-price">397</span>
-        </div>
+        <div class="pricing-price-wrap"><span class="price-card" data-price-aud="397"><span class="pricing-currency">$</span><span class="pricing-price">397</span></span></div>
         <div class="pricing-note">One-time payment · Standard launch pricing</div>
 
         <ul class="pricing-list">
@@ -2862,8 +3317,8 @@ footer {
 <section class="final-cta">
   <div class="container">
     <h2 class="reveal">Ready to actually work with Claude?</h2>
-    <p class="final-cta-lead reveal d1">Core opens 1 June 2026. Price locks at $297 for the launch cohort. Everything you need to go from curious to capable, graded every step of the way.</p>
-    <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Claim founding seat — $297</a>
+    <p class="final-cta-lead reveal d1">Core opens 1 June 2026. Price locks at <span class="price" data-price-aud="297">$297</span> for the launch cohort. Everything you need to go from curious to capable, graded every step of the way.</p>
+    <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Claim founding seat — <span class="price" data-price-aud="297">$297</span></a>
     <div class="final-cta-meta reveal d3">One-time payment · Lifetime access · Built for non-developers</div>
   </div>
 </section>
@@ -2893,17 +3348,15 @@ footer {
         <div class="footer-col-title">Company</div>
         <ul>
           <li><a href="#">Commercial Growth</a></li>
-          <li><a href="#">About AJ</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Legal</div>
         <ul>
-          <li><a href="terms.html">Terms of Sale</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html#refund">Refund policy</a></li>
-          <li><a href="#">Refund policy</a></li>
+          <li><a href="/claudemastery/terms.html">Terms of Sale</a></li>
+          <li><a href="/claudemastery/privacy.html">Privacy</a></li>
+          <li><a href="/claudemastery/terms.html#refund">Refund policy</a></li>
         </ul>
       </div>
     </div>
@@ -2916,8 +3369,8 @@ footer {
 
 <!-- ============ STICKY CTA ============ -->
 <div class="sticky-cta" id="stickyCta">
-  <div class="sticky-cta-text"><strong>Founding price ends 31 May.</strong> Lock $297.</div>
-  <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Claim seat — $297</a>
+  <div class="sticky-cta-text"><strong>Founding price ends 31 May.</strong> Lock <span class="price" data-price-aud="297">$297</span>.</div>
+  <a href="https://buy.stripe.com/fZueVfec867u43K1c13AY01" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Claim seat — <span class="price" data-price-aud="297">$297</span></a>
 </div>
 
 <script>
@@ -2983,7 +3436,33 @@ function countTo(el, target, dur = 1200, suffix = '') {
 }
 
 const heroScoreEl = document.getElementById('heroScore');
-setTimeout(() => countTo(heroScoreEl, 82, 1400), 1600);
+/* Gate the 0→82 count-up on scrolling into view (instead of firing on page load).
+   On desktop the chip is visible immediately so it triggers right away.
+   On mobile the chip is below the fold, so it triggers when the user scrolls to it. */
+(function gateHeroScore() {
+  if (!heroScoreEl) return;
+  const chip = heroScoreEl.closest('.hero-grade-chip') || heroScoreEl;
+  let fired = false;
+  const fire = () => {
+    if (fired) return;
+    fired = true;
+    countTo(heroScoreEl, 82, 1400);
+  };
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          fire();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(chip);
+  } else {
+    /* Fallback: fire after 1.6s if IntersectionObserver unsupported */
+    setTimeout(fire, 1600);
+  }
+})();
 
 /* ---------- Stats counters on view ---------- */
 const statsEl = document.getElementById('stats');
@@ -3071,18 +3550,17 @@ if (heroVisual && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 /* ---------- Rotating hero word ---------- */
-const rotatorWord = document.getElementById('rotatorWord');
 const words = ['learn', 'work', 'earn'];
 let wi = 0;
 setInterval(() => {
   wi = (wi + 1) % words.length;
+  const current = document.getElementById('rotatorWord');
+  if (!current) return;
   const n = document.createElement('span');
   n.className = 'rotator-word';
   n.textContent = words[wi];
-  rotatorWord.replaceWith(n);
   n.id = 'rotatorWord';
-  // re-capture
-  window._rotatorWord = n;
+  current.replaceWith(n);
 }, 2400);
 
 /* ---------- Smooth anchor (extra polish for nav clicks) ---------- */
@@ -3098,6 +3576,120 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+
+/* ---------- Module card expand/collapse ----------
+   Each module card shows the first 3 lessons on hover (or always, on mobile).
+   Clicking the toggle button locks the card open and reveals all lessons.
+   Clicking again collapses back to 3. */
+document.querySelectorAll('.module-card-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const card = btn.closest('.module-card');
+    if (!card) return;
+    const expanded = card.classList.toggle('expanded');
+    const textSpan = btn.querySelector('.toggle-text');
+    if (textSpan) {
+      textSpan.textContent = expanded
+        ? btn.dataset.expandedLabel
+        : btn.dataset.collapsedLabel;
+    }
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  });
+  btn.setAttribute('aria-expanded', 'false');
+});
+
+
+/* ---------- Currency selector (display only) ----------
+   Base currency is AUD. All prices on the page are stored in data-price-aud
+   attributes and converted via RATES below for visual display only — Stripe
+   still charges the customer's actual local currency at checkout.
+   Detection order on first visit:
+     1. localStorage (returning visitor's manual selection wins)
+     2. Browser locale → matched currency (US visitors see USD, GB see GBP, etc.)
+     3. AUD as final fallback
+   The selector lets the user override at any point. */
+const BASE_CURRENCY = 'AUD';
+const RATES = { AUD: 1.00, USD: 0.66, NZD: 1.10, GBP: 0.52, EUR: 0.61, CAD: 0.92 };
+const SYMBOLS = { AUD: 'A$', USD: 'US$', NZD: 'NZ$', GBP: '£', EUR: '€', CAD: 'C$' };
+const LOCALE_TO_CURRENCY = {
+  'en-AU': 'AUD', 'en-NZ': 'NZD', 'en-US': 'USD', 'en-GB': 'GBP', 'en-CA': 'CAD',
+  'en-IE': 'EUR', 'de': 'EUR', 'de-DE': 'EUR', 'de-AT': 'EUR', 'fr': 'EUR', 'fr-FR': 'EUR',
+  'es': 'EUR', 'es-ES': 'EUR', 'it': 'EUR', 'nl': 'EUR', 'pt': 'EUR'
+};
+
+function detectCurrency() {
+  try {
+    const saved = localStorage.getItem('cm-currency');
+    if (saved && RATES[saved]) return saved;
+  } catch (e) {}
+  // Timezone is more reliable than locale for geo (locale can be en-US even in AU)
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (tz.startsWith('Australia/')) return 'AUD';
+    if (tz === 'Pacific/Auckland' || tz === 'Pacific/Chatham') return 'NZD';
+    if (tz === 'Europe/London' || tz === 'Europe/Belfast' || tz === 'Europe/Isle_of_Man' || tz === 'Europe/Jersey' || tz === 'Europe/Guernsey') return 'GBP';
+    if (tz.startsWith('Europe/')) return 'EUR';
+    const caCities = ['Toronto','Vancouver','Montreal','Edmonton','Halifax','Winnipeg','Regina','St_Johns','Whitehorse','Yellowknife','Iqaluit','Atikokan','Blanc-Sablon','Cambridge_Bay','Creston','Dawson','Dawson_Creek','Fort_Nelson','Glace_Bay','Goose_Bay','Inuvik','Moncton','Nipigon','Pangnirtung','Rainy_River','Rankin_Inlet','Resolute','Thunder_Bay'];
+    if (caCities.some(c => tz === 'America/' + c)) return 'CAD';
+    if (tz.startsWith('America/')) return 'USD';
+  } catch (e) {}
+  // Fall back to locale
+  const lang = (navigator.language || 'en-AU').toLowerCase();
+  for (const [loc, cur] of Object.entries(LOCALE_TO_CURRENCY)) {
+    if (lang === loc.toLowerCase()) return cur;
+  }
+  return BASE_CURRENCY;
+}
+
+function formatPrice(aud, currency) {
+  const rate = RATES[currency];
+  const symbol = SYMBOLS[currency];
+  const converted = Math.round(aud * rate);
+  return symbol + converted.toLocaleString();
+}
+
+function formatBNPL(aud, currency) {
+  const rate = RATES[currency];
+  const symbol = SYMBOLS[currency];
+  const converted = (aud * rate).toFixed(2);
+  return symbol + converted;
+}
+
+function applyCurrency(currency) {
+  const rate = RATES[currency];
+  const symbol = SYMBOLS[currency];
+  document.querySelectorAll('[data-price-aud]').forEach(el => {
+    const aud = parseFloat(el.dataset.priceAud);
+    const converted = Math.round(aud * rate).toLocaleString();
+    // Preserve the .pricing-currency + .pricing-price spans (don't blow away nested structure)
+    const curEl = el.querySelector('.pricing-currency');
+    const priceEl = el.querySelector('.pricing-price');
+    if (curEl && priceEl) {
+      curEl.textContent = symbol;
+      priceEl.textContent = converted;
+    } else {
+      el.textContent = symbol + converted;
+    }
+  });
+  document.querySelectorAll('[data-bnpl-aud]').forEach(el => {
+    const aud = parseFloat(el.dataset.bnplAud);
+    el.textContent = formatBNPL(aud, currency);
+  });
+  document.querySelectorAll('.price-note').forEach(el => {
+    el.classList.toggle('show', currency !== 'AUD');
+  });
+  try { localStorage.setItem('cm-currency', currency); } catch (e) {}
+}
+
+(function initCurrency() {
+  const sel = document.getElementById('currencySelector');
+  if (!sel) return;
+  const initial = detectCurrency();
+  sel.value = initial;
+  applyCurrency(initial);
+  sel.addEventListener('change', (e) => applyCurrency(e.target.value));
+})();
 </script>
 
 </body>
