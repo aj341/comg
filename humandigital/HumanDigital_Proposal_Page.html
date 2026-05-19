@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanDigital, The Proposal | by Commercial Growth</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'hd-ink': '#0B0D12',
+          'hd-ink-soft': '#16191F',
+          'hd-line': '#2A2E36',
+          'hd-mute': '#8A8F99',
+          'hd-paper': '#F7F6F2',
+          'hd-cream': '#EDEAE0',
+          'hd-accent': '#FF5A36',
+          'hd-good': '#1FB57A',
+          'hd-warn': '#E2B400'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-feature-settings: "ss01", "ss02"; }
+  .hd-grain { background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.025) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,90,54,0.04) 0%, transparent 50%); }
+  .hd-headline { letter-spacing: -0.025em; line-height: 0.95; }
+  .week-card { transition: transform 0.2s ease, border-color 0.2s ease; }
+  .week-card:hover { transform: translateY(-2px); border-color: rgba(255,90,54,0.5); }
+  @media print { .no-print { display: none; } }
+  ::selection { background: #FF5A36; color: white; }
+</style>
+</head>
+<body class="bg-hd-paper text-hd-ink antialiased">
+
+<!-- ===== STICKY TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-hd-paper/90 backdrop-blur-md border-b border-hd-line/10 no-print">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="HumanDigital_Proposal_Dashboard.html" class="flex items-baseline gap-2">
+      <span class="text-2xl font-bold tracking-tight">hd</span>
+      <span class="text-xs text-hd-mute uppercase tracking-widest">The Proposal</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="HumanDigital_Proposal_Dashboard.html" class="text-hd-mute hover:text-hd-accent transition">← Back to dashboard</a>
+      <a href="#commercials" class="hover:text-hd-accent transition">Commercials</a>
+      <a href="#weeks" class="hover:text-hd-accent transition">The 8 weeks</a>
+      <a href="#deliverables" class="hover:text-hd-accent transition">Deliverables</a>
+      <a href="#signoff" class="hover:text-hd-accent transition">Sign-off</a>
+    </nav>
+    <a href="#signoff" class="bg-hd-ink text-white px-5 py-2.5 text-sm font-semibold hover:bg-hd-accent transition">Let's go →</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="bg-hd-ink text-white hd-grain relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-8">Commercial in Confidence · Prepared 19 May 2026 · For Ben van Rooy</div>
+    <h1 class="hd-headline text-5xl md:text-7xl lg:text-8xl font-bold mb-8 max-w-5xl">
+      Where <span class="text-hd-accent">8 weeks</span><br>meets <span class="text-hd-accent">a working preview.</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-hd-mute font-light max-w-3xl mb-10 leading-relaxed">
+      A focused 8-week engagement to ship Dripify, build outbound lead magnets, leave a playbook in place, and demonstrate what the Head of Growth function looks like with AJ in the seat.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-hd-line mt-12">
+      <div class="bg-hd-ink p-6">
+        <div class="text-4xl font-bold mb-2">15 hrs</div>
+        <div class="text-sm text-hd-mute">Per week, fixed</div>
+      </div>
+      <div class="bg-hd-ink p-6">
+        <div class="text-4xl font-bold mb-2">$100</div>
+        <div class="text-sm text-hd-mute">Per hour</div>
+      </div>
+      <div class="bg-hd-ink p-6">
+        <div class="text-4xl font-bold mb-2">8 weeks</div>
+        <div class="text-sm text-hd-mute">25 May to 17 July</div>
+      </div>
+      <div class="bg-hd-ink p-6">
+        <div class="text-4xl font-bold mb-2 text-hd-accent">$12,000</div>
+        <div class="text-sm text-hd-mute">Total</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMERCIALS ===== -->
+<section id="commercials" class="bg-hd-paper py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">01 · The commercials</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">15 hours a week. 8 weeks. Real pipeline by week 8.</h2>
+    <p class="text-lg text-hd-ink/70 max-w-3xl mb-14">A consulting engagement that doubles as a working preview of the Head of Growth function with AJ in the seat. The 8-week window gives enough runway for sequences to convert, lead magnets to ship, and real performance data to land before any conversation about going permanent.</p>
+
+    <div class="grid md:grid-cols-3 gap-5 mb-14">
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">SCOPE</div>
+        <h3 class="text-xl font-bold mb-3">Build the outbound engine</h3>
+        <p class="text-hd-ink/70 text-sm">Dripify launch with 4 sequences, Sales Nav setup, HubSpot reporting, 2 AI lead magnets designed end-to-end, full playbook documentation, and live performance data Ben can review before deciding on the role.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">RATE</div>
+        <h3 class="text-xl font-bold mb-3">$100/hr</h3>
+        <p class="text-hd-ink/70 text-sm">15 hours per week, invoiced fortnightly. $1,500 per week. $12,000 total across 8 weeks. Provider not registered for GST. Clean, predictable, no scope creep.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">OWNERSHIP</div>
+        <h3 class="text-xl font-bold mb-3">AJ owns replies, demos TBC</h3>
+        <p class="text-hd-ink/70 text-sm">All Dripify replies and qualified-lead conversations are handled directly by AJ within the 15 hours. Who runs the demo calls is to be confirmed with Ben in the kickoff: AJ can take them, or hand qualified meetings straight to Ben or the in-house team.</p>
+      </div>
+    </div>
+
+    <!-- HOW THE HOURS SPLIT -->
+    <div class="bg-hd-ink text-white p-10">
+      <div class="text-xs text-hd-accent uppercase tracking-[0.25em] mb-4">How the 15 hours split each week</div>
+      <p class="text-lg text-hd-mute max-w-3xl mb-6">Build hours dominate early. Dripify monitoring scales as the campaigns mature and reply volume grows, then caps at 3 hours/week once sequences are at full warm capacity.</p>
+      <div class="overflow-x-auto">
+      <div class="grid grid-cols-9 gap-3 text-sm min-w-[720px]">
+        <div></div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W1</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W2</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W3</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W4</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W5</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W6</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W7</div>
+        <div class="text-center text-hd-mute uppercase text-xs tracking-widest">W8</div>
+
+        <div class="text-hd-mute">Build & strategy</div>
+        <div class="text-center font-semibold">15.0</div>
+        <div class="text-center font-semibold">14.0</div>
+        <div class="text-center font-semibold">13.5</div>
+        <div class="text-center font-semibold">13.0</div>
+        <div class="text-center font-semibold">12.5</div>
+        <div class="text-center font-semibold">12.0</div>
+        <div class="text-center font-semibold">12.0</div>
+        <div class="text-center font-semibold">12.0</div>
+
+        <div class="text-hd-accent">Monitoring + replies + demos</div>
+        <div class="text-center font-semibold text-hd-accent">0.0</div>
+        <div class="text-center font-semibold text-hd-accent">1.0</div>
+        <div class="text-center font-semibold text-hd-accent">1.5</div>
+        <div class="text-center font-semibold text-hd-accent">2.0</div>
+        <div class="text-center font-semibold text-hd-accent">2.5</div>
+        <div class="text-center font-semibold text-hd-accent">3.0</div>
+        <div class="text-center font-semibold text-hd-accent">3.0</div>
+        <div class="text-center font-semibold text-hd-accent">3.0</div>
+
+        <div class="font-bold">Total weekly</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+        <div class="text-center font-bold">15.0</div>
+      </div>
+      </div>
+      <p class="text-sm text-hd-mute mt-6">8 weeks × 15 hours = 120 hours total. 104 build hours + 16 monitoring/replies/demos hours. Monitoring caps at the 3-hour ceiling from Week 6 onward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEEK BY WEEK (HIGH LEVEL) ===== -->
+<section id="weeks" class="bg-hd-ink text-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">02 · The 8 weeks</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">Dripify first. Lead magnets second. Pipeline data third. Role conversation last.</h2>
+    <p class="text-lg text-hd-mute max-w-3xl mb-14">The priority is Dripify going live fast to start generating interest, then layering lead magnets, signal mapping, and performance data on top as the audience warms. By week 8, Ben has real numbers to assess whether the Head of Growth function with AJ in it is the right permanent move.</p>
+
+    <!-- WEEKS 1-2 -->
+    <div class="week-card bg-hd-ink-soft border border-hd-line p-8 mb-5">
+      <div class="flex items-start gap-6">
+        <div class="bg-hd-accent text-white px-5 py-3 font-bold text-xl shrink-0">Wk 1-2</div>
+        <div class="flex-grow">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">25 May to 7 June · 30 hrs total</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">Foundation. First sequence live. Lead magnet #1 scoped.</h3>
+          <p class="text-hd-mute mb-5">Deep into HubSpot, building Sales Nav saved searches, shipping the Master Dripify sequence by end of Week 2 so real conversations begin. Ben's LinkedIn profile reviewed with rebuild recommendations delivered. Lead magnet #1 fully scoped and ready for deployment in Wk 3-4.</p>
+          <div class="text-xs text-hd-accent uppercase tracking-widest mb-3">What ships these 2 weeks</div>
+          <ul class="space-y-2 text-sm">
+            <li>→ Triage 420 unanswered LinkedIn DMs. Surface qualified conversations. Book meetings from existing demand.</li>
+            <li>→ HubSpot setup audit and system documentation.</li>
+            <li>→ Review Ben's LinkedIn profile (headline, Featured section, banner, About copy) and deliver rebuild recommendations.</li>
+            <li>→ 4 Sales Nav saved searches built (Master + 3 Niche Leans).</li>
+            <li>→ Ship the first Dripify sequence by end of Week 2 in HD voice with Skill Endorsement removed and value-led openers in place.</li>
+            <li>→ Scope out lead magnet #1: questions, AI prompts, journey map, copy, landing page wireframe, nurture sequence outline.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKS 3-4 -->
+    <div class="week-card bg-hd-ink-soft border border-hd-line p-8 mb-5">
+      <div class="flex items-start gap-6">
+        <div class="bg-hd-accent text-white px-5 py-3 font-bold text-xl shrink-0">Wk 3-4</div>
+        <div class="flex-grow">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">8 June to 21 June · 30 hrs total</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">All sequences live. Lead magnet #1 deploys.</h3>
+          <p class="text-hd-mute mb-5">All 4 Dripify sequences active on warm-up cadence. Lead magnet #1 builds and ships live by end of Wk 4. HubSpot pipeline reporting cadence stood up so qualified leads have a clean place to land.</p>
+          <div class="text-xs text-hd-accent uppercase tracking-widest mb-3">What ships these 2 weeks</div>
+          <ul class="space-y-2 text-sm">
+            <li>→ Launch Master sequence (Wide Cast) on warm-up cadence (20-30 connects/day).</li>
+            <li>→ Launch Lean A (ABB), Lean B (ZEISS), Lean C (NZ Pump) sequentially on warm-up cadence.</li>
+            <li>→ Deploy lead magnet #1: landing page, gate form, AI logic, result page, and 3-email nurture sequence. Live by end of Wk 4.</li>
+            <li>→ Set up HubSpot pipeline reporting cadence.</li>
+            <li>→ Ongoing monitoring + replies + demo conversations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKS 5-6 -->
+    <div class="week-card bg-hd-ink-soft border border-hd-line p-8 mb-5">
+      <div class="flex items-start gap-6">
+        <div class="bg-hd-accent text-white px-5 py-3 font-bold text-xl shrink-0">Wk 5-6</div>
+        <div class="flex-grow">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">22 June to 5 July · 30 hrs total</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">First performance data lands. Lead magnet #2 scoped.</h3>
+          <p class="text-hd-mute mb-5">Sequences have been running long enough that real performance data is in. Optimisation cycle runs across all 4 sequences. Lead magnet #2 scoped and ready for build. First mid-engagement review with Ben to assess what's working and recalibrate.</p>
+          <div class="text-xs text-hd-accent uppercase tracking-widest mb-3">What ships these 2 weeks</div>
+          <ul class="space-y-2 text-sm">
+            <li>→ Performance analysis across all 4 sequences. Underperforming messages identified and rewritten.</li>
+            <li>→ Lead magnet #1 nurture sequence optimised based on early engagement data.</li>
+            <li>→ Scope out lead magnet #2: questions, AI prompts, journey map, copy, landing page wireframe.</li>
+            <li>→ Buying signal maps documented for each ICP niche lean.</li>
+            <li>→ Mid-engagement review with Ben: what's working, what's not, scope adjustments for the second half.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKS 7-8 -->
+    <div class="week-card bg-hd-ink-soft border border-hd-line p-8 mb-5 border-l-4 border-l-hd-accent">
+      <div class="flex items-start gap-6">
+        <div class="bg-hd-accent text-white px-5 py-3 font-bold text-xl shrink-0">Wk 7-8</div>
+        <div class="flex-grow">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">6 July to 17 July · 30 hrs total</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">Lead magnet #2 ships. Playbook documented. Head of Growth conversation.</h3>
+          <p class="text-hd-mute mb-5">Second AI lead magnet builds and ships. By end of Wk 8, HD has two live lead magnets, four live sequences, a real pipeline tracker in HubSpot, 6+ weeks of performance data, and a documented playbook the role can run on from day one. Final week closes with a structured Head of Growth conversation.</p>
+          <div class="text-xs text-hd-accent uppercase tracking-widest mb-3">What ships these 2 weeks</div>
+          <ul class="space-y-2 text-sm">
+            <li>→ Deploy lead magnet #2: landing page, gate form, AI logic, result page, and 3-email nurture sequence. Wired into running sequences.</li>
+            <li>→ Continued sequence optimisation based on accumulated performance data.</li>
+            <li>→ Pipeline reporting refined: qualified leads, cost per lead, meetings booked, conversion benchmarks visible to Ben in real time.</li>
+            <li>→ Complete handover playbook: all sequences and copy, Sales Nav saved searches, HubSpot pipeline reporting structure, lead magnet system docs, buying signal maps per ICP.</li>
+            <li>→ 90-day continuation plan covering what the next phase looks like (regardless of who runs it).</li>
+            <li>→ Final performance review with Ben: 8 weeks of real pipeline data, meetings booked, cost per qualified lead, system health.</li>
+            <li>→ Head of Growth role conversation: scope, structure, terms, transition plan if mutually right.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DELIVERABLES ===== -->
+<section id="deliverables" class="bg-hd-paper py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">03 · What you walk away with</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">A playbook. Real pipeline. A clear decision.</h2>
+    <p class="text-lg text-hd-ink/70 max-w-3xl mb-14">Everything built during the engagement is yours, documented, and handed over. Whether AJ steps into the Head of Growth role at the end or not, HD owns the full system.</p>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">DRIPIFY</div>
+        <h3 class="text-xl font-bold mb-3">4 live sequences in HD voice</h3>
+        <p class="text-hd-ink/70 text-sm">Master Wide Cast + Niche Lean A (ABB) + Niche Lean B (ZEISS) + Niche Lean C (NZ Pump). All copy voice-checked. All auto-actions cleaned. 6+ weeks of performance data at handover.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">SALES NAV</div>
+        <h3 class="text-xl font-bold mb-3">4 saved searches, Core tier</h3>
+        <p class="text-hd-ink/70 text-sm">All Boolean strings configured. Industry V2 taxonomy applied. Spotlights layered. Audience sizing verified. Monthly refresh cadence documented.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">HUBSPOT</div>
+        <h3 class="text-xl font-bold mb-3">Pipeline reporting + nurture workflows</h3>
+        <p class="text-hd-ink/70 text-sm">Weekly qualified-lead report. Dripify-reply-to-deal workflow. Tagging conventions. Two nurture workflows linked to the lead magnets. Real pipeline visible to Ben weekly.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">LEAD MAGNETS</div>
+        <h3 class="text-xl font-bold mb-3">2 AI-powered assets, designed and live</h3>
+        <p class="text-hd-ink/70 text-sm">Both designed by AJ, built collaboratively with HD's dev and design team. Outbound-conversion-shaped, not content-marketing-shaped. Landing pages, gate forms, AI logic, result pages, nurture sequences. Performance data per magnet.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">JOURNEY MAPS</div>
+        <h3 class="text-xl font-bold mb-3">End-to-end flow documentation</h3>
+        <p class="text-hd-ink/70 text-sm">Documented user journey from trigger to qualified meeting per asset. Plus buying signal maps per ICP. Plus 90-day continuation plan.</p>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">DECISION</div>
+        <h3 class="text-xl font-bold mb-3">Clear path on Head of Growth</h3>
+        <p class="text-hd-ink/70 text-sm">By end of Wk 8, both parties have 8 weeks of real-world data to assess whether AJ in the Head of Growth seat permanently is the right move. No pressure either way. The system stays regardless.</p>
+      </div>
+    </div>
+
+    <!-- WHO DOES WHAT -->
+    <div class="mt-14">
+      <h3 class="text-2xl font-bold mb-6">Who owns what</h3>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-hd-ink text-white p-7">
+          <div class="text-hd-accent text-xs uppercase tracking-widest mb-3">AJ owns</div>
+          <ul class="space-y-2 text-sm">
+            <li>→ All sequence builds, copy, voice-checks</li>
+            <li>→ Sales Nav configuration and list management</li>
+            <li>→ HubSpot reporting setup and workflows</li>
+            <li>→ Lead magnet design, spec, copy, and journey mapping</li>
+            <li>→ Dripify monitoring and reply management</li>
+            <li>→ All qualified-lead conversations</li>
+            <li>→ <strong>Demo calls with prospects (TBC with Ben in kickoff)</strong></li>
+            <li>→ Weekly Ben syncs and reporting</li>
+            <li>→ Handover documentation</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-hd-line/15 p-7">
+          <div class="text-hd-mute text-xs uppercase tracking-widest mb-3">Ben + HD team own</div>
+          <ul class="space-y-2 text-sm text-hd-ink/80">
+            <li>→ Final approval on copy and creative</li>
+            <li>→ HubSpot admin access</li>
+            <li>→ Dripify and Sales Nav login access</li>
+            <li>→ LinkedIn profile rebuild (per AJ's W1 recommendations)</li>
+            <li>→ <strong>Lead magnet build execution to AJ's spec</strong> (dev + design team)</li>
+            <li>→ Closing qualified deals AJ surfaces</li>
+            <li>→ Strategic decisions on scope changes</li>
+            <li>→ Decision on Head of Growth role at end of engagement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SIGN-OFF ===== -->
+<section id="signoff" class="bg-hd-ink text-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-accent mb-6">04 · Let's go</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">Ready when you are.</h2>
+    <p class="text-lg text-hd-mute max-w-3xl mb-10">Proposal valid for 14 days from 19 May 2026. Engagement starts Monday 25 May 2026, runs through Friday 17 July 2026.</p>
+
+    <div class="bg-hd-ink-soft border border-hd-line p-10 mb-10">
+      <h3 class="text-2xl font-bold mb-6">Next steps</h3>
+      <ol class="space-y-4 text-hd-mute">
+        <li class="flex gap-4"><span class="text-hd-accent font-bold shrink-0">01</span><div><strong class="text-white">Confirm scope and rate.</strong> Sign-off on the 8-week, 15 hrs/week at $100/hr structure. Total $12,000, invoiced fortnightly.</div></li>
+        <li class="flex gap-4"><span class="text-hd-accent font-bold shrink-0">02</span><div><strong class="text-white">Grant access.</strong> Dripify, Sales Nav, HubSpot, LinkedIn admin. Kickoff session Monday 25 May, 9am.</div></li>
+        <li class="flex gap-4"><span class="text-hd-accent font-bold shrink-0">03</span><div><strong class="text-white">Wk 1-2 build begins.</strong> Master sequence in the air by end of Wk 2. First qualified replies expected within days of launch.</div></li>
+        <li class="flex gap-4"><span class="text-hd-accent font-bold shrink-0">04</span><div><strong class="text-white">Wk 8 wrap and decision.</strong> 8 weeks of real performance data on the table. Full playbook delivered. The Head of Growth role conversation lands here, with real evidence on both sides.</div></li>
+      </ol>
+    </div>
+
+    <div class="text-center">
+      <a href="HumanDigital_Contract.html" class="inline-block bg-hd-accent text-white px-10 py-5 text-lg font-semibold hover:bg-white hover:text-hd-ink transition">Sign the agreement →</a>
+      <div class="mt-6 text-sm text-hd-mute">Two ways to sign: quick e-signature on the page, or full DocuSign trail</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-hd-ink text-white border-t border-white/10 py-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="text-sm text-hd-mute">Prepared by</div>
+      <div class="text-lg font-bold">AJ Kavanagh · Commercial Growth</div>
+      <div class="text-sm text-hd-mute">aj@designbees.com.au</div>
+    </div>
+    <div class="text-right text-sm text-hd-mute">
+      <div>HumanDigital Proposal v3, 8-week engagement</div>
+      <div>19 May 2026 · Commercial in Confidence</div>
+      <div class="mt-2"><a href="HumanDigital_Proposal_Dashboard.html" class="text-hd-accent hover:underline">← Back to main dashboard</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

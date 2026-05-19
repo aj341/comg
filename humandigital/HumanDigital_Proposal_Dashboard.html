@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanDigital, Growth Proposal | by Commercial Growth</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'hd-ink': '#0B0D12',
+          'hd-ink-soft': '#16191F',
+          'hd-line': '#2A2E36',
+          'hd-mute': '#8A8F99',
+          'hd-paper': '#F7F6F2',
+          'hd-cream': '#EDEAE0',
+          'hd-accent': '#FF5A36',
+          'hd-good': '#1FB57A',
+          'hd-warn': '#E2B400'
+        },
+        fontFamily: {
+          'display': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          'body': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-feature-settings: "ss01", "ss02"; }
+  .hd-grain { background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.025) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,90,54,0.04) 0%, transparent 50%); }
+  .hd-headline { letter-spacing: -0.025em; line-height: 0.95; }
+  .hd-card { transition: transform 0.2s ease, border-color 0.2s ease; }
+  .hd-card:hover { transform: translateY(-2px); border-color: rgba(255,90,54,0.5); }
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; cursor: pointer; }
+  details[open] .accordion-arrow { transform: rotate(180deg); }
+  .accordion-arrow { transition: transform 0.2s ease; }
+  .tab-btn.active { background: #0B0D12; color: white; }
+  .tab-btn { transition: all 0.15s ease; }
+  .nav-link.active { color: #FF5A36; }
+  @media print { .no-print { display: none; } }
+  ::selection { background: #FF5A36; color: white; }
+</style>
+</head>
+<body class="bg-hd-paper text-hd-ink font-body antialiased">
+
+<!-- ===== STICKY TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-hd-paper/90 backdrop-blur-md border-b border-hd-line/10 no-print">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#top" class="flex items-baseline gap-2">
+      <span class="text-2xl font-bold tracking-tight">hd</span>
+      <span class="text-xs text-hd-mute uppercase tracking-widest">Growth Proposal</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="#overview" class="nav-link hover:text-hd-accent transition">Overview</a>
+      <a href="#audit" class="nav-link hover:text-hd-accent transition">Audit</a>
+      <a href="#opportunity" class="nav-link hover:text-hd-accent transition">Opportunity</a>
+      <a href="#icp" class="nav-link hover:text-hd-accent transition">ICP</a>
+      <a href="#next" class="nav-link hover:text-hd-accent transition">What's Next</a>
+      <a href="HumanDigital_Proposal_Page.html" class="text-hd-accent hover:underline font-semibold">The Proposal →</a>
+    </nav>
+    <a href="HumanDigital_Proposal_Page.html" class="bg-hd-accent text-white px-5 py-2.5 text-sm font-semibold hover:bg-hd-ink transition">See the proposal →</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="bg-hd-ink text-white hd-grain relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-8">Commercial in Confidence · Prepared 18 May 2026 · For Ben van Rooy</div>
+    <h1 class="hd-headline text-5xl md:text-7xl lg:text-8xl font-bold mb-8 max-w-5xl">
+      Where <span class="text-hd-accent">outbound</span><br>meets <span class="text-hd-accent">opportunity.</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-hd-mute font-light max-w-3xl mb-10 leading-relaxed">
+      An 8-week growth proposal for HumanDigital. Built on a deep audit of what's running, what isn't, and where the biggest pipeline gap quietly sits.
+    </p>
+    <p class="text-base text-hd-mute max-w-2xl mb-12">An 8-week working preview of what the Head of Growth function looks like with AJ in it. Real pipeline, real assets, real numbers, before any conversation about making it permanent.</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#overview" class="bg-hd-accent text-white px-7 py-4 font-semibold hover:bg-white hover:text-hd-ink transition">See the opportunity ↓</a>
+      <a href="#build" class="border border-white/30 text-white px-7 py-4 font-semibold hover:bg-white hover:text-hd-ink transition">Skip to the build →</a>
+    </div>
+  </div>
+  <div class="border-t border-white/10 bg-black/20">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center gap-x-10 gap-y-3 text-xs text-hd-mute uppercase tracking-widest">
+      <span>↳ Findings from 24 hours of research</span>
+      <span>· 2 Dripify campaigns audited</span>
+      <span>· 4 lead magnets tested</span>
+      <span>· 3 competitors profiled</span>
+      <span>· 420-message inbox surfaced</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 1: OVERVIEW / HEADLINE FINDING ===== -->
+<section id="overview" class="bg-hd-paper py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">01 · The opportunity</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-8 max-w-4xl">
+      HumanDigital could be its own strongest case study.
+    </h2>
+    <div class="max-w-3xl text-lg text-hd-ink/80 space-y-5 mb-16">
+      <p class="text-base text-hd-mute italic">A note on what follows: everything below comes from what's visible externally (website, public campaigns, the bits of the funnel we've audited together). There's almost certainly more running behind the scenes than this view captures. Treat it as a starting hypothesis, not a verdict.</p>
+      <p>The Services page lists Lead Generation, Signal-Based Outbound, Lead Nurturing, Gated Content, CRM Integration. All sharp, all on offer to the market.</p>
+      <p>What's externally visible: one PDF in the footer, two outbound campaigns we've audited together, four lead magnets with uneven experiences, and a LinkedIn inbox holding meaningful warm pipeline that hasn't been actioned yet.</p>
+      <p class="text-hd-ink font-medium text-xl">The 8-week engagement is about closing whatever gap exists between what HumanDigital sells and what HumanDigital showcases. A common founder pattern, building for clients leaves less time to build for yourself. This bridges that.</p>
+    </div>
+
+    <!-- 3 BEATS -->
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">The proposal narrative in three beats</div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">BEAT 01</div>
+        <h3 class="text-2xl font-bold mb-4 leading-tight">Your foundation is rock solid. Now we point it at pipeline.</h3>
+        <p class="text-hd-ink/70 text-sm leading-relaxed">48.6% acceptance on the ANZ Marketing Leaders campaign is 2x industry benchmark, which means Ben's profile and brand are doing the heavy lifting on LinkedIn already. The existing sequences were built for podcast and webinar invites and delivered exactly that. The work now is layering in new sequences purpose-built for lead generation, on top of a channel that's clearly primed for it.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">BEAT 02</div>
+        <h3 class="text-2xl font-bold mb-4 leading-tight">420 messages are sitting in your inbox before we send anything new.</h3>
+        <p class="text-hd-ink/70 text-sm leading-relaxed">At even a 5% qualified rate, that's 20+ warm prospects who already raised their hand. Inbox triage compounds attention you've already paid for. Week 1 quick win.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-3">BEAT 03</div>
+        <h3 class="text-2xl font-bold mb-4 leading-tight">Your lead magnet stack is built for content marketing, not outbound conversion.</h3>
+        <p class="text-hd-ink/70 text-sm leading-relaxed">35% open, 0% meetings. The asset captures attention but doesn't convert to commercial conversation. Fix one, kill one, rebuild one, ship two new.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: AUDIT ===== -->
+<section id="audit" class="bg-hd-ink text-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">02 · The audit</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">What's running. What isn't. What's quietly broken.</h2>
+    <p class="text-lg text-hd-mute max-w-3xl mb-14">A forensic look across HD's outbound, lead magnets, inbox, and competitive position. The data is the proof.</p>
+
+    <!-- STAT GRID -->
+    <div class="grid md:grid-cols-4 gap-px bg-hd-line mb-16">
+      <div class="bg-hd-ink p-7">
+        <div class="text-5xl font-bold mb-2">48.6%</div>
+        <div class="text-sm text-hd-mute">Acceptance rate on the Quiz campaign. <strong class="text-hd-good">2x industry benchmark.</strong></div>
+      </div>
+      <div class="bg-hd-ink p-7">
+        <div class="text-5xl font-bold mb-2">16.6%</div>
+        <div class="text-sm text-hd-mute">Response rate on that same campaign. Channel works. Sequence is the bottleneck.</div>
+      </div>
+      <div class="bg-hd-ink p-7">
+        <div class="text-5xl font-bold mb-2 text-hd-accent">0%</div>
+        <div class="text-sm text-hd-mute">Meetings booked from 336 Sales Planner email sends. <strong>The asset is the bottleneck.</strong></div>
+      </div>
+      <div class="bg-hd-ink p-7">
+        <div class="text-5xl font-bold mb-2 text-hd-accent">420</div>
+        <div class="text-sm text-hd-mute">Unanswered LinkedIn DMs in Ben's inbox. <strong>Warm pipeline sitting cold.</strong></div>
+      </div>
+    </div>
+
+    <!-- AUDIT CARDS -->
+    <h3 class="text-2xl font-bold mb-8">The 8 findings</h3>
+    <div class="space-y-3">
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 01 · Inbox debt</div>
+            <h4 class="text-xl font-semibold">420 unanswered LinkedIn DMs sitting in Ben's inbox</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Impact:</strong> At even a 5% qualified rate, that's 20+ warm prospects who already raised their hand and got ghosted. Some of those are silent disengagement from people who took the Marketing Leaders Research bait and got nothing back.</p>
+          <p><strong class="text-white">Fix (Week 1):</strong> Inbox triage. Surface qualified conversations. Book meetings from existing demand before sending a single new outbound message.</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 02 · Sequence craft</div>
+            <h4 class="text-xl font-semibold">The Quiz campaign runs at 2x industry, but leaves meat on the bone</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> 800 leads, 376 accepted (48.6%), 128 replied (16.6%). Industry benchmark is 20 to 30% acceptance and 5 to 10% response.</p>
+          <p><strong class="text-white">Impact:</strong> Channel works and Ben's brand carries weight. Bottleneck is sequence craft, not list quality or platform fit.</p>
+          <p><strong class="text-white">Fix:</strong> Rewrite all sequences. Kill auto-actions. Lead with value observation, not "thank you for connecting." Add 4th to 6th touches with voice notes and document shares. Replace "would you like a copy?" CTAs with direct value drops.</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 03 · Wasted openers</div>
+            <h4 class="text-xl font-semibold">The first message in every sequence is wasted</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> Campaign 1 opens with "Thank you for accepting my connection request." Campaign 2 opens with "How's your week going?"</p>
+          <p><strong class="text-white">Impact:</strong> The highest-attention real estate in the entire sequence (just-accepted, fresh notification) is burned on platitudes. Most prospects scroll past.</p>
+          <p><strong class="text-white">Fix:</strong> Replace with value-led openers. Specific observation about their work, content, role, or company. Or skip pleasantries entirely and go straight to the hook.</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 04 · Broken antecedent</div>
+            <h4 class="text-xl font-semibold">The podcast pitch message has no antecedent</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> Campaign 2 message reads "It is a weekly podcast for business leaders that I run with Steph." But there's no prior reference for "It." Recipient reads cold and has to figure out what Ben's talking about.</p>
+          <p><strong class="text-white">Fix:</strong> Self-contained, specific framing. "Wanted to share something I think you'll find useful. I host a weekly podcast for B2B marketing leaders called Canned, with [Steph]. Recent episode on [topic relevant to ICP] is worth a listen if you're commuting this week."</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 05 · Brand-damaging automation</div>
+            <h4 class="text-xl font-semibold">Skill endorsements and post-likes are publicly damaging Ben's brand</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> Both Dripify campaigns automatically endorse skills and like posts within hours of connecting. Campaign 2 runs Skill Endorsement twice in the same sequence.</p>
+          <p><strong class="text-white">Impact:</strong> These actions are public to the recipient's network. Ben is publicly endorsing strangers for skills he can't have assessed. Reads as bot behaviour to sophisticated buyers (which AU marketing leaders are). Undermines founder-level credibility.</p>
+          <p><strong class="text-white">Fix:</strong> Turn Skill Endorsement off entirely. Keep Like-a-Post as a measured signal. Day 1 fix, zero cost.</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 06 · Lead magnet audit</div>
+            <h4 class="text-xl font-semibold">1 lead magnet works. 1 is broken. 1 is brand-damaging. 1 is weak.</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-4">
+          <p><strong class="text-white">Audited all four lead magnets behind the gate:</strong></p>
+          <div class="grid md:grid-cols-2 gap-3">
+            <div class="bg-hd-ink border border-hd-good/40 p-4">
+              <div class="text-hd-good text-xs uppercase tracking-widest mb-2">Works</div>
+              <div class="font-semibold text-white mb-1">B2B Fortune Quiz</div>
+              <div class="text-sm">Email gate, archetype card, links to a LinkedIn article. Converts attention to <em>content</em>, not <em>conversation</em>. Salvageable with a commercial bridge.</div>
+            </div>
+            <div class="bg-hd-ink border border-hd-accent/40 p-4">
+              <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">Brand-damaging</div>
+              <div class="font-semibold text-white mb-1">Marketing Leaders Research</div>
+              <div class="text-sm">Redirects warm prospects to a 20-minute NZ university survey that delivers nothing in return. Highest-intent click target, worst experience. Silently damages relationships.</div>
+            </div>
+            <div class="bg-hd-ink border border-hd-accent/40 p-4">
+              <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">Broken</div>
+              <div class="font-semibold text-white mb-1">Lead Gen Cost Calculator</div>
+              <div class="text-sm">Embedded video 404s. Typo on confirmation ("book a cool with our sales team"). 24-hour delay on results. Most ICP-relevant asset, biggest failure.</div>
+            </div>
+            <div class="bg-hd-ink border border-hd-warn/40 p-4">
+              <div class="text-hd-warn text-xs uppercase tracking-widest mb-2">Weak</div>
+              <div class="font-semibold text-white mb-1">Sales Planner</div>
+              <div class="text-sm">35% open, 3% reply, 0% meetings booked from 336 sends. Manual PDF send on email request, adds permission friction before value.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 07 · Brand voice gap</div>
+            <h4 class="text-xl font-semibold">HD's brand voice is completely absent from its own outbound</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> The HD Brand Guideline defines tone as Personable, Smart, Unexpected ("B2C flair to the B2B equation"). Brand pillars include "We do different," "There's nothing BAU about the way we B2B." The outbound reads like every other generic SDR campaign.</p>
+          <p><strong class="text-white">Impact:</strong> The most differentiated thing about HD (its voice) is invisible in the channel where differentiation matters most.</p>
+          <p><strong class="text-white">Fix:</strong> Rewrite sequences in HD's actual brand voice. Use the guideline as the style brief. "Where funnels meet fingerprints" is a copy resource, not just a tagline.</p>
+        </div>
+      </details>
+
+      <details class="hd-card bg-hd-ink-soft border border-hd-line p-6">
+        <summary class="flex justify-between items-center">
+          <div>
+            <div class="text-xs text-hd-accent uppercase tracking-widest mb-1">Finding 08 · No commercial bridge</div>
+            <h4 class="text-xl font-semibold">No commercial conversion path in any lead magnet</h4>
+          </div>
+          <svg class="accordion-arrow w-5 h-5 text-hd-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-hd-line text-hd-mute space-y-3">
+          <p><strong class="text-white">Observation:</strong> Quiz → LinkedIn article. Calculator → 24-hour email. Research → university survey. Planner → "reply to request a copy."</p>
+          <p><strong class="text-white">Impact:</strong> Every asset captures intent but routes the prospect AWAY from commercial conversation. The path from "interested" to "in a meeting with Ben" is broken across every asset.</p>
+          <p><strong class="text-white">Fix:</strong> Every lead magnet must have a "book a 15-min teardown call" CTA on the result page. The result page IS the sales bridge. Currently it's a dead end.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- COMPETITORS -->
+    <div class="mt-20">
+      <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">The competitive landscape</div>
+      <h3 class="text-3xl md:text-4xl font-bold mb-10 max-w-4xl">Blue Ocean, Green Hat, Dentsu B2B. Where each one wins. Where each one bleeds.</h3>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-hd-ink-soft border border-hd-line p-7">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">NZ · Independent</div>
+          <h4 class="text-2xl font-bold mb-3">Blue Ocean B2B</h4>
+          <p class="text-sm text-hd-mute mb-4">25-year NZ B2B specialist. "Evolution by Design" framework. ~19 staff. #WEDOB2B podcast.</p>
+          <div class="border-t border-hd-line pt-4 space-y-2 text-sm">
+            <div><span class="text-hd-good">Strength:</span> Founder authority, NZ depth.</div>
+            <div><span class="text-hd-accent">Weakness:</span> NZ-only. No AU footprint. No AI angle. Small team caps execution.</div>
+          </div>
+        </div>
+        <div class="bg-hd-ink-soft border border-hd-line p-7">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">AU · BBN International</div>
+          <h4 class="text-2xl font-bold mb-3">Green Hat</h4>
+          <p class="text-sm text-hd-mute mb-4">APAC's largest dedicated B2B agency. ~80 staff. Owns the annual B2B Outlook Report.</p>
+          <div class="border-t border-hd-line pt-4 space-y-2 text-sm">
+            <div><span class="text-hd-good">Strength:</span> Enterprise logo book (Telstra, REA, NEXTDC), research IP, BBN global network.</div>
+            <div><span class="text-hd-accent">Weakness:</span> Glassdoor signals 60% staff turnover. Culture risk. AI not productised.</div>
+          </div>
+        </div>
+        <div class="bg-hd-ink-soft border border-hd-line p-7">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-2">AU · Holding group</div>
+          <h4 class="text-2xl font-bold mb-3">Dentsu B2B</h4>
+          <p class="text-sm text-hd-mute mb-4">Formerly Merkle B2B. Salesforce/Martech depth. Annual Superpowers Index.</p>
+          <div class="border-t border-hd-line pt-4 space-y-2 text-sm">
+            <div><span class="text-hd-good">Strength:</span> Global accounts, enterprise data, martech implementation.</div>
+            <div><span class="text-hd-accent">Weakness:</span> Mar 2025 leadership exodus (3 senior partners left for Grove B2B). Dentsu globally posted A$2.9bn loss. AU footprint weakest it's been.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 3: OPPORTUNITY ===== -->
+<section id="opportunity" class="bg-hd-paper py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">03 · Where HumanDigital can win</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">Five wedges. One the incumbents can't see.</h2>
+    <p class="text-lg text-hd-ink/70 max-w-3xl mb-14">Mapped against the three named competitors. Each wedge is something HD can credibly own that they currently cannot.</p>
+
+    <div class="grid md:grid-cols-2 gap-5 mb-16">
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-2">WEDGE 01</div>
+        <h3 class="text-2xl font-bold mb-3">Productised AI inside delivery</h3>
+        <p class="text-hd-ink/70 text-sm">None of the three competitors has a visible AI-native service line. Green Hat <em>talks</em> about AI in research; Dentsu and Blue Ocean don't. HD has already signalled the move with Aether but hasn't productised it externally. "AI-accelerated growth ops" as a category is genuinely available.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-2">WEDGE 02</div>
+        <h3 class="text-2xl font-bold mb-3">Outbound and Dripify as a service</h3>
+        <p class="text-hd-ink/70 text-sm">All three competitors rely on inbound, thought-leadership, and holding-group relationships. None visibly runs outbound social-selling or Dripify-style sequences for clients. HD sells "Signal-based outbound" but doesn't run it for itself. The engagement is the proof point.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-2">WEDGE 03</div>
+        <h3 class="text-2xl font-bold mb-3">Interactive lead-gen tools</h3>
+        <p class="text-hd-ink/70 text-sm">Green Hat's "lead magnets" are 60-page PDF research reports. Blue Ocean has a podcast. Dentsu has an Index. None ships interactive lead-gen tools (scorecards, calculators, assessments). HD built one for ABB and doesn't have one for itself.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-sm font-bold mb-2">WEDGE 04</div>
+        <h3 class="text-2xl font-bold mb-3">Senior-talent stability</h3>
+        <p class="text-hd-ink/70 text-sm">Green Hat's Glassdoor pattern (60% turnover, comp dropping) and Dentsu's leadership exodus to Grove B2B both signal delivery risk for enterprise buyers. HD can lean into "the same operator from sale through delivery." Small-team strength reframed.</p>
+      </div>
+      <div class="hd-card bg-white border border-hd-line/15 p-7 md:col-span-2">
+        <div class="text-hd-accent text-sm font-bold mb-2">WEDGE 05</div>
+        <h3 class="text-2xl font-bold mb-3">Trans-Tasman delivery</h3>
+        <p class="text-hd-ink/70 text-sm">Blue Ocean is NZ-only with no Australian footprint. Green Hat and Dentsu are AU-centric with Singapore extension but no real NZ play. A NZ-founded agency that credibly operates both sides of the Tasman, using outbound + AI to do it efficiently, is a positioning lane that's effectively open. HD already has the AU office and recent AU hire to back the claim.</p>
+      </div>
+    </div>
+
+    <!-- THE SINGLE STRONGEST WEDGE -->
+    <div class="bg-hd-ink text-white p-10 md:p-14 border-l-8 border-hd-accent">
+      <div class="text-xs text-hd-accent uppercase tracking-[0.25em] mb-4">The strongest single wedge</div>
+      <h3 class="hd-headline text-3xl md:text-5xl font-bold mb-5 max-w-3xl">"AI-powered outbound and lead magnets for B2B."</h3>
+      <p class="text-lg text-hd-mute max-w-3xl mb-5">Combines Wedges 1, 2, and 3. Slots directly into the brief Ben outlined in WhatsApp. Sits in territory none of the three named competitors occupy. Maps to the exact services HD already lists but doesn't execute on for itself.</p>
+      <p class="text-base text-hd-mute italic max-w-3xl">The 8-week engagement becomes "build HumanDigital's own proof of the services HumanDigital sells."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: ICP ===== -->
+<section id="icp" class="bg-hd-cream py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">04 · Who we target</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">Sydney mid-market manufacturing and industrial marketing leaders.</h2>
+    <p class="text-lg text-hd-ink/70 max-w-3xl mb-10">Confirmed via Ben's WhatsApp on 18 May. Sharpened with AJ's analysis. Mapped to HD's strongest case study book.</p>
+
+    <!-- ICP TABLE -->
+    <div class="bg-white border border-hd-line/15 mb-14">
+      <table class="w-full text-sm">
+        <thead class="bg-hd-ink text-white">
+          <tr>
+            <th class="text-left p-4 font-semibold">Dimension</th>
+            <th class="text-left p-4 font-semibold">Setting</th>
+            <th class="text-left p-4 font-semibold">Source</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-hd-line/15">
+          <tr><td class="p-4 font-medium">Geography</td><td class="p-4">Sydney metro v1 → NSW + VIC v2</td><td class="p-4 text-hd-good">Ben confirmed</td></tr>
+          <tr><td class="p-4 font-medium">Industry</td><td class="p-4">Manufacturing + industrial (3 sub-vertical leans)</td><td class="p-4 text-hd-good">Ben confirmed</td></tr>
+          <tr><td class="p-4 font-medium">Revenue</td><td class="p-4">A$5M to A$200M (true mid-market)</td><td class="p-4 text-hd-warn">$5M floor confirmed, cap proposed</td></tr>
+          <tr><td class="p-4 font-medium">Headcount</td><td class="p-4">51 to 1,000 staff</td><td class="p-4 text-hd-mute">Proxy for revenue (LinkedIn data is unreliable)</td></tr>
+          <tr><td class="p-4 font-medium">Role</td><td class="p-4">CMO, Head of Marketing, Marketing Director</td><td class="p-4 text-hd-mute">AJ proposed default</td></tr>
+          <tr><td class="p-4 font-medium">Exclusions</td><td class="p-4">SaaS, agencies, consultancies, &lt;50 staff, overseas HQ</td><td class="p-4 text-hd-good">Ben confirmed SaaS exclusion</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3 SUB-VERTICAL LEANS -->
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">Three sub-vertical leans, each anchored to an existing case study</div>
+    <div class="grid md:grid-cols-3 gap-5 mb-14">
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">LEAN A</div>
+        <h4 class="text-xl font-bold mb-2">Industrial Automation</h4>
+        <div class="text-xs text-hd-mute mb-4">~80 to 150 Sydney leads</div>
+        <div class="border-t border-hd-line/15 pt-4">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-1">Anchor case study</div>
+          <div class="font-semibold mb-2">ABB (global)</div>
+          <div class="text-sm text-hd-ink/70">7 case studies in HD's book. Mining whitepaper hit CPL 23% below benchmark on LinkedIn.</div>
+        </div>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">LEAN B</div>
+        <h4 class="text-xl font-bold mb-2">Industrial Measurement & Quality</h4>
+        <div class="text-xs text-hd-mute mb-4">~40 to 80 Sydney leads</div>
+        <div class="border-t border-hd-line/15 pt-4">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-1">Anchor case study</div>
+          <div class="font-semibold mb-2">ZEISS Industrial Quality Solutions (global)</div>
+          <div class="text-sm text-hd-ink/70">Full-funnel B2B campaign across CT/X-ray, CMM, VMM product lines. Modular creative system.</div>
+        </div>
+      </div>
+      <div class="bg-white border border-hd-line/15 p-7">
+        <div class="text-hd-accent text-xs uppercase tracking-widest mb-2">LEAN C</div>
+        <h4 class="text-xl font-bold mb-2">Specialty Industrial / Pumps / Fluid / Building Products</h4>
+        <div class="text-xs text-hd-mute mb-4">~100 to 200 Sydney leads</div>
+        <div class="border-t border-hd-line/15 pt-4">
+          <div class="text-xs text-hd-mute uppercase tracking-widest mb-1">Anchor case study</div>
+          <div class="font-semibold mb-2">NZ Pump Co + Washtech + Noel Leeming</div>
+          <div class="text-sm text-hd-ink/70">NZ Pump: sessions +50%, interactions +143%, engagement depth +66% in 2 months. NZ is closest analogue for AU mid-market specialty industrial.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 7: WHAT'S NEXT ===== -->
+<section id="next" class="bg-hd-cream py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs uppercase tracking-[0.25em] text-hd-mute mb-6">05 · What's next</div>
+    <h2 class="hd-headline text-4xl md:text-6xl font-bold mb-6 max-w-4xl">8 weeks. Four chapters. One playbook left behind. One role conversation to land.</h2>
+    <p class="text-lg text-hd-ink/70 max-w-3xl mb-14">An 8-week working preview of AJ in the Head of Growth seat. The deliverables stand on their own merits regardless. The natural conversation at the end is whether to make it permanent.</p>
+
+    <div class="space-y-5 mb-14">
+      <div class="bg-white border border-hd-line/15 p-7 md:p-9">
+        <div class="flex items-start gap-6">
+          <div class="bg-hd-ink text-white px-5 py-3 font-bold text-lg shrink-0">Wk 1-2</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Inbox triage + first sequence live + profile review + lead magnet #1 scoped</h3>
+            <ul class="space-y-2 text-hd-ink/80 text-sm">
+              <li>→ Triage 420 unanswered LinkedIn DMs. Surface qualified conversations. Book meetings from existing demand.</li>
+              <li>→ Review Ben's LinkedIn profile (headline, Featured section, banner, About copy) and deliver rebuild recommendations.</li>
+              <li>→ Ship the first Dripify sequence by end of Week 2, rewritten in HD voice with Skill Endorsement removed and value-led openers in place.</li>
+              <li>→ Build Sales Nav saved searches (Master + 3 Niche Leans).</li>
+              <li>→ Scope out lead magnet #1: questions, AI prompts, journey map, copy, landing page wireframe, nurture sequence outline. Ready for deployment in Wk 3-4.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-hd-line/15 p-7 md:p-9">
+        <div class="flex items-start gap-6">
+          <div class="bg-hd-ink text-white px-5 py-3 font-bold text-lg shrink-0">Wk 3-4</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">All sequences live + lead magnet #1 deploys</h3>
+            <ul class="space-y-2 text-hd-ink/80 text-sm">
+              <li>→ Launch Master sequence (Wide Cast) on warm-up cadence (20-30 connects/day).</li>
+              <li>→ Launch Lean A (ABB), Lean B (ZEISS), Lean C (NZ Pump) sequentially on warm-up cadence.</li>
+              <li>→ Deploy lead magnet #1 (scoped in Wk 1-2): build the landing page, gate form, AI logic, result page, and 3-email nurture sequence. Live by end of Wk 4.</li>
+              <li>→ Set up HubSpot pipeline reporting cadence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-hd-line/15 p-7 md:p-9">
+        <div class="flex items-start gap-6">
+          <div class="bg-hd-ink text-white px-5 py-3 font-bold text-lg shrink-0">Wk 5-6</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">First sequence optimisation + lead magnet #2 scoped</h3>
+            <ul class="space-y-2 text-hd-ink/80 text-sm">
+              <li>→ Optimise all 4 live sequences using first weeks of performance data (acceptance rate, reply rate, qualified-conversation rate by lean).</li>
+              <li>→ Scope lead magnet #2 (TBD with Ben) end-to-end: questions, AI logic, journey, copy, wireframe, nurture.</li>
+              <li>→ Founder visibility programme: lift Ben's LinkedIn cadence to 3x/week with HD voice as the style guide.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-hd-line/15 p-7 md:p-9 border-l-4 border-l-hd-accent">
+        <div class="flex items-start gap-6">
+          <div class="bg-hd-accent text-white px-5 py-3 font-bold text-lg shrink-0">Wk 7-8</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Lead magnet #2 ships. Playbook documented. Head of Growth conversation.</h3>
+            <ul class="space-y-2 text-hd-ink/80 text-sm">
+              <li>→ Deploy lead magnet #2: landing page, gate form, AI logic, result page, 3-email nurture sequence live. Wired into running sequences.</li>
+              <li>→ Finalise the full handover playbook: sequences, ICPs, voice, lead magnets, HubSpot setup, what's worked, what to test next.</li>
+              <li>→ Performance review with Ben: pipeline contributed, qualified conversations, cost per lead, assets shipped, channels stood up.</li>
+              <li>→ Structured Head of Growth conversation: scope, terms, transition plan, decision on permanent role.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BLOCK -->
+    <div class="bg-hd-ink text-white p-10 md:p-14 text-center">
+      <div class="text-xs text-hd-accent uppercase tracking-[0.25em] mb-5">The proposal</div>
+      <h3 class="hd-headline text-3xl md:text-5xl font-bold mb-5">15 hours a week. 8 weeks. A working preview of the role.</h3>
+      <p class="text-lg text-hd-mute mb-8 max-w-2xl mx-auto">The full week-by-week scope, commercials, deliverables, and sign-off live on the proposal page.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="HumanDigital_Proposal_Page.html" class="bg-hd-accent text-white px-7 py-4 font-semibold hover:bg-white hover:text-hd-ink transition">See the full proposal →</a>
+        <a href="#top" class="border border-white/30 text-white px-7 py-4 font-semibold hover:bg-white hover:text-hd-ink transition">Back to the top ↑</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-hd-ink text-white border-t border-white/10 py-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="text-sm text-hd-mute">Prepared by</div>
+      <div class="text-lg font-bold">AJ Kavanagh · Commercial Growth</div>
+      <div class="text-sm text-hd-mute">aj@designbees.com.au</div>
+    </div>
+    <div class="text-right text-sm text-hd-mute">
+      <div>HumanDigital Growth Proposal v1</div>
+      <div>18 May 2026 · Commercial in Confidence</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tab switcher for sequences
+  function showSeq(btn, name) {
+    document.querySelectorAll('.seq-panel').forEach(p => p.classList.add('hidden'));
+    document.getElementById('seq-' + name).classList.remove('hidden');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Nav active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  function updateNav() {
+    let current = '';
+    sections.forEach(s => {
+      const top = s.getBoundingClientRect().top;
+      if (top <= 120) current = s.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateNav);
+  updateNav();
+</script>
+
+</body>
+</html>
